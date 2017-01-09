@@ -11,8 +11,8 @@ class GebruikerService
     
     public function toonAlleUsers()                                             
     {
-        $UserDAO = new $UserDAO();
-        $alleUsers = $UserDAO->getAlleUSers();     
+        $GebruikerDAO = new GebruikerDAO();
+        $alleUsers = $GebruikerDAO->getAllUsers();     
         return $alleUsers;        
     }
     
