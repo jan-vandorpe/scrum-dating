@@ -26,10 +26,10 @@ class Gebruiker {
  private $postcode;
  private $stad;
  private $lengte;
- private $lichaamsbouw;
+ private $lichaamsbouwId;
  private $hOplNiveauId;
  private $beroep;
- private $etnischeAchtergrond;
+ private $etnischeAchtergrondId;
  private $roker;
  private $oogkleurId;
  private $aantalKinderen;
@@ -39,10 +39,10 @@ class Gebruiker {
  private $voorkeurGeboorteDatum;
  private $voorkeurLengte;
  private $voorkeurLichaamsbouw;
- private $voorkeurOpleidingsniveau;
+ private $voorkeurOpleidingsNiveau;
  private $voorkeurRoker;
  private $voorkeurKinderen;
- private $voorkeurPersoonlijk;
+ private $voorkeurPersoonlijkheidsType;
  private $voorkeurGeslacht;
 
     /**
@@ -51,10 +51,10 @@ class Gebruiker {
      * geen nieuw Gebruiker-object meer aangemaakt kan worden
      */
     public function __construct($gebruikerId, $email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode,
-                                $stad, $lengte, $lichaamsbouw, $hOplNiveauId, $beroep, $etnischeAchtergrond, $roker,
+                                $stad, $lengte, $lichaamsbouwId, $hOplNiveauId, $beroep, $etnischeAchtergrondId, $roker,
                                 $oogkleurId, $aantalKinderen, $haarkleurId, $foto, $persoonlijkheidsType,
-                                $voorkeurGeboorteDatum, $voorkeurLengte, $voorkeurLichaamsbouw, $voorkeurOpleidingsniveau,
-                                $voorkeurRoker, $voorkeurKinderen, $voorkeurPersoonlijk, $voorkeurGeslacht)
+                                $voorkeurGeboorteDatum, $voorkeurLengte, $voorkeurLichaamsbouw, $voorkeurOpleidingsNiveau,
+                                $voorkeurRoker, $voorkeurKinderen, $voorkeurPersoonlijkheidsType, $voorkeurGeslacht)
     {
         $this->gebruikerId = $gebruikerId;
         $this->email = $email;
@@ -66,10 +66,10 @@ class Gebruiker {
         $this->postcode = $postcode;
         $this->stad = $stad;
         $this->lengte = $lengte;
-        $this->lichaamsbouw = $lichaamsbouw;
+        $this->lichaamsbouwId = $lichaamsbouwId;
         $this->hOplNiveauId = $hOplNiveauId;
         $this->beroep = $beroep;
-        $this->etnischeAchtergrond = $etnischeAchtergrond;
+        $this->etnischeAchtergrondId = $etnischeAchtergrondId;
         $this->roker = $roker;
         $this->oogkleurId = $oogkleurId;
         $this->aantalKinderen = $aantalKinderen;
@@ -79,10 +79,10 @@ class Gebruiker {
         $this->voorkeurGeboorteDatum = $voorkeurGeboorteDatum;
         $this->voorkeurLengte = $voorkeurLengte;
         $this->voorkeurLichaamsbouw = $voorkeurLichaamsbouw;
-        $this->voorkeurOpleidingsniveau = $voorkeurOpleidingsniveau;
+        $this->voorkeurOpleidingsNiveau = $voorkeurOpleidingsNiveau;
         $this->voorkeurRoker = $voorkeurRoker;
         $this->voorkeurKinderen = $voorkeurKinderen;
-        $this->voorkeurPersoonlijk = $voorkeurPersoonlijk;
+        $this->voorkeurPersoonlijkheidsType = $voorkeurPersoonlijkheidsType;
         $this->voorkeurGeslacht = $voorkeurGeslacht;
     }
 
@@ -90,19 +90,19 @@ class Gebruiker {
     //die eerst controleert of er nog geen Gebruiker-object met dit id bestaat
 
     public static function create($gebruikerId, $email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode,
-                                $stad, $lengte, $lichaamsbouw, $hOplNiveauId, $beroep, $etnischeAchtergrond, $roker,
+                                $stad, $lengte, $lichaamsbouwId, $hOplNiveauId, $beroep, $etnischeAchtergrondId, $roker,
                                 $oogkleurId, $aantalKinderen, $haarkleurId, $foto, $persoonlijkheidsType,
-                                $voorkeurGeboorteDatum, $voorkeurLengte, $voorkeurLichaamsbouw, $voorkeurOpleidingsniveau,
-                                $voorkeurRoker, $voorkeurKinderen, $voorkeurPersoonlijk, $voorkeurGeslacht){
+                                $voorkeurGeboorteDatum, $voorkeurLengte, $voorkeurLichaamsbouw, $voorkeurOpleidingsNiveau,
+                                $voorkeurRoker, $voorkeurKinderen, $voorkeurPersoonlijkheidsType, $voorkeurGeslacht){
 
        //bestaat er al een object Gebruiker met deze GebruikersId
         if(!isset(self::$idMap[$gebruikerId])) {
             //indien NEE
             self::$idMap[$gebruikerId] = new Gebruiker($gebruikerId, $email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode,
-                $stad, $lengte, $lichaamsbouw, $hOplNiveauId, $beroep, $etnischeAchtergrond, $roker,
+                $stad, $lengte, $lichaamsbouwId, $hOplNiveauId, $beroep, $etnischeAchtergrondId, $roker,
                 $oogkleurId, $aantalKinderen, $haarkleurId, $foto, $persoonlijkheidsType,
-                $voorkeurGeboorteDatum, $voorkeurLengte, $voorkeurLichaamsbouw, $voorkeurOpleidingsniveau,
-                $voorkeurRoker, $voorkeurKinderen, $voorkeurPersoonlijk, $voorkeurGeslacht);
+                $voorkeurGeboorteDatum, $voorkeurLengte, $voorkeurLichaamsbouw, $voorkeurOpleidingsNiveau,
+                $voorkeurRoker, $voorkeurKinderen, $voorkeurPersoonlijkheidsType, $voorkeurGeslacht);
             }
             //indien JA
         return self::$idMap[$gebruikerId];
@@ -122,10 +122,10 @@ class Gebruiker {
     public function getPostcode(){return $this->postcode;}
     public function getStad(){return $this->stad;}
     public function getLengte(){return $this->lengte;}
-    public function getLichaamsbouw(){return $this->lichaamsbouw;}
+    public function getLichaamsbouwId(){return $this->lichaamsbouwId;}
     public function getHOplNiveauId(){return $this->hOplNiveauId;}
     public function getBeroep(){return $this->beroep;}
-    public function getEtnischeAchtergrond(){return $this->etnischeAchtergrond;}
+    public function getEtnischeAchtergrondId(){return $this->etnischeAchtergrondId;}
     public function getRoker(){return $this->roker;}
     public function getOogkleurId(){return $this->oogkleurId;}
     public function getAantalKinderen(){return $this->aantalKinderen;}
@@ -135,10 +135,10 @@ class Gebruiker {
     public function getVoorkeurGeboorteDatum(){return $this->voorkeurGeboorteDatum;}
     public function getVoorkeurLengte(){return $this->voorkeurLengte;}
     public function getVoorkeurLichaamsbouw(){return $this->voorkeurLichaamsbouw;}
-    public function getVoorkeurOpleidingsniveau(){return $this->voorkeurOpleidingsniveau;}
+    public function getVoorkeurOpleidingsNiveau(){return $this->voorkeurOpleidingsNiveau;}
     public function getVoorkeurRoker(){return $this->voorkeurRoker;}
     public function getVoorkeurKinderen(){return $this->voorkeurKinderen;}
-    public function getVoorkeurPersoonlijk(){return $this->voorkeurPersoonlijk;}
+    public function getVoorkeurPersoonlijkheidsType(){return $this->voorkeurPersoonlijkheidsType;}
     public function getVoorkeurGeslacht(){return $this->voorkeurGeslacht;}
 
   //setters
@@ -152,10 +152,10 @@ class Gebruiker {
     public function setPostcode($postcode){$this->postcode = $postcode;}
     public function setStad($stad){$this->stad = $stad;}
     public function setLengte($lengte){$this->lengte = $lengte;}
-    public function setLichaamsbouw($lichaamsbouw){$this->lichaamsbouw = $lichaamsbouw;}
+    public function setLichaamsbouwId($lichaamsbouwsId){$this->lichaamsbouwId = $lichaamsbouwsId;}
     public function setHOplNiveauId($hOplNiveauId){$this->hOplNiveauId = $hOplNiveauId;}
     public function setBeroep($beroep){$this->beroep = $beroep;}
-    public function setEtnischeAchtergrond($etnischeAchtergrond){$this->etnischeAchtergrond = $etnischeAchtergrond;}
+    public function setEtnischeAchtergrondId($etnischeAchtergrondId){$this->etnischeAchtergrondId = $etnischeAchtergrondId;}
     public function setRoker($roker){$this->roker = $roker;}
     public function setOogkleurId($oogkleurId){$this->oogkleurId = $oogkleurId;}
     public function setAantalKinderen($aantalKinderen){$this->aantalKinderen = $aantalKinderen;}
@@ -165,10 +165,10 @@ class Gebruiker {
     public function setVoorkeurGeboorteDatum($voorkeurGeboorteDatum){$this->voorkeurGeboorteDatum = $voorkeurGeboorteDatum;}
     public function setVoorkeurLengte($voorkeurLengte){$this->voorkeurLengte = $voorkeurLengte;}
     public function setVoorkeurLichaamsbouw($voorkeurLichaamsbouw){$this->voorkeurLichaamsbouw = $voorkeurLichaamsbouw;}
-    public function setVoorkeurOpleidingsniveau($voorkeurOpleidingsniveau){$this->voorkeurOpleidingsniveau = $voorkeurOpleidingsniveau;}
+    public function setVoorkeurOpleidingsniveau($voorkeurOpleidingsNiveau){$this->voorkeurOpleidingsNiveau = $voorkeurOpleidingsNiveau;}
     public function setVoorkeurRoker($voorkeurRoker){$this->voorkeurRoker = $voorkeurRoker;}
     public function setVoorkeurKinderen($voorkeurKinderen){$this->voorkeurKinderen = $voorkeurKinderen;}
-    public function setVoorkeurPersoonlijk($voorkeurPersoonlijk){$this->voorkeurPersoonlijk = $voorkeurPersoonlijk;}
+    public function setVoorkeurPersoonlijk($voorkeurPersoonlijkheidsType){$this->voorkeurPersoonlijkheidsType = $voorkeurPersoonlijkheidsType;}
     public function setVoorkeurGeslacht($voorkeurGeslacht){$this->voorkeurGeslacht = $voorkeurGeslacht;}
 
 }
