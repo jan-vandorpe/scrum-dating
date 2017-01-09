@@ -2,21 +2,25 @@
 require_once 'data/GebruikerDAO.php';
 class GebruikerService 
 {
-    public function registreerUser($email, $paswoord)
-    {
-        //verwijst naar functie registreerGebruiker in daogebruiker.php voor registreren van gebruiker
+    public function createUser($id,$email, $paswoord)                           //verwijst naar functie createUser in daogebruiker.php voor aanmaken gebruiker
+    {        
         $user = new UserDAO();
-        $user = $UserDAO->registreerGebruiker($email, $paswoord);
+        $user = $UserDAO->createUser($id,$email, $paswoord);
         return $user;
     }
     
-    public function toonAlleUsers()
+    public function toonAlleUsers()                                             
     {
         $UserDAO = new $UserDAO();
-        $alleUsers = $UserDAO->getAlleUSers();
-     
-        return $alleUsers;
-        
+        $alleUsers = $UserDAO->getAlleUSers();     
+        return $alleUsers;        
+    }
+    
+    public function updateUser($id,$email,$paswoord)
+    {
+        $userDAO = new $UserDAO();
+        $user = $UserDAO -> updateUser($id,$email,$paswoord);
+        return $user;
     }
 }
 
