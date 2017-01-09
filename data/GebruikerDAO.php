@@ -35,6 +35,7 @@ class GebruikerDAO
         }
         $dbh = null;
         return $lijst;
+
     }
 
 }
