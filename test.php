@@ -10,7 +10,7 @@ print_r($toonAlleUsers);
 
 
 $gebService->createUser(
-    'test@vdab.be',
+    'ipo@vdab.be',
     'M',
     'paswoord',
     '2017-02-19',
