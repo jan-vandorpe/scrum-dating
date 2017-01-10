@@ -22,13 +22,13 @@
     <form action="registreer.php" method="post">
         <fieldset class="col2">
             <legend>Ik ben</legend>
-            <input type="radio" name="geslacht" value="M">Man <br>
+            <input type="radio" name="geslacht" value="M" checked>Man <br>
             <input type="radio" name="geslacht" value="V">Vrouw <br>
         </fieldset>
         <fieldset class="col2">
             <legend>Ik zoek</legend>
             <input type="radio" name="Vgeslacht" value="M">Man <br>
-            <input type="radio" name="Vgeslacht" value="V">Vrouw <br>
+            <input type="radio" name="Vgeslacht" value="V" checked>Vrouw <br>
         </fieldset>
         <fieldset>
             <label for='email'>email *</label>
@@ -60,7 +60,7 @@
             <label class="msg"></label>
 
             <label for='geboortedatum'>geboortedatum *</label>
-            <input type="text" name="geboorteDatum" id="geboorteDatum" placeholder="YYYY-MM-DD" required>
+            <input type="date" name="geboorteDatum" id="geboorteDatum" required>
             <label class="msg"></label>
 
         </fieldset>
