@@ -35,23 +35,22 @@ class GebruikerDAO
     }
     //CREATE
     //voeg record toe aan de tabel Gebruikers
-    public function createUser($gebruikerId, $email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode,
+    public function createUser($email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode,
                                 $stad, $lengte, $lichaamsbouwId, $hOplNiveauId, $beroep, $etnischeAchtergrondId, $roker,
                                 $oogkleurId, $aantalKinderen, $haarkleurId, $foto, $persoonlijkheidsType,
                                 $voorkeurGeboorteDatum, $voorkeurLengte, $voorkeurLichaamsbouw, $voorkeurOpleidingsNiveau,
                                 $voorkeurRoker, $voorkeurKinderen, $voorkeurPersoonlijkheidsType, $voorkeurGeslacht){
 
-        $sql="insert into gebruiker (gebruikerId,email,geslacht,wachtwoord,geboorteDatum,naam,voornaam,postcode,stad,
+        $sql="insert into gebruiker (email,geslacht,wachtwoord,geboorteDatum,naam,voornaam,postcode,stad,
                                       lengte,lichaamsbouwId,hOplNiveauId,beroep,etnischeAchtergrondId,roker,oogkleurId,aantalKinderen,
                                       haarkleurId,foto,persoonlijkheidsType,voorkeurGeboorteDatum,voorkeurLengte,voorkeurLichaamsbouw,voorkeurOpleidingsNiveau,
                                       voorkeurRoker,voorkeurKinderen,voorkeurPersoonlijkheidsType,voorkeurGeslacht)
-                                      VALUES (:id,:email,:geslacht,:wachtwoord,:geboortedatum,:naam,:voornaam,:postcode,:stad,:lente,:lbouwId,
+                                      VALUES (:email,:geslacht,:wachtwoord,:geboortedatum,:naam,:voornaam,:postcode,:stad,:lente,:lbouwId,
                                       :hOpNivId,:beroep,:etnAchId,:roker,:oogkleurId,:aantalkind,:haarkleurId,:foto,:persType,:vkGeboortedatum,:vkLengte,
                                       :vkLichaamsbouw,:vkOplNiv,:vkRoker,:vkKinderen,:vkPersType,:vkGeslacht)";
         $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
         $stmt=$dbh->prepare($sql);
         $stmt->execute(array(
-            ':id'=>$gebruikerId,
             ':email'=>$email,
             ':geslacht'=>$geslacht,
             ':wachtwoord'=>$wachtwoord,
@@ -80,9 +79,9 @@ class GebruikerDAO
             ':vkPersType'=>$voorkeurPersoonlijkheidsType,
             ':vkGeslacht'=>$voorkeurGeslacht
         ));
-        $gebruikerId=$dbh->lastInsertId();
+
         $dbh=null;
-        $gebruiker=Gebruiker::create($gebruikerId, $email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode,
+        $gebruiker=Gebruiker::create($email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode,
                                 $stad, $lengte, $lichaamsbouwId, $hOplNiveauId, $beroep, $etnischeAchtergrondId, $roker,
                                 $oogkleurId, $aantalKinderen, $haarkleurId, $foto, $persoonlijkheidsType,
                                 $voorkeurGeboorteDatum, $voorkeurLengte, $voorkeurLichaamsbouw, $voorkeurOpleidingsNiveau,
