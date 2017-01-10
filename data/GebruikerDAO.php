@@ -33,7 +33,6 @@ class GebruikerDAO
         return $lijst;
 
     }
-
     //CREATE
     //voeg record toe aan de tabel Gebruikers
     public function createUser($gebruikerId, $email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode,
@@ -90,5 +89,61 @@ class GebruikerDAO
                                 $voorkeurRoker, $voorkeurKinderen, $voorkeurPersoonlijkheidsType, $voorkeurGeslacht);
         return $gebruiker;
     }
+
+    //DELETE
+    //gebruiker met bepaalde id verwijderen
+    public function delete($gebruikerId){
+        $sql="delete from gebruiker where gebruikerId=:id";
+        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
+        $stmt=$dbh->prepare($sql);
+        $stmt->execute(array(':id'=>$gebruikerId));
+        $dbh=null;
+
+    }
+    //UPDATE
+    //gebruiker met bepaalde id updaten
+    public function updateUser($gebruiker){
+        $sql="update gebruiker set email=:email,geslacht=:geslacht,wachtwoord=:wachtwoord,geboorteDatum=:geboortedatum,naam=:naam,
+              voornaam=:voornaam,postcode=:postcode,stad=:stad,lengte=:lengte,lichaamsbouwId=:lichaamsbouwId,hOplNiveauId=:hOplNivId,beroep=:beroep,
+              etnischeAchtergrondId=:etnAchId,roker=:roker,oogkleurId=:oogkleurId,aantalKinderen=:aantalKind,haarkleurId=:haarkleurId,foto=:foto,
+              persoonlijkheidsType=:persType,voorkeurGeboorteDatum=:vkGeboortedatum,voorkeurLengte:=vkLengte,voorkeurLichaamsbouw=:vkLichBouw,
+              voorkeurOpleidingsNiveau=:vkOplNiv,voorkeurRoker=:vkRoker,voorkeurKinderen=:vkKinderen,voorkeurPersoonlijkheidsType=vkPersType,
+              voorkeurGeslacht=:vkGeslacht where gebruikerId=:id";
+
+        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
+        $stmt=$dbh->prepare($sql);
+        $stmt->execute(array(
+           ':email'=>$gebruiker->getEmail(),
+            ':geslacht'=>$gebruiker->getGeslacht(),
+            ':wachtwoord'=>$gebruiker->getWachtwoord(),
+            ':geboortedatum'=>$gebruiker->getGeboorteDatum(),
+            ':naam'=>$gebruiker->getNaam(),
+            ':voornaam'=>$gebruiker->getVoornaam(),
+            ':postcode'=>$gebruiker->getPostcode(),
+            ':stad'=>$gebruiker->getStad(),
+            ':lengte'=>$gebruiker->getLengte(),
+            ':lichaamsbouwId'=>$gebruiker->getLichaamsbouwId(),
+            ':hOplNivId'=>$gebruiker->getHOplNiveauId(),
+            ':beroep'=>$gebruiker->getBeroep(),
+            ':etnAchId'=>$gebruiker->getEtnischeAchtergrondId(),
+            ':roker'=>$gebruiker->getRoker(),
+            ':oogkleurId'=>$gebruiker->getOogkleurId(),
+            ':aantalKind'=>$gebruiker->getAantalKinderen(),
+            ':haarkleurId'=>$gebruiker->getHaarkleurId(),
+            ':foto'=>$gebruiker->getFoto(),
+            ':persType'=>$gebruiker->getPersoonlijkheidsType(),
+            ':vkGeboortedatum'=>$gebruiker->getVoorkeurGeboorteDatum(),
+            ':vkLengte'=>$gebruiker->getVoorkeurLengte(),
+            ':vkLichBouw'=>$gebruiker->getVoorkeurLichaamsbouw(),
+            ':vkOplNiv'=>$gebruiker->getVoorkeurOpleidingsNiveau(),
+            ':vkRoker'=>$gebruiker->getVoorkeurRoker(),
+            ':vkKinderen'=>$gebruiker->getVoorkeurKinderen(),
+            ':vkPersType'=>$gebruiker->getVoorkeurPersoonlijkheidsType(),
+            ':vkGeslacht'=>$gebruiker->getVoorkeurGeslacht(),
+            ':id'=>$gebruiker->getGebruikerId()));
+
+        $dbh=null;
+    }
+
 
 }
