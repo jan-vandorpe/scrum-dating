@@ -11,8 +11,16 @@ $loader = new Twig_Loader_Filesystem('presentation');
 $twig = new Twig_Environment($loader);
 
 
-    $view = $twig->render('index.twig');
+// toonAlleUsers
+$gebruikerSvc = new GebruikerService();
+$gebruikers=$gebruikerSvc->toonAlleUsers();
+$aTwig["gebruikers"]=$gebruikers;
+$aTwig["titel"]="vrijgezellen";
 
+
+$view = $twig->render('index.twig',$aTwig);
+
+    
 
 //toon de pagina
 print($view);

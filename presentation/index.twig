@@ -1,0 +1,26 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>twig test</title>
+</head>
+
+<body>
+    <h1>{{ titel }}</h1>
+    <table>
+    {% for gebruiker in gebruikers %}
+    <tr>
+        <td>{{gebruiker.email}}</td>
+        <td>{{gebruiker.geslacht}}</td>
+        <td>{{gebruiker.wachtwoord}}</td>
+        <td>{{gebruiker.geboortedatum}}</td>
+    </tr>
+        
+        {% endfor %}
+    </table>
+</body>
+
+</html>
