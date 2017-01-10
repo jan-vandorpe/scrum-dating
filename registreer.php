@@ -17,8 +17,7 @@ if (isset($_POST['email'])) {
     
     $gebService = new GebruikerService();
 
-    $gebService->createUser($email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode, $stad,$voorkeurGeslacht);  
-  
+    $gebService->createUser($email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode, $stad,$voorkeurGeslacht);    
 
-    print 'succesvol geregistreerd';
+    header('Location: login.php');
 }
