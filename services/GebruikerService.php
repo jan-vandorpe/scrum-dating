@@ -2,7 +2,7 @@
 require_once 'data/GebruikerDAO.php';
 class GebruikerService 
 {
-    public function toonAlleUsers()                                             
+    public function AlleUsers()                                             
     {
         $GebruikerDAO = new GebruikerDAO();
         $alleUsers = $GebruikerDAO->getAllUsers();     
@@ -29,5 +29,13 @@ class GebruikerService
         $userDAO = new $UserDAO();
         $user = $UserDAO -> deleteUser($id,$email,$paswoord);
         return $user;        
+    }
+    
+    public function getPassword($email)
+    {
+        $GebruikerDAO = new GebruikerDAO();
+        $password = $GebruikerDAO -> getPassword($email);
+        return $password;
+        
     }
 }
