@@ -31,8 +31,18 @@ class GebruikerDAO
         }
         $dbh = null;
         return $lijst;
-
     }
+    
+    //haal wachtwoord uit de database
+   public function getPassword($email)
+   {
+        $sql = "SELECT wachtwoord FROM gebruiker where email = :email";       
+        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
+        $stmt=$dbh->prepare($sql);        
+        $stmt->execute(array(':email'=>$email));
+        $dbh=null;
+           
+   }
     //CREATE
     //voeg record toe aan de tabel Gebruikers
     public function createUser($email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode,
