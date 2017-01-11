@@ -3,24 +3,44 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>twig test</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <title>twig test</title>
+        <style>
+            h1{
+                margin-top: 25px;
+            }
+            </style>
+    </head>
 
-<body>
-    <h1>{{ titel }}</h1>
-    <table>
-    {% for gebruiker in gebruikers %}
-    <tr>
-        <td>{{gebruiker.email}}</td>
-        <td>{{gebruiker.geslacht}}</td>
-        <td>{{gebruiker.wachtwoord}}</td>
-        <td>{{gebruiker.geboortedatum}}</td>
-    </tr>
-        
-        {% endfor %}
-    </table>
-</body>
+    <body>
+        <h1>{{ titel }}</h1>
+        <table>
+            <tr>
+                <th>email</th>   
+                <th>voornaam</th>
+                <th>naam</th>
+                <th>geslacht</th>
+                <th>voorkeur</th>
+                <th>geboortedatum</th>
+                <th>postcode</th>
+                <th>stad</th>
+            </tr>
+            {% for gebruiker in gebruikers %}    
+                <tr>         
+                    <td>{{gebruiker.email}}</td>
+                    <td>{{gebruiker.voornaam}}</td>
+                    <td>{{gebruiker.naam}}</td>
+                    <td>{{gebruiker.geslacht}}</td>      
+                    <td>{{gebruiker.voorkeurGeslacht}}</td>
+                    <td>{{gebruiker.geboortedatum}}</td>    
+                    <td>{{gebruiker.postcode}}</td>
+                    <td>{{gebruiker.stad}}</td>
+                </tr>
+
+            {% endfor %}
+        </table>
+    </body>
 
 </html>
