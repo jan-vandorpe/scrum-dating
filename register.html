@@ -19,16 +19,16 @@
 <!-- <script src="js/scripts.js"></script> -->
 
 <main>
-    <form action="registerStap2.html" method="get">
+    <form action="registreer.php" method="post">
         <fieldset class="col2">
             <legend>Ik ben</legend>
-            <input type="radio" name="geslacht" value="M">Man <br>
-            <input type="radio" name="geslacht" value="V">Vrouw <br>
+            <label><input type="radio" name="geslacht" value="M" checked>Man </label>
+            <label><input type="radio" name="geslacht" value="V">Vrouw </label>
         </fieldset>
         <fieldset class="col2">
             <legend>Ik zoek</legend>
-            <input type="radio" name="Vgeslacht" value="M">Man <br>
-            <input type="radio" name="Vgeslacht" value="V">Vrouw <br>
+            <label><input type="radio" name="Vgeslacht" value="M">Man </label>
+            <label><input type="radio" name="Vgeslacht" value="V" checked>Vrouw </label>
         </fieldset>
         <fieldset>
             <label for='email'>email *</label>
@@ -60,20 +60,16 @@
             <label class="msg"></label>
 
             <label for='geboortedatum'>geboortedatum *</label>
-            <input type="text" name="geboortedatum" id="geboortedatum" placeholder="YYYY-MM-DD" required>
+            <input type="date" name="geboorteDatum" id="geboorteDatum" required>
             <label class="msg"></label>
 
         </fieldset>
 
-        <input type="submit" value="registeren">
+        <input type="submit" value="registreren">
 
         </form>
 
 
-
-
-
-    </form>
 </main>
 
 
