@@ -2,7 +2,7 @@
 require_once 'data/GebruikerDAO.php';
 class GebruikerService 
 {
-    public function AlleUsers()                                             
+    public function toonAlleUsers()                                             
     {
         $GebruikerDAO = new GebruikerDAO();
         $alleUsers = $GebruikerDAO->getAllUsers();     
