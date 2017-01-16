@@ -8,6 +8,12 @@ class GebruikerService
         $alleUsers = $GebruikerDAO->getAllUsers();     
         return $alleUsers;        
     }
+    public function checkLogin($email, $wachtwoord)
+    {     
+        $GebruikerDAO = new GebruikerDAO();
+        $gebruiker = $GebruikerDAO->checkLogin($email, $wachtwoord);
+        return $gebruiker;
+    }
     
     public function createUser($email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode,
                                 $stad,$voorkeurGeslacht)                           //verwijst naar functie createUser in daogebruiker.php voor aanmaken gebruiker
@@ -15,27 +21,5 @@ class GebruikerService
         $GebruikerDAO = new GebruikerDAO();
         $user = $GebruikerDAO->createUser($email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode,$stad, $voorkeurGeslacht);
         return $user;
-    }    
-    
-    public function updateUser($id,$email,$paswoord)
-    {
-        $userDAO = new $UserDAO();
-        $user = $UserDAO -> updateUser($id,$email,$paswoord);
-        return $user;        
-    }
-    
-    public function deleteUser($id,$email,$paswoord)
-    {
-        $userDAO = new $UserDAO();
-        $user = $UserDAO -> deleteUser($id,$email,$paswoord);
-        return $user;        
-    }
-    
-    public function getPassword($email)
-    {
-        $GebruikerDAO = new GebruikerDAO();
-        $password = $GebruikerDAO -> getPassword($email);
-        return $password;
-        
     }
 }
