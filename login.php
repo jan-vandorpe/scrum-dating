@@ -1,13 +1,13 @@
 <?php
 require_once 'services/GebruikerService.php';
 
-if(isset($_POST))
-{
-    $email = $_POST['email'];
-    $gebService = new GebruikerService();
-    $password = $gebService->getPassword($email);
-    print $password;
-}
+//if(isset($_POST))
+//{
+//    $email = $_POST['email'];
+//    $gebService = new GebruikerService();
+//    $password = $gebService->getPassword($email);
+//    print $password;
+//}
 ?>
 
 <html lang="en">
@@ -29,6 +29,7 @@ if(isset($_POST))
 <!-- <script src="js/scripts.js"></script> -->
 
 <main>
+ <h1>U bent succesvol geregistreerd</h1>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         
      
