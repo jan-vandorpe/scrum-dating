@@ -1,14 +1,137 @@
+/* fonts */
+
+@import url('https://fonts.googleapis.com/css?family=Overpass:300i,600');
+
+/* Normalistatie */
+
 * {
     font-family: "Myriad Pro", sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background-color: gray;
+    background-image: url(../images/texture.png);
 }
 
 #container {
     width: 350px;
 }
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* HEADER CSS */
+
+header {
+    background: url('../images/headerBackground.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position:relative;
+    height: 200px;
+    overflow: hidden;
+
+
+}
+
+header #logo {
+    box-sizing: border-box;
+    width: auto;
+    float: left;
+    height: 100%;
+    margin-right: 20px;
+}
+header #logo img {
+    max-width: 100%;
+    height: 100%;
+}
+
+header #slogan {
+    float: left;
+    margin-top: 40px;
+}
+
+header #slogan h1  {
+    color: #e45d6c;
+    font-family: "Overpass ",sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 3.75em; /* 3.75 * 16 = 60PX */
+    letter-spacing: -3px;
+
+}
+
+header #slogan h1 em {
+    font-style: normal;
+    color: #952532;
+    display: block;
+    margin-top: -10px;
+    letter-spacing: 0;
+    font-weight: 600;
+}
+
+/* navigatie css */
+
+#topnav {
+    min-height: 60px;
+    width: 100%;
+    background-color: #de3c4e;
+    display: table;
+}
+
+.login {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.login div {
+    float: left;
+    margin-left: 20px;
+}
+
+.login label {
+    display: block;
+    float: left;
+    clear: both;
+}
+
+.login input {
+
+    float: left;
+    clear: both;
+
+}
+
+.login label {
+    color: #ffc8ce;
+}
+
+.login label a {
+    color: #5d4d4f;
+    text-decoration: none;
+}
+
+.login input[type=email], .login input[type=password] {
+    background-color: #ffc8ce;
+    border: 1px solid #6c1b24;
+    padding-top: 2px;
+}
+
+.login input[type=submit] {
+    background-color: #952532;
+    border-radius: 2px;
+    color: #ffc8ce;
+    border:1px solid #6c1b24;
+    padding: 2px 10px 0 10px;
+
+}
+
+
 
 
 /* RANGE SLIDER */
@@ -99,4 +222,30 @@ input[type=range]:focus::-ms-fill-lower {
 }
 input[type=range]:focus::-ms-fill-upper {
     background: #367ebd;
+}
+/******* GENERIC CSS *******/
+
+/* clearfix */
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+/* Floats */
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;s
 }
