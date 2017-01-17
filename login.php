@@ -1,13 +1,6 @@
 <?php
 require_once 'services/GebruikerService.php';
 
-//if(isset($_POST))
-//{
-//    $email = $_POST['email'];
-//    $gebService = new GebruikerService();
-//    $password = $gebService->getPassword($email);
-//    print $password;
-//}
 ?>
 
 <html lang="en">
