@@ -9,8 +9,8 @@
     <meta name="author" content="">
 
     <link rel="stylesheet" href="style.css">
-
-    <!--[if lt IE 9]>
+    <script type="text/javascript" src="validatie/validatie.js"></script>
+          <!--[if lt IE 9]>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
 </head>
@@ -19,7 +19,7 @@
 <!-- <script src="js/scripts.js"></script> -->
 
 <main>
-    <form action="registreer.php" method="post">
+    <form action="registreer.php" method="post" name="frmRegistratie">
         <fieldset class="col2">
             <legend>Ik ben</legend>
             <label><input type="radio" name="geslacht" value="M" checked>Man </label>
@@ -31,36 +31,36 @@
             <label><input type="radio" name="Vgeslacht" value="V" checked>Vrouw </label>
         </fieldset>
         <fieldset>
-            <label for='email'>email *</label>
-            <input type="email" name="email" id="email" placeholder="youremail@datingsite.com" required>
+            <label for='email'>email</label>
+            <input type="email" name="email" id="email" placeholder="youremail@datingsite.com" class="required">
             <label class="msg"></label>
-            <label for='password'>password *</label>
-            <input type="password" name="password" id="password" placeholder="password" required>
+            <label for='password'>password</label>
+            <input type="password" name="password" id="password" placeholder="password" class="required">
             <label class="msg"></label>
-            <label for='pwrepeat'>repeat password *</label>
-            <input type="password" name="pwrepeat" id="pwrepeat" placeholder="password" required>
+            <label for='pwrepeat'>repeat password</label>
+            <input type="password" name="pwrepeat" id="pwrepeat" placeholder="password" class="required">
             <label class="msg"></label>
         </fieldset>
 
         <fieldset>
-            <label for='naam'>naam *</label>
-            <input type="text" name="naam" id="naam" placeholder="naam" required>
+            <label for='naam'>naam</label>
+            <input type="text" name="naam" id="naam" placeholder="naam" class="required">
             <label class="msg"></label>
 
-            <label for='voornaam'>voornaam *</label>
-            <input type="text" name="voornaam" id="voornaam" placeholder="voornaam" required>
+            <label for='voornaam'>voornaam</label>
+            <input type="text" name="voornaam" id="voornaam" placeholder="voornaam" class="required">
             <label class="msg"></label>
 
-            <label for='postcode'>postcode *</label>
-            <input type="text" name="postcode" id="postcode" placeholder="postcode" required>
+            <label for='postcode'>postcode</label>
+            <input type="text" name="postcode" id="postcode" placeholder="postcode" class="required">
             <label class="msg"></label>
 
-            <label for='stad'>stad *</label>
-            <input type="text" name="stad" id="stad" placeholder="stad" required>
+            <label for='stad'>stad</label>
+            <input type="text" name="stad" id="stad" placeholder="stad" class="required">
             <label class="msg"></label>
 
-            <label for='geboortedatum'>geboortedatum *</label>
-            <input type="date" name="geboorteDatum" id="geboorteDatum" required>
+            <label for='geboortedatum'>geboortedatum</label>
+            <input type="date" name="geboorteDatum" id="geboorteDatum" class="required datum leeftijd">
             <label class="msg"></label>
 
         </fieldset>
