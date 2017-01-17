@@ -2,7 +2,7 @@
 
 require_once 'library/vendor/Twig/Autoloader.php';
 require_once 'services/GebruikerService.php';
-
+ 
 Twig_Autoloader::register();
 //initialize twig environment
 $loader = new Twig_Loader_Filesystem('presentation');
