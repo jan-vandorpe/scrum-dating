@@ -1,23 +1,60 @@
 <?php
 
-
+require_once 'library/vendor/Twig/Autoloader.php';
 require_once 'services/GebruikerService.php';
+require_once 'entities/Gebruiker.php';
 
+Twig_AutoLoader::register();
 
-if (isset($_POST['email'])) {
+$loader = new Twig_Loader_Filesystem('presentation');
+
+$twig = new Twig_Environment($loader);
+
+if (!isset($_SESSION)) 
+{
+    session_start();
+}
+
+if (isset($_SESSION["login"])) 
+{
+    $login = $_SESSION["login"];
+}
+else 
+{
+    $login = false;
+}
+
+if (isset($_POST['registreren'])) 
+{ 
     $email = $_POST['email'];
     $geslacht = $_POST['geslacht'];
-    $wachtwoord = password_hash($_POST['password'],PASSWORD_DEFAULT);
+    $wachtwoord = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $geboorteDatum = $_POST['geboorteDatum'];
     $naam = $_POST['naam'];
-    $voornaam = $_POST['voornaam']; 
-    $postcode= $_POST['postcode'];
-    $stad= $_POST['stad'];
-    $voorkeurGeslacht= $_POST['Vgeslacht'];
-    
+    $voornaam = $_POST['voornaam'];
+    $postcode = $_POST['postcode'];
+    $stad = $_POST['stad'];
+    $voorkeurGeslacht = $_POST['Vgeslacht'];
+
     $gebService = new GebruikerService();
+    $gebruiker = $gebService->createUser($email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode, $stad, $voorkeurGeslacht);   
+    
+    $_SESSION["login"] = $gebruiker;  
+    
+    $login = $_SESSION["login"];
+    setcookie("email", $login->email, time() + 6666666);
+    
+    setcookie("email", $email, time() + 6666666);
 
-    $gebService->createUser($email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode, $stad,$voorkeurGeslacht);    
-
-    header('Location: login.php');
+    if (isset($_COOKIE["email"])) 
+    {
+        $cookieGebruiker = $_COOKIE["email"];
+        $view = $twig->render('index2.twig', array('email' => $email, 'login' => $login, 'cookie' => $cookieGebruiker));
+    }
+    else 
+    {
+        $view = $twig->render('index2.twig', array('email' => $email, 'login' => $login));
+    }
+    print($view);
+    exit(0);
 }
