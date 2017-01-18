@@ -15,9 +15,6 @@ body {
     background-image: url(../images/texture.png);
 }
 
-#container {
-    width: 350px;
-}
 
 .container {
     width: 80%;
@@ -131,11 +128,94 @@ header #slogan h1 em {
 
 }
 
+/* MAIN */
+
+main {
+    margin-top: 20px;
+    background-color: #e45d6c;
+}
+/* 2 COL STRUCTURE */
+/* COL1 */
+.col1, .col2 {
+    box-sizing: border-box;
+    padding: 10px;
+
+}
+/* COL2 */
+
+.col1 {
+    width: 12.5%;
+
+}
+
+.col2 {
+
+    width: 87.5%;
+
+    
+
+}
+
+.col {
+    box-sizing: border-box;
+    width: 50%;
+    padding: 10px;
+}
+
+.col:first-child {
+    padding-left: 0px;
+}
+
+.col:nth-child(2) {
+    padding-right: 0px;
+}
+
+
+.padbox {
+    padding: 10px;
+    background-color: #de3c4e;
+}
+
+/* footer */
+
+footer {
+    margin-top: 20px;
+    background-color: #e45d6c;
+    color: white;
+}
+
+
+
+
+
+
+/* OPMAAK FORMS */
+
+main label {
+    display: block;
+    margin-bottom: 20px;
+}
+
+main label input, main label select, fieldset {
+    float: right;
+    display: block;
+}
+
+fieldset {
+    border: none;
+}
+
+input[type=text], input[type=date],  input[type=radio]{
+    background-color: #ffc8ce;
+    border: 1px solid #6c1b24;
+    padding-top: 2px;
+
+}
+
 
 
 
 /* RANGE SLIDER */
-
 input[type=range] {
     -webkit-appearance: none;
     margin: 18px 0;
@@ -247,5 +327,5 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .right {
-    float: right;s
+    float: right;
 }
