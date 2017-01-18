@@ -32,76 +32,86 @@
 
                     <label for="geboorteDatum">geboortedatum
                     <input type="date" name="geboortedatum" id="geboorteDatum"></label>
-                    <br>
+                    
                     <label for="Lengte">Lengte
                     <input type="text" name="Lengte" id="Lengte"></label>
-                    <br>
-                    <label for="lichaamstype">Lichaamstype
-                    <select data-placeholder="Kies een lichaamstype (je kan meerdere selecteren)" class="chosen-select" style="width: 100%;" multiple tabindex="1" name="lichaamstype" id="lichaamstype">
+                
 
-                        <option value="1">Slank</option>
-                        <option value="2">Mager</option>
-                        <option value="3">Normaal</option>
-                        <option value="4">Kloek</option>
-                        <option value="5">Dik</option>
+                    {#  <label for="{{ lichaamsName }}">{{ titellichaamstypes }}
+                        <select data-placeholder="Kies voorkeur {{ titellichaamstypes }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%;" tabindex="2" name="{{ lichaamsName }}" id="{{ lichaamsName }}">
 
-                    </select></label>
+                            {% for lichaamtype in lichaamstypes %}
+                                <option value="{{ lichaamtype.lichaamstypeId }}">{{ lichaamtype.lichaamstype }}</option>
+                            {% endfor %}
 
-                <label for="opleidingsniveau">opleidingsniveau
-                <select data-placeholder="Kies een opleidingsniveau (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%;" tabindex="2" name="opleidingsniveau" id="opleidingsniveau">
-                    <option value="1">TSO</option>
-                    <option value="2">HBO</option>
-                    <option value="3">Bachelor</option>
-                    <option value="4">Master</option>
-                    <option value="5">Doctoraat</option>
+                        </select>
+                    </label> #}
 
-                </select></label>
+                     <label for="opleidingsniveau">{{ titelopleidingsniveau }}
+                        <select data-placeholder="Kies voorkeur {{ titelopleidingsniveau }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%;" tabindex="2" name="{{ opleidingsName }}" id="{{ opleidingsName }}">
+                    
+                        {% for opleidingsniveau in opleidingsNiveaus %}
+                            <option value="{{ opleidingsniveau.oplNiveauId }}">{{ opleidingsniveau.opleidingsNiveau }}</option>
+                        {% endfor %}
 
-                <fieldset>Roker?
-                <input type="radio" name="roker" value="1">Ja</input>
-                <input type="radio" name="roker" value="0">Nee</input>
-            </fieldset>
-            </div>
+                        </select>
+                    </label>
 
-            <div class='col left'>
-                <fieldset>Kinderen?
-                <input type="radio" name="Kinderen" value="1">Ja
-                <input type="radio" name="Kinderen" value="0">Nee</fieldset>
-                <br>
-                <label for="persoonlijkheid">Persoonlijkheids
-                <input type="range" min="1" max="5" step="1" value="0" name="persoonlijkheid" id="persoonlijkheid" /></label>
+                    <label for="persoonlijkheid">Extrovert of Introvert?
+                        <input type="range" min="1" max="5" step="1" value="3" name="persoonlijkheid" id="persoonlijkheid" />
+                    </label>
+                    
 
-                <label for="Oogkleuren">Oogkleuren
-                <select data-placeholder="Kies een etniciteit (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%;" tabindex="2" name="Oogkleuren" id="Oogkleuren">
-                    <option value="1">Bruin</option>
-                    <option value="2">Groen</option>
-                    <option value="3">Zwart</option>
-                    <option value="4">Blauw</option>
-                    <option value="5">Rood</option>
+                </div>
 
-                </select></label>
+                <div class='col left'>
+
+                    <fieldset>Roker?
+                        <input type="radio" name="roker" value="1">Ja</input>
+                        <input type="radio" name="roker" value="0">Nee</input>
+                    </fieldset>
+             
+                    <fieldset>Kinderen?
+                        <input type="radio" name="Kinderen" value="1">Ja
+                        <input type="radio" name="Kinderen" value="0">Nee
+                    </fieldset>
+                
+                    
+
+                    <label for="{{ titeloogkleur }}">{{ titeloogkleur }}
+                        <select data-placeholder="Kies een voorkeur {{ titeloogkleur }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%;" tabindex="2" name="{{ titeloogkleur }}" id="{{ titeloogkleur }}">
+                    
+                        {% for oogkleur in oogkleuren %}
+                            <option value="{{ oogkleur.oogkleurId }}">{{ oogkleur.oogkleur }}</option>
+                        {% endfor %}
+
+                        </select>
+                    </label>
             
-                <label for="haarkleuren">{{ titelhaar }}
-                <select data-placeholder="Kies een etniciteit (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%;" tabindex="2" name="haarkleuren" id="haarkleuren">
-                    {% for haarkleur in haarkleuren %}
-                        <option value="{{ haarkleur.haarkleurId }}">{{ haarkleur.haarkleur }}</option>
-                    {% endfor %}
-                </select></label>
+                    <label for="haarkleuren">{{ titelhaar }}
+                        <select data-placeholder="Kies voorkeur {{ titelhaar }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%;" tabindex="2" name="{{ titelhaar }}" id="{{ titelhaar }}">
+
+                        {% for haarkleur in haarkleuren %}
+                            <option value="{{ haarkleur.haarkleurId }}">{{ haarkleur.haarkleur }}</option>
+                        {% endfor %}
+                
+                        </select>
+                    </label>
 
 
 
-                <label for="etniciteit">etniciteit
-                <select data-placeholder="Kies een etniciteit (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%;" tabindex="2" name="etniciteit" id="etniciteit">
-                    <option value="1">Aziaat</option>
-                    <option value="2">Afrikaan</option>
-                    <option value="3">Oceaan</option>
-                    <option value="4">Europeaan</option>
-                    <option value="5">Random</option>
+                    <label for="etniciteit">{{ titeletnachtergronden }}
+                        <select data-placeholder="Kies voorkeur {{ titeletnachtergronden }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%;" tabindex="2" name="{{ etnName }}" id="{{ etnName }}">
 
-                </select></label>
+                            {% for etnischeachtergrond in etnAchtergronden %}
+                                <option value="{{ etnischeachtergrond.etnischeAchtergrondId }}">{{ etnischeachtergrond.etnischeAchtergrond }}</option>
+                            {% endfor %}
+
+                        </select>
+                    </label>
             </div>
 
-            <br><input type="submit" value="Submit">
+            <input type="submit" value="Submit">
         </form>
 
         </div>
