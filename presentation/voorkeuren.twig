@@ -83,12 +83,12 @@
             
                 <label for="haarkleuren">{{ titelhaar }}
                 <select data-placeholder="Kies een etniciteit (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%;" tabindex="2" name="haarkleuren" id="haarkleuren">
-                    <option value="1">Bruin</option>
-                    <option value="2">Blond</option>
-                    <option value="3">Rood</option>
-                    <option value="4">Zwart</option>
-
+                    {% for haarkleur in haarkleuren %}
+                        <option value="{{ haarkleur.haarkleurId }}">{{ haarkleur.haarkleur }}</option>
+                    {% endfor %}
                 </select></label>
+
+
 
                 <label for="etniciteit">etniciteit
                 <select data-placeholder="Kies een etniciteit (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%;" tabindex="2" name="etniciteit" id="etniciteit">
