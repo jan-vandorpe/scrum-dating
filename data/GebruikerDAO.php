@@ -16,14 +16,17 @@ class GebruikerDAO
        //Kijken als de inloggegevens kloppen, zoja worden de gegevens van die gebruiker doorgegeven
 
         
-        $sql = "SELECT * FROM gebruiker WHERE email = :email AND wachtwoord = :wachtwoord";  
+        $sql = "SELECT * FROM gebruiker WHERE email = :email";  
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sql); 
-        $stmt->execute(array(':email' => $email,':wachtwoord' => $wachtwoord));
+        $stmt->execute(array(':email' => $email));
         $rij = $stmt->fetch(PDO::FETCH_ASSOC); 
+        $dbWachtwoord = $rij['wachtwoord'];
+      
         
+        $isJuisteWachtwoord = password_verify($wachtwoord, $dbWachtwoord);
         //kijk als er effectief een rij is uit de DB gehaald, false wil zeggen dat de gegevens niet klopten en dus geen resultaten meegeeft
-        if ($rij == false) 
+        if ($isJuisteWachtwoord == false) 
         { 
             return $login = false; //login mislukt
         }
