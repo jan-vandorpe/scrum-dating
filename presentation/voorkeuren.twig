@@ -30,7 +30,7 @@
             <form action="voorkeuren.php" method="get">
                 <div class="col left">
 
-                    <label for="geboorteDatum">geboortedatum
+                    <label for="geboorteDatum">Geboortedatum
                     <input type="date" name="geboortedatum" id="geboorteDatum"></label>
                     
                     <label for="Lengte">Lengte
@@ -38,7 +38,7 @@
                 
 
                     {#  <label for="{{ lichaamsName }}">{{ titellichaamstypes }}
-                        <select data-placeholder="Kies voorkeur {{ titellichaamstypes }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%;" tabindex="2" name="{{ lichaamsName }}" id="{{ lichaamsName }}">
+                        <select data-placeholder="Kies voorkeur {{ titellichaamstypes }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%; margin-top: 20px;" tabindex="2" name="{{ lichaamsName }}" id="{{ lichaamsName }}">
 
                             {% for lichaamtype in lichaamstypes %}
                                 <option value="{{ lichaamtype.lichaamstypeId }}">{{ lichaamtype.lichaamstype }}</option>
@@ -48,7 +48,7 @@
                     </label> #}
 
                      <label for="opleidingsniveau">{{ titelopleidingsniveau }}
-                        <select data-placeholder="Kies voorkeur {{ titelopleidingsniveau }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%;" tabindex="2" name="{{ opleidingsName }}" id="{{ opleidingsName }}">
+                        <select data-placeholder="Kies voorkeur {{ titelopleidingsniveau }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%; margin-top: 20px;" tabindex="2" name="{{ opleidingsName }}" id="{{ opleidingsName }}">
                     
                         {% for opleidingsniveau in opleidingsNiveaus %}
                             <option value="{{ opleidingsniveau.oplNiveauId }}">{{ opleidingsniveau.opleidingsNiveau }}</option>
@@ -79,7 +79,7 @@
                     
 
                     <label for="{{ titeloogkleur }}">{{ titeloogkleur }}
-                        <select data-placeholder="Kies een voorkeur {{ titeloogkleur }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%;" tabindex="2" name="{{ titeloogkleur }}" id="{{ titeloogkleur }}">
+                        <select data-placeholder="Kies een voorkeur {{ titeloogkleur }} (je kan meerdere selecteren)" class="chosen-select" style="width: 100%; margin-top: 20px;" multiple tabindex="2" name="{{ titeloogkleur }}" id="{{ titeloogkleur }}">
                     
                         {% for oogkleur in oogkleuren %}
                             <option value="{{ oogkleur.oogkleurId }}">{{ oogkleur.oogkleur }}</option>
@@ -89,7 +89,7 @@
                     </label>
             
                     <label for="haarkleuren">{{ titelhaar }}
-                        <select data-placeholder="Kies voorkeur {{ titelhaar }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%;" tabindex="2" name="{{ titelhaar }}" id="{{ titelhaar }}">
+                        <select data-placeholder="Kies voorkeur {{ titelhaar }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%; margin-top: 20px;" tabindex="2" name="{{ titelhaar }}" id="{{ titelhaar }}">
 
                         {% for haarkleur in haarkleuren %}
                             <option value="{{ haarkleur.haarkleurId }}">{{ haarkleur.haarkleur }}</option>
@@ -101,7 +101,7 @@
 
 
                     <label for="etniciteit">{{ titeletnachtergronden }}
-                        <select data-placeholder="Kies voorkeur {{ titeletnachtergronden }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%;" tabindex="2" name="{{ etnName }}" id="{{ etnName }}">
+                        <select data-placeholder="Kies voorkeur {{ titeletnachtergronden }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%; margin-top: 20px;" tabindex="2" name="{{ etnName }}" id="{{ etnName }}">
 
                             {% for etnischeachtergrond in etnAchtergronden %}
                                 <option value="{{ etnischeachtergrond.etnischeAchtergrondId }}">{{ etnischeachtergrond.etnischeAchtergrond }}</option>
@@ -132,7 +132,7 @@
         '.chosen-select-deselect'  : {allow_single_deselect:true},
         '.chosen-select-no-single' : {disable_search_threshold:10},
         '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
-        '.chosen-select-width'     : {width:"95%"}
+        '.chosen-select-width'     : {width:"100px"}
     };
     for (var selector in config) {
         $(selector).chosen(config[selector]);
