@@ -17,7 +17,7 @@ DONE:
 
 
 //GLOBAL
-var MEERDERJARIG = 18;
+
 
 var oFouten = {
     required: {
@@ -54,14 +54,18 @@ var oFouten = {
     leeftijd: {
         msg: "U moet ouder zijn dan 18 jaar.",
         test: function (elem) {
+
             /*CUSTOM TEST:retourdatum minstens 1 dag na vertrekdatum
             1 dag later=86400000ms
             beide formaten dd/mm/yyy
              */
             if (elem.value != "") {
+                var meerderjarig = 18;
+                var geboortedatum = new Date();
+                var verschil = new Number();
                 //vandaag
                 var vandaag = new Date();
-                var dd = vandaag.getDate();
+             /*   var dd = vandaag.getDate();
                 var mm = vandaag.getMonth() + 1; //January is 0!
                 var yyyy = vandaag.getFullYear();
 
@@ -73,17 +77,29 @@ var oFouten = {
                     mm = '0' + mm
                 }
 
-                vandaag = mm + '/' + dd + '/' + yyyy;
-               // document.write(vandaag);
+                vandaag = yyyy + '-' + mm + '-' + dd;*/
+                // document.write(vandaag);
 
-                var geboortedatum = elem.value;
-                var arrD1 = geboortedatum.Split('-');
-                var D1 = new Date(parseInt(arrD1[2]), parseInt(arrD1[1]), parseInt(arrD1[0]));
 
-                var verschil = vandaag - D1;
-                return (MEERDERJARIG <= verschil);
+                geboortedatum = elem.value;
+                var arrD1 = geboortedatum.split('-');
+                var D1 = new Date(parseInt(arrD1[0]), parseInt(arrD1[1]), parseInt(arrD1[2]));
+
+                var test = new Date();
+                console.log(test);
+                console.log(test.getTime());
+                console.log(test.getFullYear());
+
+                console.log(vandaag);
+                console.log(geboortedatum);
+
+                console.log(vandaag.getFullYear());
+                console.log(D1.getFullYear());
+
+                verschil = vandaag.getFullYear() - D1.getFullYear();
+                return (meerderjarig <= verschil);
             } else {
-                return true;
+                return false;
             }
 
         }
