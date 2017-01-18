@@ -49,7 +49,7 @@ $aTwig["etnAchtergronden"]=$etnAchtergrondLijst;
 $aTwig["titeletnachtergronden"]="Etnische Achtergrond";
 
 // opleidingsniveaus ophalen
-$opleidingsNiveausSvc=new OpleidingsniveauSerivce();
+$opleidingsNiveausSvc=new OpleidingsniveauService();
 $opleindingsNiveausLijst=$opleidingsNiveausSvc->toonAlleOpleidingsNiveaus();
 
 $aTwig["opleidingsNiveaus"]=$opleindingsNiveausLijst;
