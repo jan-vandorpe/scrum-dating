@@ -6,8 +6,8 @@ require_once 'services/GebruikerService.php';
 require_once 'services/HaarkleurService.php';
 require_once 'services/OogkleurService.php';
 require_once 'services/LichaamstypeService.php';
-require_once 'services/etnAchtergrondSerivce.php';
-require_once 'services/OpleidingsniveauSerivce.php';
+require_once 'services/etnAchtergrondService.php';
+require_once 'services/OpleidingsniveauService.php';
 
 require_once 'library/vendor/twig/autoloader.php';
 Twig_Autoloader::register();
