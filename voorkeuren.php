@@ -39,6 +39,7 @@ $lichaamsLijst=$lichaamsSvc->toonAlleLichaamstypes();
 
 $aTwig["lichaamstypes"]=$lichaamsLijst;
 $aTwig["titellichaamstypes"]="Lichaamstypes";
+$aTwig["lichaamsName"] ="lichaamstype";
 
 
 //etniciteiten ophalen
@@ -46,7 +47,8 @@ $etnAchtergrondSvc=new etnAchtergrondService();
 $etnAchtergrondLijst=$etnAchtergrondSvc->toonAlleAchtergronden();
 
 $aTwig["etnAchtergronden"]=$etnAchtergrondLijst;
-$aTwig["titeletnachtergronden"]="Etnische Achtergrond";
+$aTwig["titeletnachtergronden"]="Etnische Achtergronden";
+$aTwig["etnName"] ="Etniciteit";
 
 // opleidingsniveaus ophalen
 $opleidingsNiveausSvc=new OpleidingsniveauService();
@@ -54,6 +56,7 @@ $opleidingsNiveausLijst=$opleidingsNiveausSvc->toonAlleOpleidingsniveaus();
 
 $aTwig["opleidingsNiveaus"]=$opleidingsNiveausLijst;
 $aTwig["titelopleidingsniveau"]="Opleidingsniveaus";
+$aTwig["opleidingName"] ="opleidingsniveau";
 
 
 
