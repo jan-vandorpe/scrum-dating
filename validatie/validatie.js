@@ -39,62 +39,33 @@ var oFouten = {
         }
     },
     datum: {
-        msg: "datum ongeldig (d/m/yyyy)",
+        msg: "Datum is ongeldig (dd/mm/yyyy)",
         test: function (elem) {
             // dd/mm/yyyy
             var re_datum = /^(\d{4})\-([0,1][0-9]|1[0,1,2])\-([0,1,2][0-9]|3[0,1])$/;
             if (elem.value != "") {
                 return re_datum.test(elem.value);
             } else {
-                return true;
+                return false;
             }
 
         }
     },
     leeftijd: {
-        msg: "U moet ouder zijn dan 18 jaar.",
+        msg: "U moet 18 jaar of ouder zijn.",
         test: function (elem) {
 
-            /*CUSTOM TEST:retourdatum minstens 1 dag na vertrekdatum
-            1 dag later=86400000ms
-            beide formaten dd/mm/yyy
-             */
+
             if (elem.value != "") {
                 var meerderjarig = 18;
                 var geboortedatum = new Date();
                 var verschil = new Number();
                 //vandaag
                 var vandaag = new Date();
-             /*   var dd = vandaag.getDate();
-                var mm = vandaag.getMonth() + 1; //January is 0!
-                var yyyy = vandaag.getFullYear();
-
-                if (dd < 10) {
-                    dd = '0' + dd
-                }
-
-                if (mm < 10) {
-                    mm = '0' + mm
-                }
-
-                vandaag = yyyy + '-' + mm + '-' + dd;*/
-                // document.write(vandaag);
-
 
                 geboortedatum = elem.value;
                 var arrD1 = geboortedatum.split('-');
                 var D1 = new Date(parseInt(arrD1[0]), parseInt(arrD1[1]), parseInt(arrD1[2]));
-
-                var test = new Date();
-                console.log(test);
-                console.log(test.getTime());
-                console.log(test.getFullYear());
-
-                console.log(vandaag);
-                console.log(geboortedatum);
-
-                console.log(vandaag.getFullYear());
-                console.log(D1.getFullYear());
 
                 verschil = vandaag.getFullYear() - D1.getFullYear();
                 return (meerderjarig <= verschil);
@@ -102,6 +73,18 @@ var oFouten = {
                 return false;
             }
 
+        }
+    },
+    postcode:{
+        msg:"Een postcode bestaat uit vier nummers.",
+        test:function (elem) {
+            if(elem.value != ""){
+                var rePostcode =/^\d{4}$/;
+                return rePostcode.test(elem.value);
+            }
+            else{
+                return false;
+            }
         }
     }
 }
