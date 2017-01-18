@@ -6,8 +6,8 @@ require_once 'services/GebruikerService.php';
 require_once 'services/HaarkleurService.php';
 require_once 'services/OogkleurService.php';
 require_once 'services/LichaamstypeService.php';
-require_once 'services/etnAchtergrondSerivce.php';
-require_once 'services/OpleidingsniveauSerivce.php';
+require_once 'services/etnAchtergrondService.php';
+require_once 'services/OpleidingsniveauService.php';
 
 require_once 'library/vendor/twig/autoloader.php';
 Twig_Autoloader::register();
@@ -34,8 +34,8 @@ $aTwig["oogkleuren"]=$oogkleurLijst;
 $aTwig["titeloogkleur"]="Oogkleuren";
 
 // lichaamstypes toevoegen
-$lichaamsSvc=new OogkleurService();
-$lichaamsLijst=$lichaamsSvc->toonAlleOogkleuren();
+$lichaamsSvc=new LichaamstypeService();
+$lichaamsLijst=$lichaamsSvc->toonAlleLichaamstypes();
 
 $aTwig["lichaamstypes"]=$lichaamsLijst;
 $aTwig["titellichaamstypes"]="Lichaamstypes";
@@ -49,10 +49,10 @@ $aTwig["etnAchtergronden"]=$etnAchtergrondLijst;
 $aTwig["titeletnachtergronden"]="Etnische Achtergrond";
 
 // opleidingsniveaus ophalen
-$opleidingsNiveausSvc=new OpleidingsniveauSerivce();
-$opleindingsNiveausLijst=$opleidingsNiveausSvc->toonAlleOpleidingsNiveaus();
+$opleidingsNiveausSvc=new OpleidingsniveauService();
+$opleidingsNiveausLijst=$opleidingsNiveausSvc->toonAlleOpleidingsniveaus();
 
-$aTwig["opleidingsNiveaus"]=$opleindingsNiveausLijst;
+$aTwig["opleidingsNiveaus"]=$opleidingsNiveausLijst;
 $aTwig["titelopleidingsniveau"]="Opleidingsniveaus";
 
 
