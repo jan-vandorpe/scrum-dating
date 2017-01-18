@@ -206,11 +206,19 @@ fieldset {
 }
 
 input[type=text], input[type=date],  input[type=radio]{
-    background-color: #ffc8ce;
-    border: 1px solid #6c1b24;
+    background-color: #881f2b;
+    border: 1px solid #ffc8ce;
     padding-top: 2px;
+    color: #ffc8ce;
+    padding-left: 2px;
 
 }
+input[type=text], input[type=date] {
+
+    width: 200px;
+
+}
+
 
 
 
