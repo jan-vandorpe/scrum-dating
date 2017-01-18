@@ -62,7 +62,22 @@ class GebruikerDAO
         $dbh = null;
         return $lijst;
     }
-    
+    //één specifieke gebruiker ophalen
+    public function getById($id){
+        $sql="select *
+              from gebruiker where gebruikerId=:id";
+        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
+        $stmt=$dbh->prepare($sql);
+        $stmt->execute(array(':id'=>$id));
+        $rij=$stmt->fetch(PDO::FETCH_ASSOC);
+        $gebruiker=$gebruiker = Gebruiker::create($rij["gebruikerId"], $rij["email"], $rij["geslacht"], $rij["wachtwoord"], $rij["geboorteDatum"], $rij["naam"],
+            $rij["voornaam"], $rij["postcode"], $rij["stad"], $rij["lengte"], $rij["lichaamsbouwId"], $rij["hOplNiveauId"],
+            $rij["beroep"], $rij["etnischeAchtergrondId"], $rij["roker"], $rij["oogkleurId"], $rij["aantalKinderen"], $rij["haarkleurId"],
+            $rij["foto"], $rij["persoonlijkheidsType"], $rij["voorkeurGeboorteDatum"], $rij["voorkeurLengte"], $rij["voorkeurLichaamsbouw"],
+            $rij["voorkeurOpleidingsNiveau"], $rij["voorkeurRoker"], $rij["voorkeurKinderen"], $rij["voorkeurPersoonlijkheidsType"], $rij["voorkeurGeslacht"]);
+        $dbh=null;
+        return $gebruiker;
+    }
     //haal wachtwoord uit de database
    public function getPassword($email)
    {
