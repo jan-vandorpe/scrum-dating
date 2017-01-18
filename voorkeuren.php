@@ -34,8 +34,8 @@ $aTwig["oogkleuren"]=$oogkleurLijst;
 $aTwig["titeloogkleur"]="Oogkleuren";
 
 // lichaamstypes toevoegen
-$lichaamsSvc=new OogkleurService();
-$lichaamsLijst=$lichaamsSvc->toonAlleOogkleuren();
+$lichaamsSvc=new LichaamstypeService();
+$lichaamsLijst=$lichaamsSvc->toonAlleLichaamstypes();
 
 $aTwig["lichaamstypes"]=$lichaamsLijst;
 $aTwig["titellichaamstypes"]="Lichaamstypes";
@@ -50,9 +50,9 @@ $aTwig["titeletnachtergronden"]="Etnische Achtergrond";
 
 // opleidingsniveaus ophalen
 $opleidingsNiveausSvc=new OpleidingsniveauService();
-$opleindingsNiveausLijst=$opleidingsNiveausSvc->toonAlleOpleidingsNiveaus();
+$opleidingsNiveausLijst=$opleidingsNiveausSvc->toonAlleOpleidingsniveaus();
 
-$aTwig["opleidingsNiveaus"]=$opleindingsNiveausLijst;
+$aTwig["opleidingsNiveaus"]=$opleidingsNiveausLijst;
 $aTwig["titelopleidingsniveau"]="Opleidingsniveaus";
 
 
