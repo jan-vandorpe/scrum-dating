@@ -50,7 +50,7 @@ class Gebruiker {
      * de constructor function is private zodat er van buiten de klasse Gebruiker
      * geen nieuw Gebruiker-object meer aangemaakt kan worden
      */
-    private function __construct($gebruikerId,$email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode,
+    public function __construct($gebruikerId,$email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode,
                                 $stad, $lengte, $lichaamsbouwId, $hOplNiveauId, $beroep, $etnischeAchtergrondId, $roker,
                                 $oogkleurId, $aantalKinderen, $haarkleurId, $foto, $persoonlijkheidsType,
                                 $voorkeurGeboorteDatum, $voorkeurLengte, $voorkeurLichaamsbouw, $voorkeurOpleidingsNiveau,
