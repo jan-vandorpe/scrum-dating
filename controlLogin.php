@@ -5,12 +5,9 @@ require_once 'services/GebruikerService.php';
  
 Twig_Autoloader::register();
 //initialize twig environment
+session_start();
 $loader = new Twig_Loader_Filesystem('presentation');
 $twig = new Twig_Environment($loader);
-
-if (!isset($_SESSION)) {
-    session_start();
-}
 
 if (isset($_SESSION["login"])) 
 {
@@ -29,25 +26,25 @@ if (isset($_POST['login']))
     setcookie("email", $email, time() + 31556926, '/');
     $_COOKIE["email"] = $email;
     
-    $wachtwoord = password_hash($_POST['$wachtwoord'], PASSWORD_DEFAULT);
+    $wachtwoord = $_POST['wachtwoord'];
 
     $gebSvc = new GebruikerService();
-    $loginCheck = $gebSvc->checkLogin($email, $password);
+    $loginCheck = $gebSvc->checkLogin($email, $wachtwoord);
+    
 
     if ($loginCheck == false) 
-    {
+    {   
         $view = $twig->render('index2.twig');
-        print($view);
-        print 'kak';
+        print($view);  
         exit(0);
+       
     }
-    else {
+    else {        
         $_SESSION["login"] = $loginCheck;
         $login = $loginCheck;
-        print 'fack';
-
         $view = $twig->render('index2.twig', array('login' => $login));
         print($view);
+        
         exit(0);
     }
 }
