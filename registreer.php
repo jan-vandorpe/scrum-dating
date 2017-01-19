@@ -38,7 +38,7 @@ if (isset($_POST['registreren']))
     
     $_SESSION["login"] = $gebruiker;     
 
-    $view = $twig->render('index2.twig', array('email' => $email, 'login' => $login));
+    $view = $twig->render('index.twig', array('email' => $email, 'login' => $login));
 
     
    
