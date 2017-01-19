@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once 'library/vendor/Twig/Autoloader.php';
 require_once 'services/GebruikerService.php';
@@ -10,10 +11,6 @@ $loader = new Twig_Loader_Filesystem('presentation');
 
 $twig = new Twig_Environment($loader);
 
-if (!isset($_SESSION)) 
-{
-    session_start();
-}
 
 if (isset($_SESSION["login"])) 
 {
@@ -39,22 +36,22 @@ if (isset($_POST['registreren']))
     $gebService = new GebruikerService();
     $gebruiker = $gebService->createUser($email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode, $stad, $voorkeurGeslacht);   
     
-    $_SESSION["login"] = $gebruiker;  
-    
-    $login = $_SESSION["login"];
-    setcookie("email", $login->email, time() + 6666666);
-    
-    setcookie("email", $email, time() + 6666666);
+    $_SESSION["login"] = $gebruiker;     
 
-    if (isset($_COOKIE["email"])) 
-    {
-        $cookieGebruiker = $_COOKIE["email"];
-        $view = $twig->render('index2.twig', array('email' => $email, 'login' => $login, 'cookie' => $cookieGebruiker));
-    }
-    else 
-    {
-        $view = $twig->render('index2.twig', array('email' => $email, 'login' => $login));
-    }
-    print($view);
+    $view = $twig->render('index2.twig', array('email' => $email, 'login' => $login));
+
+    
+   
+
+//    if (isset($_COOKIE["email"])) 
+//    {
+//        $cookieGebruiker = $_COOKIE["email"];
+//        $view = $twig->render('index2.twig', array('email' => $email, 'login' => $login, 'cookie' => $cookieGebruiker));
+//    }
+//    else 
+//    {
+//        $view = $twig->render('index2.twig', array('email' => $email, 'login' => $login));
+//    }
+  print($view);
     exit(0);
 }
