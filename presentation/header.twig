@@ -8,8 +8,9 @@
             </h1>
         </div>
     </header>
-    <nav id="topnav" class="">
-        <div class="login right">
+    <nav id="topnav">
+        
+     {#    <div class="login right">
             <form action="controlLogin.php" method="post">
                 <div>
                     <label for="email">Email</label>
@@ -17,8 +18,8 @@
                 </div>
 
                 <div>
-                    <label for="password">Password</label>
-                    <input type="password" name="password" required>
+                    <label for="wachtwoord">wachtwoord</label>
+                    <input type="password" name="wachtwoord" required>
                 </div>
 
                 <div>
@@ -28,7 +29,31 @@
 
             </form>
 
+        </div> #}
+
+        <div class="left">
+            <img src="images/profielfoto.jpg" class="profielfoto left">
+            <p class="left gebruikernaam">Justin Reynaert</p>
         </div>
+
+        
+        <nav  class="clearfix right">
+
+            <ul class="clearfix">
+                <li><a href="gebruikerinstellingen.php" class="instellingen"></a>
+                    <ul>
+                        <li><a href="kenmerken.php">Kenmerken</a></li>
+                        <li><a href="voorkeuren.php">Voorkeuren</a></li>
+                        <li><a href="gebruikerinstellingen.php">gebruikerinstellingen</a></li>
+                    </ul>
+                    </li>
+                <li><a href="matches.php">Matches</a></li>
+                <li><a href="#">Placeholder</a></li>
+            </ul>
+        </nav>
+    
+
+
 
 
     </nav>
