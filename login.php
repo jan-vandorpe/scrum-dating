@@ -23,21 +23,21 @@ require_once 'services/GebruikerService.php';
 
 <main>
  <h1>U bent succesvol geregistreerd</h1>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+ <form action="controlLogin.php" method="post">
         
      
         <fieldset>
             <label for='email'>email *</label>
             <input type="email" name="email" id="email" placeholder="youremail@datingsite.com" required>
             <label class="msg"></label>
-            <label for='password'>password *</label>
-            <input type="password" name="password" id="password" placeholder="password" required>
-            <label class="msg"></label>     
+            <label for='wachtwoord'>wachtwoord *</label>
+            <input type="password" name="wachtwoord" id="password" placeholder="password" required>
+           
         </fieldset>
       
 
 
-        <input type="submit" value="login">
+     <input type="submit" value="login" name="login">
 
         </form>
 
