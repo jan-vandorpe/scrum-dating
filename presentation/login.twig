@@ -1,9 +1,16 @@
 
-<form action="../login.php" method="post">
 
-    <label for="email">Email</label>
-    <input type="email" name="email" required>
+{% if gebruiker %}
 
-    <label for="password">Password</label>
-    <input type="password" name="password" required>
+{%else%}
+    <form action="controlLogin.php" method="post" name="frmLogin">
+        <label for='email'>email</label>
+        <input type="email" name="email" id="email" placeholder="email" class="required">
+
+        <label class="wachtwoord"></label>
+        <label for='wachtwoord'> wachtwoord</label>
+        <input type="password" name="wachtwoord" id="wachtwoord" placeholder="wachtwoord" class="required">   
+
+        <input type="submit" value="login" name="login">
+    {% endif %}
 </form>
