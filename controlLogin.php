@@ -41,7 +41,7 @@ if (isset($_POST['login']))
        
     }
     else 
-        {   
+    {   print "true";
         $_SESSION['gebruikerId'] = $loginCheck;    
         header('Location: ' . $_SERVER['HTTP_REFERER']);
        
