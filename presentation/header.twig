@@ -8,32 +8,60 @@
             </h1>
         </div>
     </header>
-    <nav id="topnav" class="">
-        <div class="login right">
-              {% if gebruiker %}
-            <p> U bent ingelogd, {{gebruiker.naam}}</p>
-            {% else %} 
-            <form action="controlLogin.php" method="post">
-                <div>
-                    <label for="email">Email</label>
-                    <input type="email" name="email" required>
+    <nav id="topnav">
+
+         {% if not gebruiker %}
+
+             <div class="login right">
+                    <form action="controlLogin.php" method="post">
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" name="email" required>
+                        </div>
+
+                        <div>
+                            <label for="wachtwoord">Wachtwoord</label>
+                            <input type="password" name="wachtwoord" required>
+                        </div>
+
+                        <div>
+                            <label><a href="#">Wachtwoord vergeten?</a></label>
+                            <input type="submit" value="Aanmelden" name="submit">
+                        </div>
+
+                    </form>
+
                 </div>
 
-                <div>
-                    <label for="wachtwoord">wachtwoord</label>
-                    <input type="password" name="wachtwoord" required>
-                </div>
+        {% else %}
 
-                <div>
-                    <label><a href="#">Wachtwoord vergeten?</a></label>
-                    <input type="submit" value="Aanmelden" name="login">
-                </div>
-
-            </form>
-        {% endif %}
+        <div class="left">
+            <img src="images/profielfoto.jpg" class="profielfoto left">
+            <p class="left gebruikernaam">Justin Reynaert</p>
         </div>
 
+        <nav  class="clearfix right">
 
+            <ul class="clearfix">
+                <li><a href="gebruikerinstellingen.php" class="instellingen"></a>
+                    <ul>
+                        <li><a href="kenmerken.php">Kenmerken</a></li>
+                        <li><a href="voorkeuren.php">Voorkeuren</a></li>
+                        <li><a href="gebruikerinstellingen.php">gebruikerinstellingen</a></li>
+                    </ul>
+                    </li>
+                <li><a href="matches.php">Matches</a></li>
+                <li><a href="#">Placeholder</a></li>
+            </ul>
+         </nav>
+
+
+
+
+
+
+
+    {% endif %}
     </nav>
     </div>
 
