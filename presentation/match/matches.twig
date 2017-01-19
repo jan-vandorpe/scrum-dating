@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<!-- head twig bevat alle links naar script en css stylesheet -->
+{{ include('head.twig') }}
+
+<body>
+    {{ include('header.twig') }}
+    <!-- Standaard containers die gebruikt worden -->
+    <div class="container main clearfix">
+        <main class="clearfix">
+            <div class="matches">
+            <!-- hier komt match.twig een lijst van matches -->
+            {{ include('match/match.twig')}}
+            </div>
+        </main>
+    </div>
+    {{ include('footer.twig') }}
+</body>
+
+</html>

@@ -15,7 +15,6 @@ body {
     /* background-image: url(../images/texture.png); */
 }
 
-
 .container {
     width: 80%;
     margin: 0 auto;
@@ -30,11 +29,9 @@ header {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    position:relative;
+    position: relative;
     height: 200px;
     overflow: hidden;
-
-
 }
 
 header #logo {
@@ -44,6 +41,7 @@ header #logo {
     height: 100%;
     margin: 0 10px 20px 10px;
 }
+
 header #logo img {
     max-width: 100%;
     height: 100%;
@@ -54,14 +52,14 @@ header #slogan {
     margin-top: 40px;
 }
 
-header #slogan h1  {
+header #slogan h1 {
     color: #e45d6c;
-    font-family: "Overpass ",sans-serif;
+    font-family: "Overpass ", sans-serif;
     font-weight: 300;
     font-style: italic;
-    font-size: 3.75em; /* 3.75 * 16 = 60PX */
+    font-size: 3.75em;
+    /* 3.75 * 16 = 60PX */
     letter-spacing: -3px;
-
 }
 
 header #slogan h1 em {
@@ -72,6 +70,7 @@ header #slogan h1 em {
     letter-spacing: 0;
     font-weight: 600;
 }
+
 
 /* navigatie css */
 
@@ -99,10 +98,8 @@ header #slogan h1 em {
 }
 
 .login input {
-
     float: left;
     clear: both;
-
 }
 
 .login label {
@@ -114,7 +111,8 @@ header #slogan h1 em {
     text-decoration: none;
 }
 
-.login input[type=email], .login input[type=password] {
+.login input[type=email],
+.login input[type=password] {
     background-color: #ffc8ce;
     border: 1px solid #6c1b24;
     padding-top: 2px;
@@ -124,22 +122,19 @@ header #slogan h1 em {
     background-color: #952532;
     border-radius: 2px;
     color: #ffc8ce;
-    border:1px solid #6c1b24;
+    border: 1px solid #6c1b24;
     padding: 2px 10px 0 10px;
-
 }
+
 
 /* MAIN */
 
 main {
-
     background-color: white;
 }
 
 main h2 {
     margin-bottom: 20px;
-
-
 }
 
 main p {
@@ -148,76 +143,62 @@ main p {
     font-weight: bold;
 }
 
+
 /* 2 COL STRUCTURE */
 
+
 /* COL1 */
-.col1, .col2 {
+
+.col1,
+.col2 {
     box-sizing: border-box;
     padding: 10px;
-
 }
+
+
 /* COL2 */
 
 .col1 {
     width: 12.5%;
-
 }
+
 
 /* kolom navigatie */
-.profileNav {
-}
 
-.profileNav ul {
+.profileNav {}
 
-
-}
+.profileNav ul {}
 
 .profileNav ul li {
-
-
     width: 100%;
-
     box-sizing: border-box;
-
     display: block;
     cursor: pointer;
     padding: 15px 10px;
-
 }
 
 .profileNav ul li a {
-
     text-decoration: none;
     text-transform: uppercase;
     color: #ffc8ce;
     width: 100%;
-
 }
 
 .profileNav ul li a.active {
-
     padding-bottom: 3px;
     border-bottom: 1px dashed #ffc8ce;
 }
 
 .profileNav ul li:nth-child(odd) {
     background-color: #952532;
-
 }
 
 .profileNav ul li:nth-child(even) {
     background-color: #de3c4e;
-
 }
 
-
-
 .col2 {
-
     width: 87.5%;
-
-
-
 }
 
 .col {
@@ -234,23 +215,18 @@ main p {
     padding-right: 0;
 }
 
-
 .padbox {
     padding: 10px;
     background-color: #de3c4e;
 }
 
+
 /* footer */
 
 footer {
-
     background-color: #e45d6c;
     color: white;
 }
-
-
-
-
 
 
 /* OPMAAK FORMS VOORKEUREN / KENMERKEN */
@@ -260,12 +236,11 @@ main {
     min-height: 800px;
 }
 
-
-main label, fieldset {
+main label,
+fieldset {
     display: block;
     margin-bottom: 20px;
     margin-top: 20px;
-
 }
 
 main form p {
@@ -278,7 +253,8 @@ main form p {
     font-weight: normal;
 }
 
-main label:first-child, fieldset {
+main label:first-child,
+fieldset {
     margin-top: 0;
 }
 
@@ -286,8 +262,8 @@ select {
     margin-top: 20px;
 }
 
-
-main label input, main label select {
+main label input,
+main label select {
     float: right;
     display: block;
 }
@@ -302,7 +278,6 @@ fieldset {
 fieldset div {
     float: right;
     padding-left: 10px;
-
 }
 
 label em {
@@ -310,18 +285,22 @@ label em {
     font-style: normal;
 }
 
-input[type=text], input[type=date],  input[type=radio], input[type=submit], select{
+input[type=text],
+input[type=date],
+input[type=radio],
+input[type=submit],
+select {
     background-color: #881f2b;
     border: 1px solid #ffc8ce;
     padding-top: 2px;
     color: #ffc8ce;
     padding-left: 2px;
-
 }
-input[type=text], input[type=date], select {
 
+input[type=text],
+input[type=date],
+select {
     width: 200px;
-
 }
 
 main input[type=submit] {
@@ -335,8 +314,9 @@ main input[type=submit]:hover {
 
 
 /* chosen multibox */
+
 .chosen-container {
-    margin-top:20px;
+    margin-top: 20px;
     width: 100%;
 }
 
@@ -344,23 +324,26 @@ main input[type=submit]:hover {
 /* RADIO STYLING */
 
 
-
 /* RANGE SLIDER */
+
 input[type=range] {
     -webkit-appearance: none;
     margin: 18px 0;
-    width: 100%;}
+    width: 100%;
+}
+
 input[type=range]:focus {
     outline: none;
 }
+
 input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 4px;
     cursor: pointer;
     background: #881f2b;
 }
-input[type=range]::-webkit-slider-thumb {
 
+input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 20px;
     width: 5px;
@@ -369,15 +352,85 @@ input[type=range]::-webkit-slider-thumb {
     margin-top: -9px;
     border: 1px solid #ffc8ce;
 }
+
 input[type=range]:focus::-webkit-slider-runnable-track {
     background: #ffc8ce;
 }
 
 
+/******** Matches *********/
+
+
+/* Kleuren */
+
+.matches {
+    border-top-color: #ffc8ce;
+    background: #de3c4e;
+}
+
+ul {
+    border-bottom-color: #881f2b;
+     color: #881f2b;
+}
+
+
+/* Structuur */
+
+.matches {
+    border-top-style: solid;
+    border-top-width: 5px;
+   
+    /* outline: red 1px dotted;*/
+}
+
+.matches h1 {
+    margin: 1em;
+    text-align: center;
+}
+
+.matches .profielFoto {
+    width: 10em;
+    height: 10em;
+    /* outline: red 1px dotted;*/
+}
+
+.matches .profielFoto img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.matches ul {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    float: left;
+    list-style: none;
+    clear: left;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    width: 100%;
+}
+
+.matches ul:last-child {
+    border: none;
+}
+
+.matches ul li {
+    float: left;
+    margin-right: 1em;
+    clear: right;
+    /*width: 15%;*/
+}
+
+.matches .rechts{
+    float: right;
+}
 
 /******* GENERIC CSS *******/
 
+
 /* clearfix */
+
 .clearfix:after {
     visibility: hidden;
     display: block;
@@ -386,11 +439,25 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     clear: both;
     height: 0;
 }
-.clearfix { display: inline-block; }
+
+.clearfix {
+    display: inline-block;
+}
+
+
 /* start commented backslash hack \*/
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
+
+* html .clearfix {
+    height: 1%;
+}
+
+.clearfix {
+    display: block;
+}
+
+
 /* close commented backslash hack */
+
 
 /* Floats */
 

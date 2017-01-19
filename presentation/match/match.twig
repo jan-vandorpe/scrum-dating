@@ -1,0 +1,29 @@
+<h1>{{ titel }}</h1>
+{% for match in matches %}
+<ul>
+    <li class="profielFoto">
+        {% if match.foto != ""%}
+        <img src="images/profiel/{{match.foto}}"></img>
+        {% else %}
+        <img src="images/profiel/profiel.png"></img>
+        {% endif %}
+    </li>
+    <li>Naam: {{match.voornaam}} {{match.naam}}</li>
+    <li>Geboren op {{match.geboortedatum}}</li>
+    <li>Woont in {{match.stad}}</li>
+    {#Optioneele waarden moeten opgevangen worden.#}
+    <li>
+        {% if match.lengte != "" %} Hoogte: {{match.lengte}} cm {% endif %}
+    </li>
+    <li>{% if match.beroep != "" %} Beroep: {{match.beroep}} {% endif %}</li>
+    <li>{% if match.roker == "0" %} Geen roker {% else %} Roker {% endif %}</li>
+    <li>{% if match.aantalKinderen != "" %} Heeft {{match.aantalKinderen}} aantal kinderen {% endif %}</li>
+    <li>
+        Contact: {{match.email}}</li>
+    <li>
+        {% if match.persoonlijkheidsType == 0 %} Extreem introvert {% elseif match.persoonlijkheidsType == 1 %} Introvert {% elseif
+        match.persoonlijkheidsType == 2 %} Gebalanceerd {% elseif match.persoonlijkheidsType == 3 %} Extrovert {% elseif
+        match.persoonlijkheidsType == 4 %} Extreem extrovert {% endif %}
+    </li>
+</ul>
+{% endfor %}
