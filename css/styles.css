@@ -129,6 +129,119 @@ header #slogan h1 em {
 
 }
 
+.profielfoto {
+    display: block;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+}
+
+.gebruikernaam {
+    margin-top: 20px;
+}
+
+#topnav {
+    margin-right: 10px;
+}
+ #topnav ul {
+    list-style: none;
+
+
+ }
+
+ #topnav ul li {
+     display: inline-block;
+     box-sizing: border-box;
+     float: right;
+     margin-top: 20px;
+    position: relative;
+
+
+ }
+
+ #topnav a {
+     display: block;
+     color: #6c1b24;
+     text-decoration: none;
+     padding: 0 10px;
+
+ }
+
+ #topnav a:hover {
+     color: #e79d9d;
+ }
+
+ #topnav a.instellingen {
+     height: 40px;
+     width: 40px;
+     background-image: url('../images/gear.png');
+     background-repeat: no-repeat;
+     background-size: 100% 200%;
+     padding: 0;
+     margin-top: -10px;
+
+
+
+
+
+ }
+
+#topnav a.instellingen:hover {
+    background-position-y: -40px;
+
+
+
+}
+
+/* submenu */
+
+#topnav li > ul {
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    float: none;
+    top: 30px;
+    left: -126px;
+    display: none;
+
+
+
+
+
+
+
+
+}
+
+#topnav ul li:hover  > ul {
+    display: inline-block;
+
+
+}
+
+#topnav li > ul li {
+    clear: both;
+    margin: 0;
+    float: right;
+
+
+}
+#topnav li > ul a{
+    color: red;
+}
+
+#topnav li > ul a:hover {
+    color: orange;
+}
+
+#topnav li > ul li {
+    background-color: orange;
+    width: 100%;
+    text-align: right;
+    padding: 5px 0 5px 5px;
+}
+
+
 /* MAIN */
 
 main {
