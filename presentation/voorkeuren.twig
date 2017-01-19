@@ -28,19 +28,19 @@
             <div class="padbox clearfix">
                 <h2>Mijn voorkeuren</h2>
                 <p>In deze lijst stel je opties in die het matchen efficienter maken, hoe meer je instelt, hoe beter de match!</p>
-            <form action="voorkeuren.php" method="get">
+            <form action="voorkeuren.php" method="get" id="voorForm">
                 <div class="col left">
 
 
 
                     <label for="geboorteDatum">Geboortedatum
-                        <input type="date" name="geboortedatum" id="geboorteDatum">
+                        <input type="date" name="geboortedatum" id="geboorteDatum" title="geboortedatum in dd/mm/jjjj formaat">
                         <p>Geef hier je voorkeur geboortedatum in, dit moet in een dd/mm/jjjj formaat.</p>
                     </label>
 
                     <label for="Lengte">Lengte
-                        <input type="text" name="Lengte" id="Lengte">
-                        <p>Geef hier uw voorkeur lengte uitgedrukt in centimer.</p>
+                        <input type="text" name="Lengte" id="Lengte" title="lengte in centimeter">
+                        <p>Geef hier uw voorkeur lengte uitgedrukt in centimeter.</p>
                     </label>
 
 
@@ -67,7 +67,7 @@
                     </label>
 
                     <label for="persoonlijkheid">Introvert<em>Extrovert</em>
-                        <input type="range" min="1" max="5" step="1" value="3" name="persoonlijkheid" id="persoonlijkheid" class="range"/>
+                        <input type="range" min="1" max="5" step="1" value="3" name="persoonlijkheid" id="persoonlijkheid" class="range" title="introvert of extrovert">
                         <p>Verkiest u iemand intro of extrovert? Sleep de slider naar wat u verkiest.</p>
 
                     </label>
@@ -85,15 +85,15 @@
                     </div> -->
 
                      <fieldset>Roker?
-                          <div><input type="radio" name="roker" value="0" >Nee</div>
-                          <div><input type="radio" name="roker" value="1" class="radiotext">Ja</div>
+                          <div><input type="radio" name="roker" value="0" title="roker nee">Nee</div>
+                          <div><input type="radio" name="roker" value="1" title="roker ja">Ja</div>
                      </fieldset>
 
                      <p>Verkiest u een roker of niet roker? Als u onverschillig bent laat u de knoppen leeg.</p>
 
                     <fieldset>Kinderen?
-                        <div><input type="radio" name="Kinderen" value="0">Nee</div>
-                        <div><input type="radio" name="Kinderen" value="1">Ja</div>
+                        <div><input type="radio" name="Kinderen" value="0" title="kinderen nee">Nee</div>
+                        <div><input type="radio" name="Kinderen" value="1" kinderen="kinderen ja">Ja</div>
                     </fieldset>
 
                     <p>Vind je het een struikelblok als uw toekomstige partner al kinderen heeft? Als u onverschillig bent laat u de knoppen leeg.</p>
@@ -167,6 +167,8 @@
     }
 </script>
 
+<script src="library/vendor/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
+<script src="js/voorkeuren.js" type="text/javascript"></script>
 
 </body>
 </html>
