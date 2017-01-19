@@ -22,4 +22,9 @@ class GebruikerService
         $user = $GebruikerDAO->createUser($email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode,$stad, $voorkeurGeslacht);
         return $user;
     }
+    public function toonGebruiker($id){
+        $gebruikerDAO=new GebruikerDAO();
+        $gebruiker=$gebruikerDAO->getById($id);
+        return $gebruiker;
+    }
 }
