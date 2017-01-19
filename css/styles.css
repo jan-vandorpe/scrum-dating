@@ -11,8 +11,8 @@
 }
 
 body {
-    background-color: gray;
-    background-image: url(../images/texture.png);
+    background-color: #e45d6c;
+    /* background-image: url(../images/texture.png); */
 }
 
 
@@ -20,6 +20,7 @@ body {
     width: 80%;
     margin: 0 auto;
 }
+
 
 /* HEADER CSS */
 
@@ -41,7 +42,7 @@ header #logo {
     width: auto;
     float: left;
     height: 100%;
-    margin-right: 20px;
+    margin: 0 10px 20px 10px;
 }
 header #logo img {
     max-width: 100%;
@@ -131,10 +132,24 @@ header #slogan h1 em {
 /* MAIN */
 
 main {
-    margin-top: 20px;
-    background-color: #e45d6c;
+
+    background-color: white;
 }
+
+main h2 {
+    margin-bottom: 20px;
+
+
+}
+
+main p {
+    margin-bottom: 20px;
+    color: #881f2b;
+    font-weight: bold;
+}
+
 /* 2 COL STRUCTURE */
+
 /* COL1 */
 .col1, .col2 {
     box-sizing: border-box;
@@ -148,11 +163,60 @@ main {
 
 }
 
+/* kolom navigatie */
+.profileNav {
+}
+
+.profileNav ul {
+
+
+}
+
+.profileNav ul li {
+
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    display: block;
+    cursor: pointer;
+    padding: 15px 10px;
+
+}
+
+.profileNav ul li a {
+
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ffc8ce;
+    width: 100%;
+
+}
+
+.profileNav ul li a.active {
+
+    padding-bottom: 3px;
+    border-bottom: 1px dashed #ffc8ce;
+}
+
+.profileNav ul li:nth-child(odd) {
+    background-color: #952532;
+
+}
+
+.profileNav ul li:nth-child(even) {
+    background-color: #de3c4e;
+
+}
+
+
+
 .col2 {
 
     width: 87.5%;
 
-    
+
 
 }
 
@@ -163,11 +227,11 @@ main {
 }
 
 .col:first-child {
-    padding-left: 0px;
+    padding-left: 0;
 }
 
 .col:nth-child(2) {
-    padding-right: 0px;
+    padding-right: 0;
 }
 
 
@@ -179,7 +243,7 @@ main {
 /* footer */
 
 footer {
-    margin-top: 20px;
+
     background-color: #e45d6c;
     color: white;
 }
@@ -189,23 +253,64 @@ footer {
 
 
 
-/* OPMAAK FORMS */
+/* OPMAAK FORMS VOORKEUREN / KENMERKEN */
 
-main label {
-    display: block;
-    margin-bottom: 20px;
+main {
+    color: #ffc8ce;
+    min-height: 800px;
 }
 
-main label input, main label select, fieldset {
+
+main label, fieldset {
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+
+main form p {
+    box-sizing: border-box;
+    display: block;
+    margin-top: 20px;
+    max-width: 70%;
+    font-size: 0.8em;
+    color: #881f2b;
+    font-weight: normal;
+}
+
+main label:first-child, fieldset {
+    margin-top: 0;
+}
+
+select {
+    margin-top: 20px;
+}
+
+
+main label input, main label select {
     float: right;
     display: block;
 }
 
 fieldset {
+    float: left;
     border: none;
+    clear: both;
+    width: 100%;
 }
 
-input[type=text], input[type=date],  input[type=radio]{
+fieldset div {
+    float: right;
+    padding-left: 10px;
+
+}
+
+label em {
+    float: right;
+    font-style: normal;
+}
+
+input[type=text], input[type=date],  input[type=radio], input[type=submit], select{
     background-color: #881f2b;
     border: 1px solid #ffc8ce;
     padding-top: 2px;
@@ -213,13 +318,30 @@ input[type=text], input[type=date],  input[type=radio]{
     padding-left: 2px;
 
 }
-input[type=text], input[type=date] {
+input[type=text], input[type=date], select {
 
     width: 200px;
 
 }
 
+main input[type=submit] {
+    padding: 3px 10px;
+    cursor: pointer;
+}
 
+main input[type=submit]:hover {
+    background-color: black;
+}
+
+
+/* chosen multibox */
+.chosen-container {
+    margin-top:20px;
+    width: 100%;
+}
+
+
+/* RADIO STYLING */
 
 
 
@@ -233,84 +355,26 @@ input[type=range]:focus {
 }
 input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
-    height: 8.4px;
+    height: 4px;
     cursor: pointer;
-    animate: 0.2s;
-    box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;
-    background: #3071a9;
-    border-radius: 1.3px;
-    border: 0.2px solid #010101;
+    background: #881f2b;
 }
 input[type=range]::-webkit-slider-thumb {
-    box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;
-    border: 1px solid #000000;
-    height: 36px;
-    width: 16px;
-    border-radius: 3px;
-    background: #ffffff;
-    cursor: pointer;
+
     -webkit-appearance: none;
-    margin-top: -14px;
+    height: 20px;
+    width: 5px;
+    background: #881f2b;
+    cursor: pointer;
+    margin-top: -9px;
+    border: 1px solid #ffc8ce;
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #367ebd;
+    background: #ffc8ce;
 }
-input[type=range]::-moz-range-track {
-    width: 100%;
-    height: 8.4px;
-    cursor: pointer;
-    animate: 0.2s;
-    box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;
-    background: #3071a9;
-    border-radius: 1.3px;
-    border: 0.2px solid #010101;
-}
-input[type=range]::-moz-range-thumb {
-    box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;
-    border: 1px solid #000000;
-    height: 36px;
-    width: 16px;
-    border-radius: 3px;
-    background: #ffffff;
-    cursor: pointer;
-}
-input[type=range]::-ms-track {
-    width: 100%;
-    height: 8.4px;
-    cursor: pointer;
-    animate: 0.2s;
-    background: transparent;
-    border-color: transparent;
-    border-width: 16px 0;
-    color: transparent;
-}
-input[type=range]::-ms-fill-lower {
-    background: #2a6495;
-    border: 0.2px solid #010101;
-    border-radius: 2.6px;
-    box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;
-}
-input[type=range]::-ms-fill-upper {
-    background: #3071a9;
-    border: 0.2px solid #010101;
-    border-radius: 2.6px;
-    box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;
-}
-input[type=range]::-ms-thumb {
-    box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;
-    border: 1px solid #000000;
-    height: 36px;
-    width: 16px;
-    border-radius: 3px;
-    background: #ffffff;
-    cursor: pointer;
-}
-input[type=range]:focus::-ms-fill-lower {
-    background: #3071a9;
-}
-input[type=range]:focus::-ms-fill-upper {
-    background: #367ebd;
-}
+
+
+
 /******* GENERIC CSS *******/
 
 /* clearfix */
