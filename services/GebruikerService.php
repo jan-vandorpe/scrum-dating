@@ -19,7 +19,15 @@ class GebruikerService
                                 $stad,$voorkeurGeslacht)                           //verwijst naar functie createUser in daogebruiker.php voor aanmaken gebruiker
     {        
         $GebruikerDAO = new GebruikerDAO();
-        $user = $GebruikerDAO->createUser($email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode,$stad, $voorkeurGeslacht);
-        return $user;
+        $gebruiker = $GebruikerDAO->createUser($email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode,$stad, $voorkeurGeslacht);
+        return $gebruiker;
+    }
+    
+    public function getById($id)
+    {
+        $GebruikerDAO = new GebruikerDao();
+        $Gebruiker = $GebruikerDAO ->getById($id);
+        return $Gebruiker;
+        
     }
 }

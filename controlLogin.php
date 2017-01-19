@@ -1,11 +1,11 @@
 <?php
-
+session_start();
 require_once 'library/vendor/Twig/Autoloader.php';
 require_once 'services/GebruikerService.php';
  
 Twig_Autoloader::register();
 //initialize twig environment
-session_start();
+
 $loader = new Twig_Loader_Filesystem('presentation');
 $twig = new Twig_Environment($loader);
 
@@ -34,17 +34,17 @@ if (isset($_POST['login']))
 
     if ($loginCheck == false) 
     {   
-        $view = $twig->render('index2.twig');
+        print "false";
+        $view = $twig->render('login.twig');
         print($view);  
         exit(0);
        
     }
-    else {        
-        $_SESSION["login"] = $loginCheck;
-        $login = $loginCheck;
-        $view = $twig->render('index2.twig', array('login' => $login));
-        print($view);
-        
+    else 
+        {   
+        $_SESSION['gebruikerId'] = $loginCheck;    
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+       
         exit(0);
     }
 }

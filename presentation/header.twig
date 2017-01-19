@@ -10,6 +10,9 @@
     </header>
     <nav id="topnav" class="">
         <div class="login right">
+              {% if gebruiker %}
+            <p> U bent ingelogd, {{gebruiker.naam}}</p>
+            {% else %} 
             <form action="controlLogin.php" method="post">
                 <div>
                     <label for="email">Email</label>
@@ -27,7 +30,7 @@
                 </div>
 
             </form>
-
+        {% endif %}
         </div>
 
 

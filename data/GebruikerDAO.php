@@ -16,7 +16,7 @@ class GebruikerDAO
        //Kijken als de inloggegevens kloppen, zoja worden de gegevens van die gebruiker doorgegeven
 
         
-        $sql = "SELECT * FROM gebruiker WHERE email = :email";  
+        $sql = "SELECT gebruikerId,wachtwoord FROM gebruiker WHERE email = :email";  
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sql); 
         $stmt->execute(array(':email' => $email));
@@ -24,22 +24,15 @@ class GebruikerDAO
         $dbWachtwoord = $rij['wachtwoord'];
       
         
-        $isJuisteWachtwoord = password_verify($wachtwoord, $dbWachtwoord);
-        //kijk als er effectief een rij is uit de DB gehaald, false wil zeggen dat de gegevens niet klopten en dus geen resultaten meegeeft
+        $isJuisteWachtwoord = password_verify($wachtwoord, $dbWachtwoord);      
+        
         if ($isJuisteWachtwoord == false) 
         { 
             return $login = false; //login mislukt
-        }
-        
-        //maak nieuw object gebruiker aan met al zijn gegevens uit de rij apart doorgegeven 
+        }      
         else 
         {  
-            $Gebruiker = Gebruiker::create($rij["gebruikerId"], $rij["email"], $rij["geslacht"], $rij["wachtwoord"], $rij["geboorteDatum"], $rij["naam"],
-                $rij["voornaam"], $rij["postcode"], $rij["stad"], $rij["lengte"], $rij["lichaamsbouwId"], $rij["hOplNiveauId"],
-                $rij["beroep"], $rij["etnischeAchtergrondId"], $rij["roker"], $rij["oogkleurId"], $rij["aantalKinderen"], $rij["haarkleurId"],
-                $rij["foto"], $rij["persoonlijkheidsType"], $rij["voorkeurGeboorteDatum"], $rij["voorkeurLengte"], $rij["voorkeurLichaamsbouw"],
-                $rij["voorkeurOpleidingsNiveau"], $rij["voorkeurRoker"], $rij["voorkeurKinderen"], $rij["voorkeurPersoonlijkheidsType"], $rij["voorkeurGeslacht"]);
-            return $Gebruiker; //doorgeven van het object voor verder gebruik
+            return $login = $rij['gebruikerId']; //login gelukt  
         }
         $dbh = null; //verbreken van connectie met DB
     }
@@ -73,7 +66,7 @@ class GebruikerDAO
         $stmt=$dbh->prepare($sql);
         $stmt->execute(array(':id'=>$id));
         $rij=$stmt->fetch(PDO::FETCH_ASSOC);
-        $gebruiker=$gebruiker = Gebruiker::create($rij["gebruikerId"], $rij["email"], $rij["geslacht"], $rij["wachtwoord"], $rij["geboorteDatum"], $rij["naam"],
+        $gebruiker = Gebruiker::create($rij["gebruikerId"], $rij["email"], $rij["geslacht"], $rij["wachtwoord"], $rij["geboorteDatum"], $rij["naam"],
             $rij["voornaam"], $rij["postcode"], $rij["stad"], $rij["lengte"], $rij["lichaamsbouwId"], $rij["hOplNiveauId"],
             $rij["beroep"], $rij["etnischeAchtergrondId"], $rij["roker"], $rij["oogkleurId"], $rij["aantalKinderen"], $rij["haarkleurId"],
             $rij["foto"], $rij["persoonlijkheidsType"], $rij["voorkeurGeboorteDatum"], $rij["voorkeurLengte"], $rij["voorkeurLichaamsbouw"],
