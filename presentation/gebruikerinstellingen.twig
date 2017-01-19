@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+{{ include('head.twig') }}
+
+<body>
+
+
+
+
+    {{ include('header.twig') }}
+
+    <div class="container main clearfix">
+    <main class="clearfix">
+        <div class="col1 left">
+
+                <nav class="profileNav">
+                   <ul>
+                        <li><a href="kenmerken.php">Kenmerken</a></li>
+                        <li><a href="voorkeuren.php">Voorkeuren</a></li>
+                        <li><a class="active" href="gebruikerinstellingen.php">Instellingen</a></li>
+                   </ul>
+               </nav>
+
+        </div>
+
+
+        <div class="col2 right">
+            <div class="padbox clearfix">
+                <h2>Instellingen</h2>
+                <p>Opties</p>
+
+                <p><em>Wachtwoord wijzigen<em></p>
+
+
+
+            </div>
+         </div>
+
+    </main>
+    </div>
+
+    {{ include('footer.twig') }}
+
+
+
+
+
+
+<!-- Config van Chosen -->
+<script type="text/javascript">
+    var config = {
+        '.chosen-select'           : {},
+        '.chosen-select-deselect'  : {allow_single_deselect:true},
+        '.chosen-select-no-single' : {disable_search_threshold:10},
+        '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+        '.chosen-select-width'     : {width:"100px"}
+    };
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+</script>
+
+
+</body>
+</html>
