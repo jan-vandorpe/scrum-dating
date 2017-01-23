@@ -35,7 +35,7 @@
 
                     <label for="geboorteDatum">Geboortedatum
                         <input type="date" name="geboortedatum" id="geboorteDatum" value="{{ gebruiker.geboorteDatum}}">
-                        <p>Geef hier je geboortedatum in, dit moet in een dd/mm/jjjj formaat.</p>
+                        <p>Geef hier je geboortedatum in, dit moet in een dd/mm/jjjj formaat. {{ gebruiker.geboorteDatum}}</p>
                     </label>
 
                     <label for="Lengte">Lengte
@@ -58,7 +58,7 @@
                         <select data-placeholder="Kies voorkeur {{ titelopleidingsniveau }} (je kan meerdere selecteren)" tabindex="2" name="{{ opleidingName }}" id="{{ opleidingName }}" >
 
                         {% for opleidingsniveau in opleidingsNiveaus %}
-                            {% if opleidingsniveau.oplNiveauId == gebruiker.hOplNiveaId %}
+                            {% if opleidingsniveau.oplNiveauId == gebruiker.hOplNiveauId %}
                                 <option value="{{ opleidingsniveau.oplNiveauId }}" selected>{{ opleidingsniveau.opleidingsNiveau }}</option>
                             {% else %}
                                 <option value="{{ opleidingsniveau.oplNiveauId }}">{{ opleidingsniveau.opleidingsNiveau }}</option>
@@ -100,7 +100,7 @@
 
                      <p>Verkiest u een roker of niet roker? Als u onverschillig bent laat u de knoppen leeg.</p>
 
-                     {% if gebruiker.kinderen > 0 %}
+                     {% if gebruiker.aantalKinderen > 0 %}
 
                         <fieldset>Kinderen?
                             <div><input type="radio" name="kinderen" value="0">Nee</div>
