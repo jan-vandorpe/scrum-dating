@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'services/GebruikerService.php';
 // services opvulling lijsten
 require_once 'services/HaarkleurService.php';
@@ -13,6 +14,16 @@ $loader = new Twig_Loader_Filesystem('presentation');
 //laad nieuwe Twig Environment vanuit die map
 $twig = new Twig_Environment($loader);
 // haarkleur toevoegen
+
+if (isset($_SESSION["gebruikerId"])) 
+{   
+    $gid= (int)$_SESSION["gebruikerId"];
+    $gebruikerSvc = new GebruikerService();
+    $gebruiker=$gebruikerSvc->getById($gid);
+    $aTwig["gebruiker"]=$gebruiker;  
+}
+
+
 $haarkleurSvc=new HaarkleurService();
 $haarkleurLijst=$haarkleurSvc->toonAlleHaarkleuren();
 $aTwig["haarkleuren"]=$haarkleurLijst;
@@ -42,6 +53,10 @@ $opleidingsNiveausLijst=$opleidingsNiveausSvc->toonAlleOpleidingsniveaus();
 $aTwig["opleidingsNiveaus"]=$opleidingsNiveausLijst;
 $aTwig["titelopleidingsniveau"]="Opleidingsniveau";
 $aTwig["opleidingName"] ="opleidingsniveau";
+
+
+
+
 $view = $twig->render('kenmerken.twig',$aTwig);
 //toon de pagina
 print($view);
