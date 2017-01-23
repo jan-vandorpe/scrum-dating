@@ -27,7 +27,24 @@ class GebruikerService
     {
         $GebruikerDAO = new GebruikerDao();
         $Gebruiker = $GebruikerDAO ->getById($id);
-        return $Gebruiker;
+        return $Gebruiker;        
+    }
+    
+    public function updateUserKenmerken($id,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$oogkleur,$haarkleur,$etniciteit)
+    {
+ 
+        $GebruikerDAO = new GebruikerDAO();
+        $Gebruiker = $GebruikerDAO->getById($id);
         
+        $Gebruiker->setLengte($lengte);
+        $Gebruiker->setHOplNiveauId($opleidingsNiveau);
+        $Gebruiker->setPersoonlijkheidsType($persoonlijkheid);
+        $Gebruiker->setRoker($roker);
+        $Gebruiker->setAantalKinderen($kinderen);
+        $Gebruiker->setOogkleurId($oogkleur);
+        $Gebruiker->setHaarkleurId($haarkleur);
+        $Gebruiker->setEtnischeAchtergrondId($etniciteit);
+        
+        $GebruikerDAO->updateUserKenmerken($Gebruiker);              
     }
 }
