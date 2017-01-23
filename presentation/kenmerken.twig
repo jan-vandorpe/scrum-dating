@@ -28,18 +28,18 @@
             <div class="padbox clearfix">
                 <h2>Mijn kenmerken</h2>
                 <p>In deze lijst stelt u, uw eigen kenmerken in. Als je een kenmerk niet wil invullen, dan laat je die leeg.</p>
-            <form action="voorkeuren.php" method="get">
+            <form action="kenmerken.php" method="get">
                 <div class="col left">
 
 
 
-                    <!-- <label for="geboorteDatum">Geboortedatum
-                        <input type="date" name="geboortedatum" id="geboorteDatum">
-                        <p>Geef hier je voorkeur geboortedatum in, dit moet in een dd/mm/jjjj formaat.</p>
-                    </label> -->
+                    <label for="geboorteDatum">Geboortedatum
+                        <input type="date" name="geboortedatum" id="geboorteDatum" value="{{ gebruiker.geboorteDatum}}">
+                        <p>Geef hier je geboortedatum in, dit moet in een dd/mm/jjjj formaat. {{ gebruiker.geboorteDatum}}</p>
+                    </label>
 
                     <label for="Lengte">Lengte
-                        <input type="text" name="Lengte" id="Lengte">
+                        <input type="text" name="lengte" id="Lengte" value="{{ gebruiker.lengte }}">
                         <p>Geef hier uw voorkeur lengte uitgedrukt in centimer.</p>
                     </label>
 
@@ -55,10 +55,14 @@
                     </label> #}
 
                      <label for="opleidingsniveau">{{ titelopleidingsniveau }}
-                        <select data-placeholder="Kies voorkeur {{ titelopleidingsniveau }} (je kan meerdere selecteren)" tabindex="2" name="{{ opleidingsName }}" id="{{ opleidingsName }}">
+                        <select data-placeholder="Kies voorkeur {{ titelopleidingsniveau }} (je kan meerdere selecteren)" tabindex="2" name="{{ opleidingName }}" id="{{ opleidingName }}" >
 
                         {% for opleidingsniveau in opleidingsNiveaus %}
-                            <option value="{{ opleidingsniveau.oplNiveauId }}">{{ opleidingsniveau.opleidingsNiveau }}</option>
+                            {% if opleidingsniveau.oplNiveauId == gebruiker.hOplNiveauId %}
+                                <option value="{{ opleidingsniveau.oplNiveauId }}" selected>{{ opleidingsniveau.opleidingsNiveau }}</option>
+                            {% else %}
+                                <option value="{{ opleidingsniveau.oplNiveauId }}">{{ opleidingsniveau.opleidingsNiveau }}</option>
+                            {% endif %}
                         {% endfor %}
 
                         </select>
@@ -67,7 +71,7 @@
                     </label>
 
                     <label for="persoonlijkheid">Introvert<em>Extrovert</em>
-                        <input type="range" min="1" max="5" step="1" value="3" name="persoonlijkheid" id="persoonlijkheid" class="range"/>
+                        <input type="range" min="1" max="5" step="1" value="{{ gebruiker.persoonlijkheidsType }}" name="persoonlijkheid" id="persoonlijkheid" class="range"/>
                         <p>Verkiest u iemand intro of extrovert? Sleep de slider naar wat u verkiest.</p>
 
                     </label>
@@ -85,39 +89,65 @@
                    </div> -->
 
                      <fieldset>Roker?
-                          <div><input type="radio" name="roker" value="0" >Nee</div>
-                          <div><input type="radio" name="roker" value="1" class="radiotext">Ja</div>
+                        {% if gebruiker.roker == 0 %}
+                            <div><input type="radio" name="roker" value="0" checked>Nee</div>
+                            <div><input type="radio" name="roker" value="1" >Ja</div>
+                        {% else %}
+                            <div><input type="radio" name="roker" value="0" >Nee</div>
+                            <div><input type="radio" name="roker" value="1" checked>Ja</div>
+                        {% endif %}
                      </fieldset>
 
                      <p>Verkiest u een roker of niet roker? Als u onverschillig bent laat u de knoppen leeg.</p>
 
-                    <fieldset>Kinderen?
-                        <div><input type="radio" name="Kinderen" value="0">Nee</div>
-                        <div><input type="radio" name="Kinderen" value="1">Ja</div>
-                    </fieldset>
-                    <label>Hoeveel kinderen heeft u?
-                    <input type="text" value="" placeholder="Aantal Kinderen"></label>
+                     {% if gebruiker.aantalKinderen > 0 %}
 
+                        <fieldset>Kinderen?
+                            <div><input type="radio" name="kinderen" value="0">Nee</div>
+                            <div><input type="radio" name="kinderen" value="1" checked>Ja</div>
+                        </fieldset>
+
+                        <label>Hoeveel kinderen heeft u?
+                        <input type="text" value="{{ gebruiker.aantalKinderen }}" placeholder="Aantal Kinderen"></label>
+
+                    {% else %}
+                        
+                        <fieldset>Kinderen?
+                            <div><input type="radio" name="kinderen" value="0" checked>Nee</div>
+                            <div><input type="radio" name="kinderen" value="1">Ja</div>
+                        </fieldset>
+
+                    {% endif %}
+                   
                     <p>Vind je het een struikelblok als uw toekomstige partner al kinderen heeft? Als u onverschillig bent laat u de knoppen leeg.</p>
 
 
 
                     <label for="{{ titeloogkleur }}">{{ titeloogkleur }}
-                        <select data-placeholder="Kies een voorkeur {{ titeloogkleur }}" tabindex="2" name="{{ titeloogkleur }}" id="{{ titeloogkleur }}">
+                        <select data-placeholder="Kies een voorkeur {{ titeloogkleur }}" tabindex="2" name="{{ oogkleurName }}" id="{{ titeloogkleur }}">
 
                         {% for oogkleur in oogkleuren %}
-                            <option value="{{ oogkleur.oogkleurId }}">{{ oogkleur.oogkleur }}</option>
+                            {% if oogkleur.oogkleurId == gebruiker.oogkleurId %}
+                                <option value="{{ oogkleur.oogkleurId }}" selected>{{ oogkleur.oogkleur }}</option>
+                            {% else %}
+                                <option value="{{ oogkleur.oogkleurId }}">{{ oogkleur.oogkleur }}</option>
+                            {% endif %}
                         {% endfor %}
 
                         </select>
                         <p>Selecteer hier de mooiste oogkleuren.</p>
+
                     </label>
 
-                    <label for="haarkleuren">{{ titelhaar }}
-                        <select data-placeholder="Kies voorkeur {{ titelhaar }}" tabindex="2" name="{{ titelhaar }}" id="{{ titelhaar }}">
+                    <label for="haarkleuren">{{ titelhaarkleur }}
+                        <select data-placeholder="Kies voorkeur {{ titelhaarkleur }}" tabindex="2" name="{{ haarkleurName }}" id="{{ titelhaarkleur }}">
 
                         {% for haarkleur in haarkleuren %}
-                            <option value="{{ haarkleur.haarkleurId }}">{{ haarkleur.haarkleur }}</option>
+                            {% if haarkleur.haarkleurId == gebruiker.haarkleurId %}
+                                <option value="{{ haarkleur.haarkleurId }}" selected>{{ haarkleur.haarkleur }}</option>
+                            {% else %}
+                                <option value="{{ haarkleur.haarkleurId }}">{{ haarkleur.haarkleur }}</option>
+                            {% endif %}
                         {% endfor %}
 
                         </select>
@@ -131,7 +161,11 @@
                         <select data-placeholder="Kies voorkeur {{ titeletnachtergronden }}" tabindex="2" name="{{ etnName }}" id="{{ etnName }}">
 
                             {% for etnischeachtergrond in etnAchtergronden %}
-                                <option value="{{ etnischeachtergrond.etnischeAchtergrondId }}">{{ etnischeachtergrond.etnischeAchtergrond }}</option>
+                                    {% if etnischeachtergrond.etnischeAchtergrondId == gebruiker.etnischeAchtergrondId %}
+                                        <option value="{{ etnischeachtergrond.etnischeAchtergrondId }}" selected>{{ etnischeachtergrond.etnischeAchtergrond }}</option>
+                                    {% else %}
+                                         <option value="{{ etnischeachtergrond.etnischeAchtergrondId }}">{{ etnischeachtergrond.etnischeAchtergrond }}</option>
+                                     {% endif %}
                             {% endfor %}
 
                         </select>
@@ -140,7 +174,7 @@
                     </label>
             </div>
 
-            <input type="submit" value="Opslaan">
+            <input type="submit" value="Opslaan" name="updateKenmerken">
         </form>
 
         </div>

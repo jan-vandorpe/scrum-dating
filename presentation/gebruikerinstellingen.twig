@@ -31,6 +31,22 @@
 
                 <p><em>Wachtwoord wijzigen<em></p>
 
+                <form action="#" action="post">
+                    <label for="oudWW">Oud Wachtwoord
+                        <input type="password" name="oudWW">
+                    </label>
+                    <label for="nieuwWW">Nieuw Wachtwoord
+                        <input type="password" name="nieuwWW">
+                    </label>
+                    <label for="nieuwWW2">Herhaal Nieuw Wachtwoord
+                        <input type="password" name="nieuwWW2">
+                    </label>
+
+                    <input type="submit" name="wwWijzigen">
+
+                </form>
+
+
 
 
             </div>
@@ -41,24 +57,6 @@
 
     {{ include('footer.twig') }}
 
-
-
-
-
-
-<!-- Config van Chosen -->
-<script type="text/javascript">
-    var config = {
-        '.chosen-select'           : {},
-        '.chosen-select-deselect'  : {allow_single_deselect:true},
-        '.chosen-select-no-single' : {disable_search_threshold:10},
-        '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
-        '.chosen-select-width'     : {width:"100px"}
-    };
-    for (var selector in config) {
-        $(selector).chosen(config[selector]);
-    }
-</script>
 
 
 </body>

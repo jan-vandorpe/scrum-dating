@@ -42,8 +42,16 @@ class GebruikerDAO
     //haal alle gebruikers uit de database Datingsite
     public function getAllUsers()
     {
-        $sql = "SELECT *
-              FROM gebruiker order by naam asc";
+        $sql = "SELECT gebruiker.gebruikerId as id,email,geslacht,wachtwoord,geboorteDatum as leeftijd,naam,voornaam,postcode,stad,lengte,lichaamsbouwId,
+                gebruiker.hOplNiveauId,opleidingsniveaus.opleidingsNiveau as opleiding,beroep,etnischeachtergronden.etnischeAchtergrondId as achtergrond,roker,
+                oogkleuren.oogkleur,aantalKinderen as kinderen,haarkleuren.haarkleur,foto,persoonlijkheidsType as type,voorkeurGeboortedatum as voorkeur leeftijd,voorkeurLengte as vkLengte,
+                opleidingsniveaus.opleidingsNiveau as vkOpleiding,voorkeurRoker,voorkeurKinderen,voorkeurPersoonlijkheidsType as vkType,voorkeurGeslacht as vkGeslacht
+              FROM gebruiker,opleidingsniveaus,etnischeachtergronden,haarkleuren,oogkleuren
+              where gebruiker.opleidingshOplNiveauId=opleidingsniveaus.oplNiveauId,
+              where gebruiker.etnischeAchtergrondId=etnischeachtergronden.etnischeAchtergrondId,
+              where gebruiker.gebruikerId=voorkeuretnischeachtergrond.gebruikerId,
+              where gebruiker.oogkleurId=oogkleuren.oogkleurId,
+              where gebruiker.haarkleurId=haarkleuren.haarkleurId";
         $dbh = new PDO(DBCONFIG::$DB_CONNSTRING, DBCONFIG::$DB_USERNAME, DBCONFIG::$DB_PASSWORD);
         $resultSet = $dbh->query($sql);
         $lijst = array();
@@ -73,6 +81,29 @@ class GebruikerDAO
             $rij["voorkeurOpleidingsNiveau"], $rij["voorkeurRoker"], $rij["voorkeurKinderen"], $rij["voorkeurPersoonlijkheidsType"], $rij["voorkeurGeslacht"]);
         $dbh=null;
         return $gebruiker;
+    }
+    public function getVoorkeurenGebruiker($id){
+        $sql="select a.gebruikerId,a.voornaam,a.naam,b.oogkleur,a.voorkeurGeboortedatum,
+              a.voorkeurLengte,a.voorkeurRoker,c.haarkleur,d.etnischeAchtergrond,
+              e.opleidingsNiveau,a.voorkeurGeslacht,a.voorkeurKinderen,a.voorkeurPersoonlijkheidsType
+              FROM gebruiker a
+              inner join (voorkeuroogkleur f inner join oogkleuren b
+                          on f.oogkleurId=b.oogkleurId)
+			              on a.gebruikerId=f.gebruikerId
+              inner join(voorkeurhaarkleur j inner join haarkleuren c
+                          on j.haarkleurId=c.haarkleurId)
+		                  on a.gebruikerId=j.gebruikerId
+              inner join (voorkeuretnischeachtergrond k inner join etnischeachtergronden d
+                          on k.etnischeAchtergrondId=d.etnischeAchtergrondId)
+			              on a.gebruikerId=k.gebruikerId
+              inner join opleidingsniveaus e on a.hOplNiveauId=e.oplNiveauId
+              where a.gebruikerId=:id";
+        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
+        $stmt=$dbh->prepare($sql);
+        $stmt->execute(array(':id'=>$id));
+        $rij=$stmt->fetch(PDO::FETCH_ASSOC);
+        $dbh=null;
+
     }
     //haal wachtwoord uit de database
    public function getPassword($email)

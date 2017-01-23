@@ -47,4 +47,9 @@ class GebruikerService
         
         $GebruikerDAO->updateUserKenmerken($Gebruiker);              
     }
+    public function toonGebruiker($id){
+        $gebruikerDAO=new GebruikerDAO();
+        $gebruiker=$gebruikerDAO->getById($id);
+        return $gebruiker;
+    }
 }

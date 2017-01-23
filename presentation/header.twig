@@ -37,7 +37,7 @@
 
         <div class="left">
             <img src="images/profielfoto.jpg" class="profielfoto left">
-            <p class="left gebruikernaam">Justin Reynaert</p>
+            <p class="left gebruikernaam">{{ gebruiker.voornaam }} {{ gebruiker.naam }}</p>
         </div>
 
         <nav  class="clearfix right">
@@ -48,6 +48,7 @@
                         <li><a href="kenmerken.php">Kenmerken</a></li>
                         <li><a href="voorkeuren.php">Voorkeuren</a></li>
                         <li><a href="gebruikerinstellingen.php">gebruikerinstellingen</a></li>
+                        <li><a href="loguit.php">Afmelden</a></p>
                     </ul>
                     </li>
                 <li><a href="matches.php">Matches</a></li>
@@ -55,13 +56,8 @@
             </ul>
          </nav>
 
-
-
-
-
-
-
-    {% endif %}
+        {% endif %}
+        
     </nav>
     </div>
 
