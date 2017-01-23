@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once 'services/GebruikerService.php';
 
 // services opvulling lijsten
@@ -23,7 +23,7 @@ $haarkleurSvc=new HaarkleurService();
 $haarkleurLijst=$haarkleurSvc->toonAlleHaarkleuren();
 
 $aTwig["haarkleuren"]=$haarkleurLijst;
-$aTwig["titelhaar"]="Haarkleur";
+$aTwig["titelhaar"]="haarkleur";
 
 
 // oogkleur toevoegen
@@ -31,7 +31,7 @@ $oogkleurSvc=new OogkleurService();
 $oogkleurLijst=$oogkleurSvc->toonAlleOogkleuren();
 
 $aTwig["oogkleuren"]=$oogkleurLijst;
-$aTwig["titeloogkleur"]="Oogkleur";
+$aTwig["titeloogkleur"]="oogkleur";
 
 // lichaamstypes toevoegen
 $lichaamsSvc=new LichaamstypeService();
@@ -48,7 +48,7 @@ $etnAchtergrondLijst=$etnAchtergrondSvc->toonAlleAchtergronden();
 
 $aTwig["etnAchtergronden"]=$etnAchtergrondLijst;
 $aTwig["titeletnachtergronden"]="Etnische Achtergrond";
-$aTwig["etnName"] ="Etniciteit";
+$aTwig["etnName"] ="etniciteit";
 
 // opleidingsniveaus ophalen
 $opleidingsNiveausSvc=new OpleidingsniveauService();
@@ -66,3 +66,24 @@ $view = $twig->render('kenmerken.twig',$aTwig);
 
 //toon de pagina
 print($view);
+
+//database updaten
+if (isset($_POST['updateKenmerken']))
+{
+   $gebruikerId = (int) $_SESSION["gebruikerId"];
+   $lengte = $_POST['lengte']; 
+   $opleidingsNiveau = $_POST['opleidingsniveau'];
+   $persoonlijkheid = $_POST['persoonlijkheid'];
+   $roker = $_POST['roker'];
+   $kinderen = $_POST['kinderen'];
+   $oogkleur = $_POST['oogkleur'];
+   $haarkleur = $_POST['haarkleur'];
+   $etniciteit = $_POST['etniciteit'];
+  
+
+
+   $gebruikerSVC = new GebruikerService;  
+   $gebruikerSVC -> updateUserKenmerken($gebruikerId,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$oogkleur,$haarkleur,$etniciteit);
+   exit(0);
+}
+
