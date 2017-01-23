@@ -34,12 +34,27 @@
 
 
                     <label for="geboorteDatum">Geboortedatum
-                        <input type="date" name="geboortedatum" id="geboorteDatum" title="geboortedatum in dd/mm/jjjj formaat">
+                        {% if gebruiker.voorkeurGeboorteDatum %}
+
+                            <input type="date" name="geboortedatum" id="geboorteDatum" title="geboortedatum in dd/mm/jjjj formaat" value="{{ gebruiker.voorkeurGeboorteDatum }}">
+
+                        {% else %}
+
+                            <input type="date" name="geboortedatum" id="geboorteDatum" title="geboortedatum in dd/mm/jjjj formaat">
+
+                        {% endif %}
+
                         <p>Geef hier je voorkeur geboortedatum in, dit moet in een dd/mm/jjjj formaat.</p>
+
                     </label>
 
                     <label for="Lengte">Lengte
-                        <input type="text" name="Lengte" id="Lengte" title="lengte in centimeter">
+                        {% if gebruiker.voorkeurLengte %}
+                            <input type="text" name="Lengte" id="Lengte" title="lengte in centimeter" value="{{ gebruiker.voorkeurLengte }}">
+                        {% else %}
+                            <input type="text" name="Lengte" id="Lengte" title="lengte in centimeter">
+                        {% endif %}
+
                         <p>Geef hier uw voorkeur lengte uitgedrukt in centimeter.</p>
                     </label>
 
@@ -55,15 +70,25 @@
                     </label> #}
 
                      <label for="opleidingsniveau">{{ titelopleidingsniveau }}
-                        <select data-placeholder="Kies voorkeur {{ titelopleidingsniveau }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%; margin-top: 20px;" tabindex="2" name="{{ opleidingsName }}" id="{{ opleidingsName }}">
+                        <select data-placeholder="Kies voorkeur {{ titelopleidingsniveau }} (je kan meerdere selecteren)" tabindex="2" name="{{ opleidingsName }}" id="{{ opleidingsName }}">
 
                         {% for opleidingsniveau in opleidingsNiveaus %}
-                            <option value="{{ opleidingsniveau.oplNiveauId }}">{{ opleidingsniveau.opleidingsNiveau }}</option>
+
+                            {% if opleidingsniveau.oplNiveauId == gebruiker.voorkeurOpleidingsNiveau %}
+
+                                <option value="{{ opleidingsniveau.oplNiveauId }}" selected>{{ opleidingsniveau.opleidingsNiveau }}</option>
+                            
+                            {% else %}
+
+                                <option value="{{ opleidingsniveau.oplNiveauId }}">{{ opleidingsniveau.opleidingsNiveau }}</option>
+                            
+                            {% endif %}
+
                         {% endfor %}
 
                         </select>
 
-                        <p>Geef hier uw voorkeur opleidingniveaus, u kan meerdere selecteren van de lijst.</p>
+                        <p>Geef hier uw voorkeur opleidingniveaus (hoogste)</p>
                     </label>
 
                     <label for="persoonlijkheid">Introvert<em>Extrovert</em>
@@ -85,15 +110,25 @@
                     </div> -->
 
                      <fieldset>Roker?
-                          <div><input type="radio" name="roker" value="0" title="roker nee">Nee</div>
+                        {% if gebruiker.voorkeurRoker == 0 %}
+                          <div><input type="radio" name="roker" value="0" title="roker nee" checked>Nee</div>
                           <div><input type="radio" name="roker" value="1" title="roker ja">Ja</div>
+                        {% else %}
+                            <div><input type="radio" name="roker" value="0" title="roker nee" >Nee</div>
+                          <div><input type="radio" name="roker" value="1" title="roker ja" checked>Ja</div>
+                        {% endif %}
                      </fieldset>
 
                      <p>Verkiest u een roker of niet roker? Als u onverschillig bent laat u de knoppen leeg.</p>
 
                     <fieldset>Kinderen?
-                        <div><input type="radio" name="Kinderen" value="0" title="kinderen nee">Nee</div>
-                        <div><input type="radio" name="Kinderen" value="1" kinderen="kinderen ja">Ja</div>
+                        {% if gebruiker.voorkeurKinderen == 0 %}
+                            <div><input type="radio" name="Kinderen" value="0" title="kinderen nee" checked>Nee</div>
+                            <div><input type="radio" name="Kinderen" value="1" kinderen="kinderen ja">Ja</div>
+                        {% else %}
+                            <div><input type="radio" name="Kinderen" value="0" title="kinderen nee" checked>Nee</div>
+                            <div><input type="radio" name="Kinderen" value="1" kinderen="kinderen ja">Ja</div>
+                        {% endif %}
                     </fieldset>
 
                     <p>Vind je het een struikelblok als uw toekomstige partner al kinderen heeft? Als u onverschillig bent laat u de knoppen leeg.</p>
