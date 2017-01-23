@@ -1,0 +1,24 @@
+{#
+Extends always on top
+#}
+{% extends "base.twig" %}
+
+{% block title %}Index{% endblock %}
+{% block head %}
+    {#
+    Call the parent template that is extended
+    #}
+    {{ parent("base.twig") }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{#
+The name content matches the name of the base.twig and ovverrides it.
+#}
+{% block content %}
+    <h1>Index</h1>
+    <p class="important">
+        Welcome to my awesome homepage.
+    </p>
+{% endblock %}

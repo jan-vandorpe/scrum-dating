@@ -1,5 +1,6 @@
-  <div class="container main clearfix">
-    <main class="clearfix">
+{% extends "index.twig" %}
+{% block content %}
+ 
         <form action="registreer.php" method="post" name="frmRegistratie">
             <fieldset class="col2">
                 <legend>Ik ben</legend>
@@ -41,5 +42,5 @@
             </fieldset>
             <input type="submit" value="registreren" name="registreren">
         </form>
-</main>
-  </div>
+
+  {% endblock content %}

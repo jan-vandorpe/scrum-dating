@@ -22,14 +22,14 @@ if (isset($_SESSION["gebruikerId"]))
     $gebruiker=$gebruikerSvc->getById($gid);
     $aTwig["gebruiker"]=$gebruiker;
 
-    $view = $twig->render('index.twig', $aTwig);
+    $view = $twig->render('voorkeuren.twig', $aTwig);
     
   
 }
 else
 {
     $login = false;
-    $view = $twig->render('index.twig');
+    $view = $twig->render('registreer.twig');
 }
 //toon de pagina
 print($view);

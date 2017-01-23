@@ -1,16 +1,7 @@
-<!DOCTYPE html>
+{% extends "index.twig" %}
+{% block content %}
 
-{{ include('head.twig') }}
-
-<body>
-
-
-
-
-    {{ include('header.twig') }}
-
-    <div class="container main clearfix">
-    <main class="clearfix">
+{% block navigatie %}
         <div class="col1 left">
 
                 <nav class="profileNav">
@@ -23,7 +14,7 @@
 
         </div>
 
-
+{% endblock %}
         <div class="col2 right">
             <div class="padbox clearfix">
                 <h2>Mijn voorkeuren</h2>
@@ -143,16 +134,17 @@
 
         </div>
 
-    </main>
-    </div>
 
-    {{ include('footer.twig') }}
 
+{% endblock content%}
 
 
 
+{#Todo:
+ block maken voor javascript in base twig om te overschrijven
+ #}
 
-
+{% block javascript %}
 <!-- Config van Chosen -->
 <script type="text/javascript">
     var config = {
@@ -170,5 +162,4 @@
 <script src="library/vendor/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
 <script src="js/voorkeuren.js" type="text/javascript"></script>
 
-</body>
-</html>
+{% endblock %}

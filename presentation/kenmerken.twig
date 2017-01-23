@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-
-{{ include('head.twig') }}
-
-<body>
-
-
-
-
-    {{ include('header.twig') }}
-
-    <div class="container main clearfix">
-    <main class="clearfix">
+{% extends "index.twig" %}
+{% block content %}
         <div class="col1 left">
 
                 <nav class="profileNav">
@@ -144,16 +133,12 @@
         </form>
 
         </div>
-
-    </main>
-    </div>
-
-    {{ include('footer.twig') }}
+{% endblock content %}
 
 
 
 
-
+{% block javascript %}
 
 <!-- Config van Chosen -->
 <script type="text/javascript">
@@ -169,6 +154,4 @@
     }
 </script>
 
-
-</body>
-</html>
+{% endblock %}

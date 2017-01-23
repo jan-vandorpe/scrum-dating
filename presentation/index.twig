@@ -4,11 +4,22 @@
 {{ include('head.twig') }}
 
     <body>
+        {% block header %}
         {{ include('header.twig') }}
-        {{ include('login.twig') }}
-        
+        {% endblock %}
+     {#   {{ include('login.twig') }}#}
+      <div class="container main clearfix">
+    <main class="clearfix">
+        {% block content %}
         {{ include('registreer.twig') }}
-       
+        {% endblock %}
+        </main>
+  </div>
+        {% block footer %}
+        {{include('footer.twig')}}
+        {% endblock %}
+        {% block javascript %}
+        {% endblock %}
     </body>
 
 </html>
