@@ -396,6 +396,7 @@ input[type=text],
 input[type=date],
 input[type=radio],
 input[type=submit],
+input[type=password],
 select {
     background-color: #881f2b;
     border: 1px solid #ffc8ce;
@@ -405,7 +406,8 @@ select {
 }
 
 input[type=text],
-input[type=date],
+input[type=date]
+input[type=password],
 select {
     width: 200px;
 }
