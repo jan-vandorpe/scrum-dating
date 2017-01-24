@@ -214,6 +214,7 @@ class GebruikerDAO
     //kenmerken updaten
     public function updateUserKenmerken($gebruiker)
     {  
+
         $sql="update gebruiker set     
             lengte=:lengte,
             hOplNiveauId=:opleidingsNiveau,
@@ -228,6 +229,7 @@ class GebruikerDAO
         $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
         $stmt=$dbh->prepare($sql);       
         
+       
         $stmt->execute(array(   
             ':gebruikerId' => (int)$gebruiker->getGebruikerId(),
             ':lengte'=>(int)$gebruiker->getLengte(),
