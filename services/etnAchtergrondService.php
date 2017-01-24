@@ -17,6 +17,11 @@ class etnAchtergrondService{
         $alleAchtergronden=$etnAchtergrondDAO->getAlleAchtergronden();
         return $alleAchtergronden;
     }
+    public function getEtniciteitById($id){
+        $etniciteitDAO=new etnAchtergrondDAO();
+        $etniciteit=$etniciteitDAO->getEtniciteitById($id);
+        return $etniciteit;
+    }
 
     //CREATE
     public function createEtnAchtergrond($etnAchtergrond)

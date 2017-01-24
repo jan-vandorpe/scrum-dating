@@ -116,7 +116,7 @@ class Gebruiker {
     public function getStad(){return $this->stad;}
     public function getLengte(){return $this->lengte;}
     public function getLichaamsbouwId(){return $this->lichaamsbouwId;}
-    public function getOpleidingsNiveau(){return $this->opleidingsNiveau;}
+    public function getOpleidingsNiveau(){return $this->opleidingsNiveau;} //geeft het OpleidingsNiveau-object mee
     public function getBeroep(){return $this->beroep;}
     public function getEtnischeAchtergrond(){return $this->etnischeAchtergrond;}
     public function getRoker(){return $this->roker;}
@@ -145,7 +145,7 @@ class Gebruiker {
     public function setStad($stad){$this->stad = $stad;}
     public function setLengte($lengte){$this->lengte = $lengte;}
     public function setLichaamsbouwId($lichaamsbouwsId){$this->lichaamsbouwId = $lichaamsbouwsId;}
-    public function setOpleidingsNiveau($opleidingsNiveau){$this->opleidingsNiveau = $opleidingsNiveau;}
+    public function setOpleidingsNiveau($opleidingsNiveau){$this->opleidingsNiveau = $opleidingsNiveau;}//objerct
     public function setBeroep($beroep){$this->beroep = $beroep;}
     public function setEtnischeAchtergrond($etnischeAchtergrond){$this->etnischeAchtergrond = $etnischeAchtergrond;}
     public function setRoker($roker){$this->roker = $roker;}
