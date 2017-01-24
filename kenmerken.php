@@ -72,7 +72,7 @@ if (isset($_POST['updateKenmerken']))
    $opleidingsNiveau = $_POST['opleidingsniveau'];
    $persoonlijkheid = $_POST['persoonlijkheid'];
    $roker = $_POST['roker'];
-   $kinderen = $_POST['kinderen'];
+   $kinderen = $_POST['aantalKinderen'];
    $oogkleur = $_POST['oogkleur'];
    $haarkleur = $_POST['haarkleur'];
    $etniciteit = $_POST['etniciteit'];
