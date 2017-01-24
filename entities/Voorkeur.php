@@ -15,13 +15,13 @@ class Voorkeur
     private $gebruikerId;
     private $voornaam;
     private $naam;
-    private $oogkleur;
+    private $oogkleur;             //geen oogkleurId maar een oogkleur-object
     private $voorkeurGeboortedatum;
     private $voorkeurLengte;
     private $voorkeurRoker;
-    private $haarkleur;
-    private $etnischeAchtergrond;
-    private $opleidingsNiveau;
+    private $haarkleur;             //geen Id maar object
+    private $etnischeAchtergrond; //geen Id maar object
+    private $opleidingsNiveau;      //geen Id maar object
     private $voorkeurGeslacht;
     private $voorkeurKinderen;
     private $voorkeurPersoonlijkheidsType;
@@ -57,13 +57,13 @@ class Voorkeur
     public function getGebruikerId(){return $this->gebruikerId;}
     public function getVoornaam(){return $this->voornaam;}
     public function getNaam(){return $this->naam;}
-    public function getOogkleur(){return $this->oogkleur;}
+    public function getOogkleur(){return $this->oogkleur;}  //object
     public function getVoorkeurGeboortedatum(){return $this->voorkeurGeboortedatum;}
     public function getVoorkeurLengte(){return $this->voorkeurLengte;}
     public function getVoorkeurRoker(){return $this->voorkeurRoker;}
-    public function getHaarkleur(){return $this->haarkleur;}
-    public function getEtnischeAchtergrond(){return $this->etnischeAchtergrond;}
-    public function getOpleidingsNiveau(){return $this->opleidingsNiveau;}
+    public function getHaarkleur(){return $this->haarkleur;}    //object
+    public function getEtnischeAchtergrond(){return $this->etnischeAchtergrond;}    //object
+    public function getOpleidingsNiveau(){return $this->opleidingsNiveau;}  //object
     public function getVoorkeurGeslacht(){return $this->voorkeurGeslacht;}
     public function getVoorkeurKinderen(){return $this->voorkeurKinderen;}
     public function getVoorkeurPersoonlijkheidsType(){return $this->voorkeurPersoonlijkheidsType;}

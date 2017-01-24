@@ -43,16 +43,8 @@ class GebruikerDAO
     //haal alle gebruikers uit de database Datingsite
     public function getAllUsers()
     {
-        $sql = "SELECT gebruiker.gebruikerId as id,email,geslacht,wachtwoord,geboorteDatum as leeftijd,naam,voornaam,postcode,stad,lengte,lichaamsbouwId,
-                gebruiker.hOplNiveauId,opleidingsniveaus.opleidingsNiveau as opleiding,beroep,etnischeachtergronden.etnischeAchtergrondId as achtergrond,roker,
-                oogkleuren.oogkleur,aantalKinderen as kinderen,haarkleuren.haarkleur,foto,persoonlijkheidsType as type,voorkeurGeboortedatum as voorkeur leeftijd,voorkeurLengte as vkLengte,
-                opleidingsniveaus.opleidingsNiveau as vkOpleiding,voorkeurRoker,voorkeurKinderen,voorkeurPersoonlijkheidsType as vkType,voorkeurGeslacht as vkGeslacht
-              FROM gebruiker,opleidingsniveaus,etnischeachtergronden,haarkleuren,oogkleuren
-              where gebruiker.opleidingshOplNiveauId=opleidingsniveaus.oplNiveauId,
-              where gebruiker.etnischeAchtergrondId=etnischeachtergronden.etnischeAchtergrondId,
-              where gebruiker.gebruikerId=voorkeuretnischeachtergrond.gebruikerId,
-              where gebruiker.oogkleurId=oogkleuren.oogkleurId,
-              where gebruiker.haarkleurId=haarkleuren.haarkleurId";
+        $sql = "SELECT *
+              FROM gebruiker order by naam ASC ";
         $dbh = new PDO(DBCONFIG::$DB_CONNSTRING, DBCONFIG::$DB_USERNAME, DBCONFIG::$DB_PASSWORD);
         $resultSet = $dbh->query($sql);
         $lijst = array();
