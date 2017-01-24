@@ -35,7 +35,7 @@ if (isset($_POST['login']))
     if ($loginCheck == false) 
     {   
         print "false";
-        $view = $twig->render('login.twig');
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
         print($view);  
         exit(0);
        
