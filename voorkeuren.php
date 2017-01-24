@@ -26,7 +26,7 @@ $twig = new Twig_Environment($loader);
     $gid= (int)$_SESSION["gebruikerId"];
     $gebruikerSvc = new GebruikerService();
     $gebruiker=$gebruikerSvc->getById($gid);
-    $aTwig["gebruiker"]=$gebruiker;  
+    $aTwig["gebruiker"]=$gebruiker;
 
 
 // haarkleur toevoegen
@@ -36,6 +36,7 @@ $haarkleurLijst=$haarkleurSvc->toonAlleHaarkleuren();
 $aTwig["haarkleuren"]=$haarkleurLijst;
 $aTwig["titelhaar"]="Haarkleuren";
 $aTwig["haarName"]="haarkleur";
+
 
 
 // oogkleur toevoegen
@@ -98,4 +99,11 @@ if (isset($_POST['updateVoorkeuren']))
    $voorkeurSVC -> updateVoorkeuren($gebruikerId,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$oogkleur,$haarkleur,$etniciteit);
    exit(0);
 }
+
+}
+
+else {
+     $location = 'index.php';
+    header('Location: ' . $location);
+
 }
