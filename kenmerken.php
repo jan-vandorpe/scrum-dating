@@ -21,7 +21,9 @@ if (isset($_SESSION["gebruikerId"]))
     $gebruikerSvc = new GebruikerService();
     $gebruiker=$gebruikerSvc->getById($gid);
     $aTwig["gebruiker"]=$gebruiker;  
-}
+
+
+
 
 
 $haarkleurSvc=new HaarkleurService();
@@ -60,6 +62,7 @@ $aTwig["titelopleidingsniveau"]="Opleidingsniveau";
 $aTwig["opleidingName"] ="opleidingsniveau";
 
 
+
 $view = $twig->render('kenmerken.twig',$aTwig);
 //toon de pagina
 print($view);
@@ -83,4 +86,4 @@ if (isset($_POST['updateKenmerken']))
    $gebruikerSVC -> updateUserKenmerken($gebruikerId,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$oogkleur,$haarkleur,$etniciteit);
    exit(0);
 }
-
+}
