@@ -39,4 +39,29 @@ class VoorkeurService
         
         $VoorkeurDAO->updateUserKenmerken($Voorkeur);              
     }
+
+    public function getVoorkeurOogkleur($id)
+    {
+        $voorkeurDAO = new VoorkeurDAO();
+        $lijst = $voorkeurDAO->getVoorkeurOogkleur($id);
+
+        return $lijst;
+    }
+
+    public function getVoorkeurHaarkleur($id)
+    {
+        $voorkeurDAO = new VoorkeurDAO();
+        $lijst = $voorkeurDAO->getVoorkeurHaarkleur($id);
+
+        return $lijst;
+    }
+
+    public function getVoorkeurEtniciteit($id)
+    {
+        $voorkeurDAO = new VoorkeurDAO();
+        $lijst = $voorkeurDAO->getVoorkeurEtniciteit($id);
+
+        return $lijst;
+    }
+
 }
