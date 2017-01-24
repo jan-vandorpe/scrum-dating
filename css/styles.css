@@ -460,6 +460,15 @@ main input[type=submit]:hover {
     background-color: black;
 }
 
+/* error weergave */
+.error {
+    color: white;
+    font-weight: bold;
+}
+
+.error:before {
+    content: "* ";
+}
 
 /* chosen multibox */
 
@@ -616,3 +625,5 @@ ul {
 .right {
     float: right;
 }
+
+
