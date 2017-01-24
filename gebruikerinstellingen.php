@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once 'services/GebruikerService.php';
 
@@ -18,6 +19,13 @@ $loader = new Twig_Loader_Filesystem('presentation');
 $twig = new Twig_Environment($loader);
 
 
+if (isset($_SESSION["gebruikerId"])) 
+{   
+    $gid= (int)$_SESSION["gebruikerId"];
+    $gebruikerSvc = new GebruikerService();
+    $gebruiker=$gebruikerSvc->getById($gid);
+    $aTwig["gebruiker"]=$gebruiker;  
+    
 // haarkleur toevoegen
 $haarkleurSvc=new HaarkleurService();
 $haarkleurLijst=$haarkleurSvc->toonAlleHaarkleuren();
@@ -66,3 +74,4 @@ $view = $twig->render('gebruikerinstellingen.twig',$aTwig);
 
 //toon de pagina
 print($view);
+}
