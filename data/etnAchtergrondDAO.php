@@ -27,6 +27,20 @@ class etnAchtergrondDAO{
         $dbh=null;
         return $lijst;
     }
+    //haal een specifieke haarkleur op
+    public function getEtniciteitById($id){
+        $sql='select etnischeAchtergrond from etnischeachtergronden where etnischeAchtergrondId=:id';
+        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
+        $stmt=$dbh->prepare($sql);
+        $stmt->execute(array(
+            ':id'=>$id
+        ));
+        $rij=$stmt->fetch(PDO::FETCH_ASSOC);
+        $etniciteit=etnischeAchtergrond::create($id,$rij["etnischeAchtergrond"]);
+        $dbh=null;
+        return $etniciteit;
+
+    }
 
     //CREATE
     //voeg record toe aan de tabel etnischeachtergronden

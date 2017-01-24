@@ -18,6 +18,12 @@ class OogkleurService
         $alleOogkleuren=$oogkleurDAO->getAlleOogkleuren();
         return $alleOogkleuren;
     }
+    public function getOogkleurById($id){
+        $oogkleurDAO=new OogkleurDAO();
+        $oogkleur=$oogkleurDAO->getOogkleurById($id);
+        return $oogkleur;
+    }
+
 
     //CREATE
     public function createOogkleur($oogkleur)
