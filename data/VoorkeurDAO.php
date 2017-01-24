@@ -76,6 +76,43 @@ class VoorkeurDAO
         return $voorkeur;
 
     }
+
+    public function getVoorkeurOogkleur($id)
+    {
+        $sql="SELECT oogkleurId FROM voorkeuroogkleur WHERE gebruikerId=:gebruikerId";
+
+        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
+        $stmt=$dbh->prepare($sql);
+        $stmt->execute(array(':gebruikerId'=>$id));
+        $rij=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        $dbh=null;
+        return $rij;
+    }
+
+    public function getVoorkeurHaarkleur($id)
+    {
+        $sql="SELECT haarkleurId FROM voorkeurhaarkleur WHERE gebruikerId=:gebruikerId";
+
+        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
+        $stmt=$dbh->prepare($sql);
+        $stmt->execute(array(':gebruikerId'=>$id));
+        $rij=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        $dbh=null;
+        return $rij;
+    }
+
+
+    public function getVoorkeurEtniciteit($id)
+    {
+        $sql="SELECT etnischeAchtergrondId FROM voorkeuretnischeachtergrond WHERE gebruikerId=:gebruikerId";
+
+        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
+        $stmt=$dbh->prepare($sql);
+        $stmt->execute(array(':gebruikerId'=>$id));
+        $rij=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        $dbh=null;
+        return $rij;
+    }
     
     //voorkeuren aanpassen
     public function updateUserVoorkeuren($voorkeuren)
