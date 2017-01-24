@@ -31,7 +31,7 @@
             <form action="voorkeuren.php" method="get" id="voorkeurForm">
                 <div class="col left">
 
-
+                   
 
                     <label for="geboorteDatum">Geboortedatum
                         {% if gebruiker.voorkeurGeboorteDatum %}
@@ -48,6 +48,9 @@
 
                     </label>
 
+                        {% for voorkeuroogkleur in voorkeurOogkleur %}
+                            {{ voorkeuroogkleur.oogkleurId }}
+                           {% endfor %}
                     <label for="Lengte">Lengte
                         {% if gebruiker.voorkeurLengte %}
                             <input type="text" name="lengte" id="Lengte" title="lengte in centimeter" value="{{ gebruiker.voorkeurLengte }}">
