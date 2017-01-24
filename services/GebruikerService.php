@@ -23,6 +23,21 @@ class GebruikerService
         return $gebruiker;
     }
     
+    public function updateWachtwoord($id,$nieuwWachtwoord)
+    {
+        $GebruikerDAO = new GebruikerDAO();
+        $Gebruiker = $GebruikerDAO->getById($id);
+        
+        
+        $Gebruiker->getGebruikerId($id);
+        $Gebruiker->setWachtwoord($nieuwWachtwoord);
+        
+        
+        $GebruikerDAO->updateWachtwoord($Gebruiker);
+        
+        
+    }
+    
     public function getById($id)
     {
         $GebruikerDAO = new GebruikerDao();
@@ -37,13 +52,13 @@ class GebruikerService
         $Gebruiker = $GebruikerDAO->getById($id);
         
         $Gebruiker->setLengte($lengte);
-        $Gebruiker->setHOplNiveauId($opleidingsNiveau);
+        $Gebruiker->setOpleidingsNiveau($opleidingsNiveau);
         $Gebruiker->setPersoonlijkheidsType($persoonlijkheid);
         $Gebruiker->setRoker($roker);
         $Gebruiker->setAantalKinderen($kinderen);
-        $Gebruiker->setOogkleurId($oogkleur);
-        $Gebruiker->setHaarkleurId($haarkleur);
-        $Gebruiker->setEtnischeAchtergrondId($etniciteit);
+        $Gebruiker->setOogkleur($oogkleur);
+        $Gebruiker->setHaarkleur($haarkleur);
+        $Gebruiker->setEtnischeAchtergrond($etniciteit);
         
         $GebruikerDAO->updateUserKenmerken($Gebruiker);              
     }
