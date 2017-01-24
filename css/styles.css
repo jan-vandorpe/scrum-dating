@@ -113,7 +113,7 @@ header #slogan h1 em {
 
 .login input[type=email],
 .login input[type=password] {
-    background-color: #ffc8ce;
+    /*background-color: #ffc8ce;*/
     border: 1px solid #6c1b24;
     padding-top: 2px;
 }
