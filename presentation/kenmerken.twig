@@ -31,8 +31,7 @@
             <form action="kenmerken.php" method="POST" id="kenmerkForm">
                 <div class="col left">
 
-
-
+                          
                     <label for="geboorteDatum">Geboortedatum
                         <input type="date" name="geboortedatum" id="geboorteDatum" value="{{ gebruiker.geboorteDatum}}">
                         <p>Geef hier je geboortedatum in, dit moet in een dd/mm/jjjj formaat. {{ gebruiker.geboorteDatum}}</p>
@@ -58,9 +57,9 @@
                         <select data-placeholder="Kies voorkeur {{ titelopleidingsniveau }} (je kan meerdere selecteren)" tabindex="2" name="{{ opleidingName }}" id="{{ opleidingName }}" >
 
                         {% for opleidingsniveau in opleidingsNiveaus %}
-                            {% if opleidingsniveau.oplNiveauId == gebruiker.hOplNiveauId %}
+                            {% if opleidingsniveau.oplNiveauId == gebruiker.opleidingsNiveau %}
                                 <option value="{{ opleidingsniveau.oplNiveauId }}" selected>{{ opleidingsniveau.opleidingsNiveau }}</option>
-                            {% else %}
+                            {% else %}s
                                 <option value="{{ opleidingsniveau.oplNiveauId }}">{{ opleidingsniveau.opleidingsNiveau }}</option>
                             {% endif %}
                         {% endfor %}
@@ -123,7 +122,7 @@
                         <select data-placeholder="Kies een voorkeur {{ titeloogkleur }}" tabindex="2" name="{{ oogName }}" id="{{ titeloogkleur }}">
 
                         {% for oogkleur in oogkleuren %}
-                            {% if oogkleur.oogkleurId == gebruiker.oogkleurId %}
+                            {% if oogkleur.oogkleurId == gebruiker.oogkleur %}
                                 <option value="{{ oogkleur.oogkleurId }}" selected>{{ oogkleur.oogkleur }}</option>
                             {% else %}
                                 <option value="{{ oogkleur.oogkleurId }}">{{ oogkleur.oogkleur }}</option>
@@ -139,7 +138,7 @@
                         <select data-placeholder="Kies voorkeur {{ titelhaarkleur }}" tabindex="2" name="{{ haarName }}" id="{{ titelhaarkleur }}">
 
                         {% for haarkleur in haarkleuren %}
-                            {% if haarkleur.haarkleurId == gebruiker.haarkleurId %}
+                            {% if haarkleur.haarkleurId == gebruiker.haarkleur %}
                                 <option value="{{ haarkleur.haarkleurId }}" selected>{{ haarkleur.haarkleur }}</option>
                             {% else %}
                                 <option value="{{ haarkleur.haarkleurId }}">{{ haarkleur.haarkleur }}</option>
@@ -157,7 +156,7 @@
                         <select data-placeholder="Kies voorkeur {{ titeletnachtergronden }}" tabindex="2" name="{{ etnName }}" id="{{ etnName }}">
 
                             {% for etnischeachtergrond in etnAchtergronden %}
-                                    {% if etnischeachtergrond.etnischeAchtergrondId == gebruiker.etnischeAchtergrondId %}
+                                    {% if etnischeachtergrond.etnischeAchtergrondId == gebruiker.etnischeAchtergrond %}
                                         <option value="{{ etnischeachtergrond.etnischeAchtergrondId }}" selected>{{ etnischeachtergrond.etnischeAchtergrond }}</option>
                                     {% else %}
                                          <option value="{{ etnischeachtergrond.etnischeAchtergrondId }}">{{ etnischeachtergrond.etnischeAchtergrond }}</option>
