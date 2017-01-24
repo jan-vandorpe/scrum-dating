@@ -146,7 +146,17 @@
                         <select data-placeholder="Kies een voorkeur {{ titeloogkleur }} (je kan meerdere selecteren)" class="chosen-select ignore" style="width: 100%; margin-top: 20px;" multiple tabindex="2" name="{{ oogName }}" id="{{ titeloogkleur }}">
 
                         {% for oogkleur in oogkleuren %}
-                            <option value="{{ oogkleur.oogkleurId }}">{{ oogkleur.oogkleur }}</option>
+
+                                {% if oogkleur.oogkleurId in voogkleuren|keys %}
+
+                                    <option value="{{ oogkleur.oogkleurId }}" selected>{{ oogkleur.oogkleur }}</option>
+
+                                {% else %}
+
+                                    <option value="{{ oogkleur.oogkleurId }}">{{ oogkleur.oogkleur }}</option>
+
+                                {% endif %}
+
                         {% endfor %}
 
                         </select>
@@ -156,9 +166,23 @@
                     <label for="haarkleuren">{{ titelhaar }}
                         <select data-placeholder="Kies voorkeur {{ titelhaar }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%; margin-top: 20px;" tabindex="2" name="{{ haarName }}" id="{{ titelhaar }}" class="ignore">
 
-                        {% for haarkleur in haarkleuren %}
-                            <option value="{{ haarkleur.haarkleurId }}">{{ haarkleur.haarkleur }}</option>
-                        {% endfor %}
+                            {% for haarkleur in haarkleuren %}
+
+                                {% for vhaarkleur in vhaarkleuren %}
+                                    {% if haarkleur.haarkleurId == vhaarkleur.haarkleurId %}
+
+                                        <option value="{{ haarkleur.haarkleurId }}"
+                                                selected>{{ haarkleur.haarkleur }}</option>
+
+                                    {% else %}
+
+                                        <option value="{{ haarkleur.haarkleurId }}">{{ haarkleur.haarkleur }}</option>
+
+                                    {% endif %}
+                                {% endfor %}
+
+                            {% endfor %}
+
 
                         </select>
                         <p>Valt u op blondines? Selecteer dan in deze lijst blondine!</p>
@@ -171,8 +195,20 @@
                         <select data-placeholder="Kies voorkeur {{ titeletnachtergronden }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%; margin-top: 20px;" tabindex="2" name="{{ etnName }}" id="{{ etnName }}">
 
                             {% for etnischeachtergrond in etnAchtergronden %}
-                                <option value="{{ etnischeachtergrond.etnischeAchtergrondId }}">{{ etnischeachtergrond.etnischeAchtergrond }}</option>
+
+                                    {% if etnischeachtergrond.etnischeAchtergrondId in vetn|keys %}
+
+                                        <option value="{{ etnischeachtergrond.etnischeAchtergrondId }}" selected>{{ etnischeachtergrond.etnischeAchtergrond }}</option>
+
+                                    {% else %}
+
+                                        <option value="{{ etnischeachtergrond.etnischeAchtergrondId }}">{{ etnischeachtergrond.etnischeAchtergrond }}</option>
+
+                                    {% endif %}
+
                             {% endfor %}
+
+
 
                         </select>
 
