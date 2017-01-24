@@ -31,7 +31,7 @@
 
                 <p><em>Wachtwoord wijzigen<em></p>
 
-                <form action="wijzigwachtwoord.php" method="POST">
+                <form action="wijzigwachtwoord.php" method="POST" id="wwPW">
                     <label for="oudWW">Oud Wachtwoord
                         <input type="password" name="oudWW">
                     </label>
@@ -45,6 +45,35 @@
                     <input type="submit" name="wwWijzigen">
 
                 </form>
+                <div style="margin-top: 50px;">
+                    <form action="#" method="post" id="userInfo">
+                        <label for="naam">Naam
+                            <input type="text" name="naam" value="{{ gebruiker.naam }}">
+                        </label>
+
+                        <label for="voornaam">Voornaam
+                            <input type="text" name="voornaam" value="{{ gebruiker.voornaam }}">
+                        </label>
+
+                        <label for="postcode">Postcode
+                            <input type="text" name="postcode" value="{{ gebruiker.postcode }}">
+                        </label>
+
+                        <label for="stad">Stad
+                            <input type="text" name="stad" value="{{ gebruiker.stad }}">
+                        </label>
+
+                        <label for="geboorteDatum">Geboortedatum
+                            <input type="date" name="geboorteDatum" value="{{ gebruiker.geboorteDatum }}">
+                        </label>
+
+                        <label for="email">Email
+                            <input type="email" name="email" value="{{ gebruiker.email }}" disabled>
+                        </label>
+
+
+                    </form>
+                </div>
 
 
 
@@ -53,11 +82,13 @@
          </div>
 
     </main>
+
     </div>
 
     {{ include('footer.twig') }}
 
 
-
+    <script src="library/vendor/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="js/gebruikerinstellingen.js" type="text/javascript"></script>
 </body>
 </html>
