@@ -30,18 +30,14 @@ $aTwig["haarkleuren"]=$haarkleurLijst;
 
 $aTwig["titelhaar"]="haarkleur";
 $aTwig["titelhaarkleur"]="Haarkleur";
-$aTwig["haarkleurName"]="haarkleur";
+$aTwig["haarName"]="haarkleur";
 
 // oogkleur toevoegen
 $oogkleurSvc=new OogkleurService();
 $oogkleurLijst=$oogkleurSvc->toonAlleOogkleuren();
 $aTwig["oogkleuren"]=$oogkleurLijst;
-
-$aTwig["titeloogkleur"]="oogkleur";
-
-
 $aTwig["titeloogkleur"]="Oogkleur";
-$aTwig["oogkleurName"]="oogkleur";
+$aTwig["oogName"]="oogkleur";
 
 // lichaamstypes toevoegen
 $lichaamsSvc=new LichaamstypeService();
