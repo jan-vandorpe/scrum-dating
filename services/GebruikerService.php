@@ -69,6 +69,7 @@ class GebruikerService
         $Gebruiker->setOogkleur($oogkleur);
         $Gebruiker->setHaarkleur($haarkleur);
         $Gebruiker->setEtnischeAchtergrond($etniciteit);
+        
         $GebruikerDAO->updateUserKenmerken($Gebruiker);
     }
     public function toonGebruiker($id){
