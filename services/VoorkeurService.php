@@ -21,8 +21,9 @@ class VoorkeurService
         $lijst=$voorkeurDAO->getVoorkeurenGebruiker($id);
         return $lijst;
     }
+   
     
-    public function updateVoorkeuren($id,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$oogkleur,$haarkleur,$etniciteit)
+    public function updateVoorkeuren($id,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen)
     {
  
         $VoorkeurDAO = new VoorkeurDAO();
@@ -33,10 +34,18 @@ class VoorkeurService
         $Voorkeur->setVoorkeurPersoonlijkheidsType($persoonlijkheid);
         $Voorkeur->setVoorkeurRoker($roker);
         $Voorkeur->setVoorkeurKinderen($kinderen);
-        $Voorkeur->setOogkleur($oogkleur);
-        $Voorkeur->setHaarkleur($haarkleur);
-        $Voorkeur->setEtnischeAchtergrond($etniciteit);
+//        $Voorkeur->setOogkleur($oogkleur);
+//        $Voorkeur->setHaarkleur($haarkleur);
+//        $Voorkeur->setEtnischeAchtergrond($etniciteit);
         
         $VoorkeurDAO->updateUserKenmerken($Voorkeur);              
+    }
+    
+    public function getVoorkeurOogkleur($id)
+    {
+        $voorkeurDAO = new VoorkeurDAO();
+        $lijst = $voorkeurDAO->getVoorkeurOogkleur($id);
+        
+        return $lijst;
     }
 }
