@@ -76,4 +76,22 @@ class VoorkeurDAO
         return $voorkeur;
 
     }
+    
+    //voorkeuren aanpassen
+    public function updateUserVoorkeuren($voorkeuren)
+    {
+        $sql = "update gebruiker set
+            voorkeurLengte=:lengte,
+            voorkeurOpleidingsNiveau=:opleidingsNiveau,
+            voorkeurPersoonlijkheidsType=:persoonlijkheid,
+            voorkeurRoker=:roker,
+            voorkeurKinderen=:kinderen           
+            ";        
+        
+        
+        
+        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
+        $stmt=$dbh->prepare($sql);
+    
+    }
 }

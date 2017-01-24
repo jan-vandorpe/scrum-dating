@@ -30,18 +30,14 @@ $aTwig["haarkleuren"]=$haarkleurLijst;
 
 $aTwig["titelhaar"]="haarkleur";
 $aTwig["titelhaarkleur"]="Haarkleur";
-$aTwig["haarkleurName"]="haarkleur";
+$aTwig["haarName"]="haarkleur";
 
 // oogkleur toevoegen
 $oogkleurSvc=new OogkleurService();
 $oogkleurLijst=$oogkleurSvc->toonAlleOogkleuren();
 $aTwig["oogkleuren"]=$oogkleurLijst;
-
-$aTwig["titeloogkleur"]="oogkleur";
-
-
 $aTwig["titeloogkleur"]="Oogkleur";
-$aTwig["oogkleurName"]="oogkleur";
+$aTwig["oogName"]="oogkleur";
 
 // lichaamstypes toevoegen
 $lichaamsSvc=new LichaamstypeService();
@@ -76,7 +72,7 @@ if (isset($_POST['updateKenmerken']))
    $opleidingsNiveau = $_POST['opleidingsniveau'];
    $persoonlijkheid = $_POST['persoonlijkheid'];
    $roker = $_POST['roker'];
-   $kinderen = $_POST['kinderen'];
+   $kinderen = $_POST['aantalKinderen'];
    $oogkleur = $_POST['oogkleur'];
    $haarkleur = $_POST['haarkleur'];
    $etniciteit = $_POST['etniciteit'];

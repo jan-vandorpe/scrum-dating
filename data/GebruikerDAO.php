@@ -8,6 +8,7 @@
 //data/GebruikerDAO.php
 require_once ("DBCONFIG.php");
 require_once ("entities/Gebruiker.php");
+require_once ("entities/Opleidingsniveau.php");
 
 class GebruikerDAO
 {
@@ -226,24 +227,42 @@ class GebruikerDAO
             WHERE gebruikerId=:gebruikerId";
             
         $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
-        $stmt=$dbh->prepare($sql);
-    
-        print $gebruiker->getGebruikerId();
+        $stmt=$dbh->prepare($sql);    
+       
        
         $stmt->execute(array(   
             ':gebruikerId' => (int)$gebruiker->getGebruikerId(),
             ':lengte'=>(int)$gebruiker->getLengte(),
-            ':opleidingsNiveau'=>(int)$gebruiker -> getHOplNiveauId(),
+            ':opleidingsNiveau'=>(int)$gebruiker -> getOpleidingsNiveauId(),
             ':persoonlijkheid'=>(int)$gebruiker->getPersoonlijkheidsType(),
             ':roker'=>(int)$gebruiker->getRoker(),
             ':kinderen'=>(int)$gebruiker->getAantalKinderen(),
-            ':oogkleur'=>(int)$gebruiker->getOogkleurId(),
-            ':haarkleur'=>(int)$gebruiker->getHaarkleurId(),
-            ':etniciteit'=>(int)$gebruiker->getEtnischeAchtergrondId()
+            ':oogkleur'=>(int)$gebruiker->getOogkleur(),
+            ':haarkleur'=>(int)$gebruiker->getHaarkleur(),
+            ':etniciteit'=>(int)$gebruiker->getEtnischeAchtergrond()
             ));
         
         $dbh=null;
     }
-
+    
+    //wachtwoord wijzigen
+    
+    public function updateWachtwoord($gebruiker)
+    {
+        $sql="update gebruiker set 
+            wachtwoord=:wachtwoord
+            WHERE gebruikerId=:gebruikerId
+            ";
+        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
+        $stmt=$dbh->prepare($sql);
+   
+         
+        $stmt->execute(array(   
+           ':gebruikerId' => (int)$gebruiker->getGebruikerId(),
+           ':wachtwoord'=>password_hash($gebruiker->getWachtwoord(),PASSWORD_DEFAULT)
+           ));
+         
+         $dbh=null;      
+    }
 
 }

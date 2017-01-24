@@ -1,6 +1,10 @@
 <?php
 session_start();
+
+ if (isset($_SESSION["gebruikerId"])) 
+{  
 require_once 'services/GebruikerService.php';
+require_once 'services/voorkeurService.php';
 
 // services opvulling lijsten
 require_once 'services/HaarkleurService.php';
@@ -18,13 +22,12 @@ $loader = new Twig_Loader_Filesystem('presentation');
 $twig = new Twig_Environment($loader);
 
 
-if (isset($_SESSION["gebruikerId"])) 
-{   
+
     $gid= (int)$_SESSION["gebruikerId"];
     $gebruikerSvc = new GebruikerService();
     $gebruiker=$gebruikerSvc->getById($gid);
     $aTwig["gebruiker"]=$gebruiker;  
-}
+
 
 // haarkleur toevoegen
 $haarkleurSvc=new HaarkleurService();
@@ -32,6 +35,7 @@ $haarkleurLijst=$haarkleurSvc->toonAlleHaarkleuren();
 
 $aTwig["haarkleuren"]=$haarkleurLijst;
 $aTwig["titelhaar"]="Haarkleuren";
+$aTwig["haarName"]="haarkleur";
 
 
 // oogkleur toevoegen
@@ -40,6 +44,7 @@ $oogkleurLijst=$oogkleurSvc->toonAlleOogkleuren();
 
 $aTwig["oogkleuren"]=$oogkleurLijst;
 $aTwig["titeloogkleur"]="Oogkleuren";
+$aTwig["oogName"]="oogkleur";
 
 // lichaamstypes toevoegen
 $lichaamsSvc=new LichaamstypeService();
@@ -56,7 +61,7 @@ $etnAchtergrondLijst=$etnAchtergrondSvc->toonAlleAchtergronden();
 
 $aTwig["etnAchtergronden"]=$etnAchtergrondLijst;
 $aTwig["titeletnachtergronden"]="Etnische Achtergronden";
-$aTwig["etnName"] ="Etniciteit";
+$aTwig["etnName"] ="etniciteit";
 
 // opleidingsniveaus ophalen
 $opleidingsNiveausSvc=new OpleidingsniveauService();
@@ -73,3 +78,24 @@ $view = $twig->render('voorkeuren.twig',$aTwig);
 
 //toon de pagina
 print($view);
+
+//database updaten
+if (isset($_POST['updateVoorkeuren']))
+{
+   $gebruikerId = (int) $_SESSION["gebruikerId"];
+   $lengte = $_POST['lengte']; 
+   $opleidingsNiveau = $_POST['opleidingsniveau'];
+   $persoonlijkheid = $_POST['persoonlijkheid'];
+   $roker = $_POST['roker'];
+   $kinderen = $_POST['kinderen'];
+   $oogkleur = $_POST['oogkleur'];
+   $haarkleur = $_POST['haarkleur'];
+   $etniciteit = $_POST['etniciteit'];
+  
+
+
+   $voorkeurSVC = new VoorkeurService;  
+   $voorkeurSVC -> updateVoorkeuren($gebruikerId,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$oogkleur,$haarkleur,$etniciteit);
+   exit(0);
+}
+}

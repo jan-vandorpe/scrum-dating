@@ -72,7 +72,7 @@ class Voorkeur
     public function setVoornaam($voornaam){$this->voornaam = $voornaam;}
     public function setNaam($naam){$this->naam = $naam;}
     public function setOogkleur($oogkleur){$this->oogkleur = $oogkleur;}
-    public function setVoorkeurGeboortedatum($voorkeurGeboortedatum){$this->voorkeurGeboortedatum = $voorkeurGeboortedatum;}
+    public function Geboortedatum($voorkeurGeboortedatum){$this->voorkeurGeboortedatum = $voorkeurGeboortedatum;}
     public function setVoorkeurLengte($voorkeurLengte){$this->voorkeurLengte = $voorkeurLengte;}
     public function setVoorkeurRoker($voorkeurRoker){$this->voorkeurRoker = $voorkeurRoker;}
     public function setHaarkleur($haarkleur){$this->haarkleur = $haarkleur;}
