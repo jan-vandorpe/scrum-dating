@@ -213,8 +213,7 @@ class GebruikerDAO
 //    
     //kenmerken updaten
     public function updateUserKenmerken($gebruiker)
-    {    
-
+    {  
         $sql="update gebruiker set     
             lengte=:lengte,
             hOplNiveauId=:opleidingsNiveau,
@@ -227,19 +226,18 @@ class GebruikerDAO
             WHERE gebruikerId=:gebruikerId";
             
         $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
-        $stmt=$dbh->prepare($sql);    
-       
-       
+        $stmt=$dbh->prepare($sql);       
+        
         $stmt->execute(array(   
             ':gebruikerId' => (int)$gebruiker->getGebruikerId(),
             ':lengte'=>(int)$gebruiker->getLengte(),
-            ':opleidingsNiveau'=>(int)$gebruiker -> getOpleidingsNiveauId(),
+            ':opleidingsNiveau'=>(int)$gebruiker -> getOpleidingsNiveau()->getOplNiveauId(),
             ':persoonlijkheid'=>(int)$gebruiker->getPersoonlijkheidsType(),
             ':roker'=>(int)$gebruiker->getRoker(),
             ':kinderen'=>(int)$gebruiker->getAantalKinderen(),
-            ':oogkleur'=>(int)$gebruiker->getOogkleur(),
-            ':haarkleur'=>(int)$gebruiker->getHaarkleur(),
-            ':etniciteit'=>(int)$gebruiker->getEtnischeAchtergrond()
+            ':oogkleur'=>(int)$gebruiker->getOogkleur()->getOogkleurId(),
+            ':haarkleur'=>(int)$gebruiker->getHaarkleur()->getHaarkleurId(),
+            ':etniciteit'=>(int)$gebruiker->getEtnischeAchtergrond()->getEtnischeAchtergrondId()
             ));
         
         $dbh=null;
