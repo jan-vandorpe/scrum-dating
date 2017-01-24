@@ -12,7 +12,9 @@ require_once ('services/VoorkeurService.php');
 
 
 $voorkeurSvc=new VoorkeurService();
-//$lijst=$voorkeurSvc->getVoorkeurenGebruikers();
-$lijst2=$voorkeurSvc->getVoorkeurGebruiker(1);
+$lijst=$voorkeurSvc->getVoorkeurenGebruikers();
+$lijst2=$voorkeurSvc->getVoorkeurGebruiker(3);
 
-print ($lijst2);
+print_r ($lijst2);
+
+
