@@ -18,6 +18,11 @@ class OpleidingsniveauService
         $alleOpleidingsniveaus=$opleidingsniveauDAO->getAlleOpleidingsniveaus();
         return $alleOpleidingsniveaus;
     }
+    public function getOpleidingsNiveauById($id){
+    $opleidingsniveauDAO=new OpleidingsniveauDAO();
+    $opleidingsniveau=$opleidingsniveauDAO->getOpleidingsNiveauById($id);
+    return $opleidingsniveau;
+    }
 
     //CREATE
     public function createOpleidingsniveau($opleidingsniveau)

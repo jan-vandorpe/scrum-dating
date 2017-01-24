@@ -28,6 +28,20 @@ class HaarkleurDAO
         $dbh=null;
         return $lijst;
     }
+    //haal een specifieke haarkleur op
+    public function getHaarkleurById($id){
+        $sql='select haarkleur from haarkleuren where haarkleurId=:id';
+        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
+        $stmt=$dbh->prepare($sql);
+        $stmt->execute(array(
+            ':id'=>$id
+        ));
+        $rij=$stmt->fetch(PDO::FETCH_ASSOC);
+        $haarkleur=Haarkleur::create($id,$rij["haarkleur"]);
+        $dbh=null;
+        return $haarkleur;
+
+    }
     //CREATE
     //voeg record toe aan de tabel haarkleuren
     public function createHaarkleur($haarkleur){

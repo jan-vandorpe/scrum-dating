@@ -27,6 +27,20 @@ class OpleidingsniveauDAO
         $dbh=null;
         return $lijst;
     }
+    //haal een specifiek opleidingsniveau op
+    public function getOpleidingsNiveauById($id){
+        $sql='select opleidingsNiveau from opleidingsniveaus where oplNiveauId=:id';
+        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
+        $stmt=$dbh->prepare($sql);
+        $stmt->execute(array(
+            ':id'=>$id
+        ));
+        $rij=$stmt->fetch(PDO::FETCH_ASSOC);
+        $opleidingsniveau=Opleidingsniveau::create($id,$rij["opleidingsNiveau"]);
+        $dbh=null;
+        return $opleidingsniveau;
+
+    }
     //CREATE
     //voeg record toe aan de tabel opleidingsniveaus
     public function createOpleidingsniveau($opleidingsniveau){

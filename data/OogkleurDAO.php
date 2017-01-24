@@ -26,6 +26,20 @@ class OogkleurDAO
         $dbh=null;
         return $lijst;
     }
+    //haal een specifieke oogkleur op
+    public function getOogkleurById($id){
+        $sql='select oogkleur from oogkleuren where oogkleurId=:id';
+        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
+        $stmt=$dbh->prepare($sql);
+        $stmt->execute(array(
+            ':id'=>$id
+        ));
+        $rij=$stmt->fetch(PDO::FETCH_ASSOC);
+        $oogkleur=Oogkleur::create($id,$rij["oogkleur"]);
+        $dbh=null;
+        return $oogkleur;
+
+    }
     //CREATE
     //voeg record toe aan de tabel oogkleuren
     public function createOogkleur($oogkleur){

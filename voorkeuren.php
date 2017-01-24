@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+ if (isset($_SESSION["gebruikerId"])) 
+{  
 require_once 'services/GebruikerService.php';
 require_once 'services/voorkeurService.php';
 
@@ -19,13 +22,12 @@ $loader = new Twig_Loader_Filesystem('presentation');
 $twig = new Twig_Environment($loader);
 
 
-if (isset($_SESSION["gebruikerId"])) 
-{   
+
     $gid= (int)$_SESSION["gebruikerId"];
     $gebruikerSvc = new GebruikerService();
     $gebruiker=$gebruikerSvc->getById($gid);
     $aTwig["gebruiker"]=$gebruiker;  
-}
+
 
 // haarkleur toevoegen
 $haarkleurSvc=new HaarkleurService();
@@ -33,6 +35,7 @@ $haarkleurLijst=$haarkleurSvc->toonAlleHaarkleuren();
 
 $aTwig["haarkleuren"]=$haarkleurLijst;
 $aTwig["titelhaar"]="Haarkleuren";
+$aTwig["haarName"]="haarkleur";
 
 
 // oogkleur toevoegen
@@ -41,6 +44,7 @@ $oogkleurLijst=$oogkleurSvc->toonAlleOogkleuren();
 
 $aTwig["oogkleuren"]=$oogkleurLijst;
 $aTwig["titeloogkleur"]="Oogkleuren";
+$aTwig["oogName"]="oogkleur";
 
 // lichaamstypes toevoegen
 $lichaamsSvc=new LichaamstypeService();

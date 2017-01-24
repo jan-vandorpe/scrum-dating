@@ -1,6 +1,8 @@
+  
   <div class="container main clearfix">
     <main class="clearfix">
-        <form action="registreer.php" method="post" name="frmRegistratie">
+        <h1>Registreer</h1>
+        <form id="registreer" action="registreer.php" method="post" name="frmRegistratie" class="clearfix">
             <fieldset class="col2">
                 <legend>Ik ben</legend>
                 <label><input type="radio" name="geslacht" value="M" checked>Man </label>
@@ -12,34 +14,34 @@
                 <label><input type="radio" name="Vgeslacht" value="V" checked>Vrouw </label>
             </fieldset>
             <fieldset>
-                <label for='email'>email</label>
+                <label for='email'>Email</label>
                 <input type="email" name="email" id="email" placeholder="youremail@datingsite.com" class="required">
                 <label class="msg"></label>
-                <label for='password'>password</label>
+                <label for='password'>Wachtwoord</label>
                 <input type="password" name="password" id="password" placeholder="password" class="required">
                 <label class="msg"></label>
-                <label for='pwrepeat'>repeat password</label>
+                <label for='pwrepeat'>Wachtwoord herhalen</label>
                 <input type="password" name="pwrepeat" id="pwrepeat" placeholder="password" class="required">
                 <label class="msg"></label>
             </fieldset>
             <fieldset>
-                <label for='naam'>naam</label>
+                <label for='naam'>Naam</label>
                 <input type="text" name="naam" id="naam" placeholder="naam" class="required">
                 <label class="msg"></label>
-                <label for='voornaam'>voornaam</label>
+                <label for='voornaam'>Voornaam</label>
                 <input type="text" name="voornaam" id="voornaam" placeholder="voornaam" class="required">
                 <label class="msg"></label>
-                <label for='postcode'>postcode</label>
+                <label for='postcode'>Postcode</label>
                 <input type="text" name="postcode" id="postcode" placeholder="postcode" class="required postcode">
                 <label class="msg"></label>
-                <label for='stad'>stad</label>
+                <label for='stad'>Stad</label>
                 <input type="text" name="stad" id="stad" placeholder="stad" class="required">
                 <label class="msg"></label>
-                <label for='geboortedatum'>geboortedatum</label>
+                <label for='geboortedatum'>Geboortedatum</label>
                 <input type="date" name="geboorteDatum" id="geboorteDatum" class="required datum leeftijd">
                 <label class="msg"></label>
             </fieldset>
-            <input type="submit" value="registreren" name="registreren">
+            <input type="submit" value="Registreren" name="registreren">
         </form>
 </main>
   </div>

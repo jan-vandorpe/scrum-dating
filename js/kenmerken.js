@@ -1,13 +1,22 @@
 $(function() {
 
-	form = $("#voorkeurForm");
-
-	$(".default").attr('name', 'chzn-search');
-
+	form = $("#kenmerkForm");
 
 	form.submit(function (e) {
 		e.preventDefault()
 	});
+
+	$("#neeKinderen").on( "click", function() {
+
+		$("#lbAantalKinderen").hide();
+	} );
+
+	$("#jaKinderen").on( "click", function() {
+
+		$("#lbAantalKinderen").show();
+	} );
+
+
 
 
 	form.validate({
@@ -23,11 +32,11 @@ $(function() {
 				min: 54
 
 			}
-		/*	,
+			,
 
-			geboortedatum: {
-				dateISO: true
-			}*/
+			 geboortedatum: {
+			 dateISO: true
+			 }
 
 
 		},
@@ -42,11 +51,11 @@ $(function() {
 				min: "Lengte kan niet kleiner dan 54cm zijn"
 
 			}
-			/*,
+			,
 
-			geboortedatum:{
-				dateISO: "datum moet in het YYYY-MM-DD formaat"
-			}*/
+			 geboortedatum:{
+			 dateISO: "datum moet in het YYYY-MM-DD formaat"
+			 }
 
 
 		},
@@ -62,4 +71,4 @@ $(function() {
 
 });// einde window onload
 
-	
+

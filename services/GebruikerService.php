@@ -45,13 +45,23 @@ class GebruikerService
         return $Gebruiker;        
     }
     
-    public function updateUserKenmerken($id,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$oogkleur,$haarkleur,$etniciteit)
+    public function updateUserKenmerken($id,$lengte,$opleidingsNiveauId,$persoonlijkheid,$roker,$kinderen,$oogkleurId,$haarkleurId,$etniciteitId)
     {
  
         $GebruikerDAO = new GebruikerDAO();
         $Gebruiker = $GebruikerDAO->getById($id);
         
         $Gebruiker->setLengte($lengte);
+        //tussenstap om het opleidingsNiveauObject te bekomen
+        $opleidingsNiveauSvc=new OpleidingsniveauService();
+        $opleidingsNiveau=$opleidingsNiveauSvc->getOpleidingsNiveauById($opleidingsNiveauId);
+        $oogkleurSvc=new OogkleurService();
+        $oogkleur=$oogkleurSvc->getOogkleurById($oogkleurId);
+        $haarkleurSvc=new HaarkleurService();
+        $haarkleur=$haarkleurSvc->getHaarkleurById($haarkleurId);
+        $etniciteitSvc=new etnAchtergrondService();
+        $etniciteit=$etniciteitSvc->getEtniciteitById($etniciteitId);
+
         $Gebruiker->setOpleidingsNiveau($opleidingsNiveau);
         $Gebruiker->setPersoonlijkheidsType($persoonlijkheid);
         $Gebruiker->setRoker($roker);
@@ -59,8 +69,7 @@ class GebruikerService
         $Gebruiker->setOogkleur($oogkleur);
         $Gebruiker->setHaarkleur($haarkleur);
         $Gebruiker->setEtnischeAchtergrond($etniciteit);
-        
-        $GebruikerDAO->updateUserKenmerken($Gebruiker);              
+        $GebruikerDAO->updateUserKenmerken($Gebruiker);
     }
     public function toonGebruiker($id){
         $gebruikerDAO=new GebruikerDAO();

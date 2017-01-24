@@ -16,6 +16,11 @@ class HaarkleurService {
         $alleHaarkleuren=$haarkleurDAO->getAlleHaarkleuren();
         return $alleHaarkleuren;
     }
+    public function getHaarkleurById($id){
+        $haarkleurDAO=new HaarkleurDAO();
+        $haarkleur=$haarkleurDAO->getHaarkleurById($id);
+        return $haarkleur;
+    }
 
     //CREATE
     public function createHaarkleur($haarkleur)
