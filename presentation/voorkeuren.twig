@@ -88,12 +88,19 @@
 
                         </select>
 
-                        <p>Geef hier uw voorkeur opleidingniveaus (hoogste)</p>
+                        <p>Geef hier uw voorkeur opleidingniveaus (minimum)</p>
                     </label>
 
                     <label for="persoonlijkheid" class="ignore">Introvert<em>Extrovert</em>
-                        <input type="range" min="1" max="5" step="1" value="3" name="persoonlijkheid" id="persoonlijkheid" class="range" title="introvert of extrovert">
-                        <p>Verkiest u iemand intro of extrovert? Sleep de slider naar wat u verkiest.</p>
+                        {% if gebruiker.voorkeurPersoonlijkheidsType %}
+                            <input type="range" min="1" max="5" step="1"
+                                   value="{{ gebruiker.voorkeurPersoonlijkheidsType }}" name="persoonlijkheid"
+                                   id="persoonlijkheid" class="range" title="introvert of extrovert">
+                            <p>Verkiest u iemand intro of extrovert? Sleep de slider naar wat u verkiest.</p>
+                        {% else %}
+                            <input type="range" min="1" max="5" step="1" value="3" name="persoonlijkheid"
+                                   id="persoonlijkheid" class="range" title="introvert of extrovert">
+                        {% endif %}
 
                     </label>
 
