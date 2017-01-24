@@ -12,8 +12,10 @@ require_once 'services/OogkleurService.php';
 require_once 'services/LichaamstypeService.php';
 require_once 'services/etnAchtergrondService.php';
 require_once 'services/OpleidingsniveauService.php';
+require_once 'services/VoorkeurService.php';
 
 require_once 'library/vendor/twig/autoloader.php';
+
 Twig_Autoloader::register();
 
 //vertel Twig in welke map de templates zitten
@@ -22,11 +24,10 @@ $loader = new Twig_Loader_Filesystem('presentation');
 $twig = new Twig_Environment($loader);
 
 
-
-    $gid= (int)$_SESSION["gebruikerId"];
-    $gebruikerSvc = new GebruikerService();
-    $gebruiker=$gebruikerSvc->getById($gid);
-    $aTwig["gebruiker"]=$gebruiker;
+$gid= (int)$_SESSION["gebruikerId"];
+$gebruikerSvc = new GebruikerService();
+$gebruiker=$gebruikerSvc->getById($gid);
+$aTwig["gebruiker"]=$gebruiker;
 
 
 // haarkleur toevoegen
@@ -37,6 +38,11 @@ $aTwig["haarkleuren"]=$haarkleurLijst;
 $aTwig["titelhaar"]="Haarkleuren";
 $aTwig["haarName"]="haarkleur";
 
+// voorkeurHaarkleur toevoegen
+     $vhaarkleurSvc= new VoorkeurService();
+     $vhaarkleurLijst=$vhaarkleurSvc->getVoorkeurHaarkleur($gid);
+     $aTwig["vhaarkleuren"]=$vhaarkleurLijst;
+
 
 
 // oogkleur toevoegen
@@ -46,6 +52,11 @@ $oogkleurLijst=$oogkleurSvc->toonAlleOogkleuren();
 $aTwig["oogkleuren"]=$oogkleurLijst;
 $aTwig["titeloogkleur"]="Oogkleuren";
 $aTwig["oogName"]="oogkleur";
+
+// voorkeurOogkleur toevoegen
+     $voogkleurSvc= new VoorkeurService();
+     $voogkleurLijst=$voogkleurSvc->getVoorkeurOogkleur($gid);
+     $aTwig["voogkleuren"]=$voogkleurLijst;
 
 // lichaamstypes toevoegen
 $lichaamsSvc=new LichaamstypeService();
@@ -63,6 +74,12 @@ $etnAchtergrondLijst=$etnAchtergrondSvc->toonAlleAchtergronden();
 $aTwig["etnAchtergronden"]=$etnAchtergrondLijst;
 $aTwig["titeletnachtergronden"]="Etnische Achtergronden";
 $aTwig["etnName"] ="etniciteit";
+
+// voorkeurEtniciteit toevoegen
+     $vetnSvc= new VoorkeurService();
+     $vetnLijst=$vetnSvc->getVoorkeurEtniciteit($gid);
+     $aTwig["vetn"]=$vetnLijst;
+     print_r($vetnLijst);
 
 // opleidingsniveaus ophalen
 $opleidingsNiveausSvc=new OpleidingsniveauService();
