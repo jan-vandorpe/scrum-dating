@@ -98,3 +98,4 @@ if (isset($_POST['updateVoorkeuren']))
    $voorkeurSVC -> updateVoorkeuren($gebruikerId,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$oogkleur,$haarkleur,$etniciteit);
    exit(0);
 }
+}
