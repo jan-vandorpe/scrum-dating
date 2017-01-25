@@ -25,5 +25,8 @@
         match.persoonlijkheidsType == 2 %} Gebalanceerd {% elseif match.persoonlijkheidsType == 3 %} Extrovert {% elseif
         match.persoonlijkheidsType == 4 %} Extreem extrovert {% endif %}
     </li>
+    <li>
+        <a href="bericht.php?id={{ match.gebruikerId }}">contacteer</a>
+    </li>
 </ul>
 {% endfor %}
