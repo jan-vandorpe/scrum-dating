@@ -52,6 +52,7 @@ if (isset($_POST['registreren']))
 //    {
 //        $view = $twig->render('index2.twig', array('email' => $email, 'login' => $login));
 //    }
-  print($view);
+          header('Location: ' . $_SERVER['HTTP_REFERER']);
+       
     exit(0);
 }
