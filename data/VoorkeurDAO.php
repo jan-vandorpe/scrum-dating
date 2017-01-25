@@ -96,9 +96,15 @@ class VoorkeurDAO
         $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
         $stmt=$dbh->prepare($sql);
         $stmt->execute(array(':gebruikerId'=>$id));
-        $rij=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        $resultSet=$stmt->fetchAll(PDO::FETCH_ASSOC);
         $dbh=null;
-        return $rij;
+        $lijst=array();
+        foreach ($resultSet as $rij)
+        {
+            $haarkleurid = $rij['haarkleurId'];
+            array_push($lijst,$haarkleurid);
+        }
+        return $lijst;
     }
 
 
