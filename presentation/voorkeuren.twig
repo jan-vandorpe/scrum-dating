@@ -147,7 +147,7 @@
 
                         {% for oogkleur in oogkleuren %}
 
-                                {% if oogkleur.oogkleurId in voogkleuren|keys %}
+                                {% if oogkleur.oogkleurId in voogkleuren %}
 
                                     <option value="{{ oogkleur.oogkleurId }}" selected>{{ oogkleur.oogkleur }}</option>
 
@@ -168,8 +168,8 @@
 
                             {% for haarkleur in haarkleuren %}
 
-                                {% for vhaarkleur in vhaarkleuren %}
-                                    {% if haarkleur.haarkleurId == vhaarkleur.haarkleurId %}
+
+                                    {% if haarkleur.haarkleurId in vhaarkleuren %}
 
                                         <option value="{{ haarkleur.haarkleurId }}"
                                                 selected>{{ haarkleur.haarkleur }}</option>
@@ -179,7 +179,7 @@
                                         <option value="{{ haarkleur.haarkleurId }}">{{ haarkleur.haarkleur }}</option>
 
                                     {% endif %}
-                                {% endfor %}
+
 
                             {% endfor %}
 
@@ -196,7 +196,7 @@
 
                             {% for etnischeachtergrond in etnAchtergronden %}
 
-                                    {% if etnischeachtergrond.etnischeAchtergrondId in vetn|keys %}
+                                    {% if etnischeachtergrond.etnischeAchtergrondId in vetn %}
 
                                         <option value="{{ etnischeachtergrond.etnischeAchtergrondId }}" selected>{{ etnischeachtergrond.etnischeAchtergrond }}</option>
 
