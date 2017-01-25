@@ -1,23 +1,37 @@
 $(function() {
 
-	form = $("#kenmerkForm");
 
-	form.submit(function (e) {
-		e.preventDefault()
-	});
+	// Dynamisch aantal kinderen veld
 
-	$("#neeKinderen").on( "click", function() {
-
-		$("#lbAantalKinderen").hide();
-	} );
-
-	$("#jaKinderen").on( "click", function() {
-
-		$("#lbAantalKinderen").show();
-	} );
+    if ($("#neeKinderen").is(':checked')) {
+        $("#aantalKinderen").attr('disabled',true).val('0');
+        $("#lbAantalKinderen").hide();
+    }
 
 
 
+    // click voor toggle
+    $("#neeKinderen").on( "click", function() {
+
+        $("#aantalKinderen").attr('disabled',true).attr('value','0');
+        $("#lbAantalKinderen").hide();
+
+    });
+
+    $("#jaKinderen").on( "click", function() {
+
+        $("#lbAantalKinderen").show();
+        $("#aantalKinderen").removeAttr('disabled');
+		$("#aantalKinderen").val('').focus();
+    } );
+
+
+	// validatie form
+    form = $("#kenmerkForm");
+
+    form.submit(function (e) {
+        e.preventDefault()
+    });
 
 	form.validate({
 		debug: true,
@@ -31,12 +45,15 @@ $(function() {
 				max: 272,
 				min: 54
 
-			}
-			,
+			},
 
 			 geboortedatum: {
 			 dateISO: true
-			 }
+			 },
+
+			aantalKinderen: {
+				required: "#jaKinderen:checked"
+			}
 
 
 		},
@@ -55,7 +72,11 @@ $(function() {
 
 			 geboortedatum:{
 			 dateISO: "datum moet in het YYYY-MM-DD formaat"
-			 }
+			 },
+
+			aantalKinderen: {
+				required: "Je moet opgeven hoeveel kinderen u heeft."
+			}
 
 
 		},
