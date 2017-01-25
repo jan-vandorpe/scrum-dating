@@ -1,5 +1,6 @@
 <?php
 session_start();
+
  if (isset($_SESSION["gebruikerId"])) 
 {  
 require_once 'services/GebruikerService.php';
