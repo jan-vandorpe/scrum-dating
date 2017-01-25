@@ -1,5 +1,7 @@
 <?php
 session_start();
+if (isset($_SESSION["gebruikerId"])) 
+{  
 require_once 'services/GebruikerService.php';
 require_once 'entities/Gebruiker.php';
 
@@ -33,4 +35,9 @@ if (isset($_POST['wwWijzigen']))
     }
       header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
-    
+}
+else {
+     $location = 'index.php';
+    header('Location: ' . $location);
+
+}
