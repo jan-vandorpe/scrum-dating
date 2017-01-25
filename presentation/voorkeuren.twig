@@ -17,7 +17,7 @@
                    <ul>
                         <li><a href="kenmerken.php">Kenmerken</a></li>
                         <li><a class="active" href="voorkeuren.php">Voorkeuren</a></li>
-                        <li><a href="gebruikerinstellingen.php">Instellingen</a></li>
+                        <li><a href="gebruikerinstellingen.php">Beheren</a></li>
                    </ul>
                </nav>
 
@@ -43,10 +43,9 @@
                             <input type="date" name="geboortedatum" id="geboorteDatum" title="geboortedatum in dd/mm/jjjj formaat">
 
                         {% endif %}
-
-                        <p>Geef hier je voorkeur geboortedatum in, dit moet in een dd/mm/jjjj formaat.</p>
-
                     </label>
+
+                    <p>Geef hier je voorkeur geboortedatum in, dit moet in een dd/mm/jjjj formaat.</p>
 
                     <label for="Lengte">Lengte
                         {% if gebruiker.voorkeurLengte %}
@@ -55,8 +54,10 @@
                             <input type="text" name="lengte" id="Lengte" title="lengte in centimeter">
                         {% endif %}
 
-                        <p>Geef hier uw voorkeur lengte uitgedrukt in centimeter.</p>
+
                     </label>
+
+                    <p>Geef hier uw voorkeur lengte uitgedrukt in centimeter.</p>
 
 
                     {#  <label for="{{ lichaamsName }}">{{ titellichaamstypes }}
@@ -69,8 +70,8 @@
                         </select>
                     </label> #}
 
-                     <label for="opleidingsniveau" class="ignore">{{ titelopleidingsniveau }}
-                        <select data-placeholder="Kies voorkeur {{ titelopleidingsniveau }} (je kan meerdere selecteren)" tabindex="2" name="{{ opleidingName }}" id="{{ opleidingsName }}">
+                     <label class="ignore">{{ titelopleidingsniveau }}
+                        <select data-placeholder="Kies voorkeur {{ titelopleidingsniveau }} (je kan meerdere selecteren)" tabindex="2" name="{{ opleidingName }}" id="{{ opleidingName }}">
 
                         {% for opleidingsniveau in opleidingsNiveaus %}
 
@@ -88,21 +89,25 @@
 
                         </select>
 
-                        <p>Geef hier uw voorkeur opleidingniveaus (minimum)</p>
+
                     </label>
 
-                    <label for="persoonlijkheid" class="ignore">Introvert<em>Extrovert</em>
+                    <p>Geef hier uw voorkeur opleidingniveaus (minimum)</p>
+
+                    <label class="ignore">Introvert<em>Extrovert</em>
                         {% if gebruiker.voorkeurPersoonlijkheidsType %}
                             <input type="range" min="1" max="5" step="1"
                                    value="{{ gebruiker.voorkeurPersoonlijkheidsType }}" name="persoonlijkheid"
                                    id="persoonlijkheid" class="range" title="introvert of extrovert">
-                            <p>Verkiest u iemand intro of extrovert? Sleep de slider naar wat u verkiest.</p>
+
                         {% else %}
                             <input type="range" min="1" max="5" step="1" value="3" name="persoonlijkheid"
                                    id="persoonlijkheid" class="range" title="introvert of extrovert">
                         {% endif %}
 
                     </label>
+
+                    <p>Verkiest u iemand intro of extrovert? Sleep de slider naar wat u verkiest.</p>
 
 
                 </div>
@@ -131,10 +136,10 @@
                     <fieldset>Kinderen?
                         {% if gebruiker.voorkeurKinderen == 0 %}
                             <div><input type="radio" name="kinderen" value="0" title="kinderen nee" checked>Nee</div>
-                            <div><input type="radio" name="kinderen" value="1" kinderen="kinderen ja">Ja</div>
+                            <div><input type="radio" name="kinderen" value="1" title="kinderen ja">Ja</div>
                         {% else %}
                             <div><input type="radio" name="kinderen" value="0" title="kinderen nee" checked>Nee</div>
-                            <div><input type="radio" name="kinderen" value="1" kinderen="kinderen ja">Ja</div>
+                            <div><input type="radio" name="kinderen" value="1" title="kinderen ja">Ja</div>
                         {% endif %}
                     </fieldset>
 
@@ -142,7 +147,7 @@
 
 
 
-                    <label for="{{ titeloogkleur }}">{{ titeloogkleur }}
+                    <label class="ignore">{{ titeloogkleur }}
                         <select data-placeholder="Kies een voorkeur {{ titeloogkleur }} (je kan meerdere selecteren)" class="chosen-select ignore" style="width: 100%; margin-top: 20px;" multiple tabindex="2" name="{{ oogName }}" id="{{ titeloogkleur }}">
 
                         {% for oogkleur in oogkleuren %}
@@ -160,11 +165,13 @@
                         {% endfor %}
 
                         </select>
-                        <p>Selecteer hier de mooiste oogkleuren.</p>
+
                     </label>
 
-                    <label for="haarkleuren">{{ titelhaar }}
-                        <select data-placeholder="Kies voorkeur {{ titelhaar }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%; margin-top: 20px;" tabindex="2" name="{{ haarName }}" id="{{ titelhaar }}" class="ignore">
+                    <p>Selecteer hier de mooiste oogkleuren.</p>
+
+                    <label class="ignore">{{ titelhaar }}
+                        <select data-placeholder="Kies voorkeur {{ titelhaar }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%; margin-top: 20px;" tabindex="2" name="{{ haarName }}" id="{{ titelhaar }}">
 
                             {% for haarkleur in haarkleuren %}
 
@@ -182,16 +189,15 @@
 
 
                             {% endfor %}
-
-
                         </select>
-                        <p>Valt u op blondines? Selecteer dan in deze lijst blondine!</p>
 
                     </label>
 
+                    <p>Valt u op blondines? Selecteer dan in deze lijst blondine!</p>
 
 
-                    <label for="etniciteit" class="ignore">{{ titeletnachtergronden }}
+
+                    <label class="ignore">{{ titeletnachtergronden }}
                         <select data-placeholder="Kies voorkeur {{ titeletnachtergronden }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%; margin-top: 20px;" tabindex="2" name="{{ etnName }}" id="{{ etnName }}">
 
                             {% for etnischeachtergrond in etnAchtergronden %}
@@ -212,15 +218,17 @@
 
                         </select>
 
-                        <p>Heeft u voorkeur voor een bepaalde etnische achtergrond? Selecteer in deze lijst. U kan meerdere waarden selecter</p>
+
                     </label>
+                    <p>Heeft u voorkeur voor een bepaalde etnische achtergrond? Selecteer in deze lijst. U kan meerdere waarden selecter</p>
+
             </div>
 
                             <input type="submit" value="Opslaan" name="updateVoorkeuren">
         </form>
 
         </div>
-
+        </div>
     </main>
     </div>
 
