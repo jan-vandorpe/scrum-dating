@@ -17,7 +17,7 @@
                    <ul>
                         <li><a href="kenmerken.php">Kenmerken</a></li>
                         <li><a href="voorkeuren.php">Voorkeuren</a></li>
-                        <li><a class="active" href="gebruikerinstellingen.php">Instellingen</a></li>
+                        <li><a class="active" href="gebruikerinstellingen.php">Beheren</a></li>
                    </ul>
                </nav>
 
@@ -29,17 +29,17 @@
                 <h2>Instellingen</h2>
                 <p>Opties</p>
 
-                <p><em>Wachtwoord wijzigen<em></p>
+                <p><em>Wachtwoord wijzigen</em>
 
                 <form action="wijzigwachtwoord.php" method="POST" id="wwPW">
                     <label for="oudWW">Oud Wachtwoord
-                        <input type="password" name="oudWW">
+                        <input type="password" name="oudWW" id="oudWW">
                     </label>
                     <label for="nieuwWW">Nieuw Wachtwoord
                         <input type="password" name="nieuwWW" id="nieuwWW">
                     </label>
                     <label for="nieuwWW2">Herhaal Nieuw Wachtwoord
-                        <input type="password" name="nieuwWW2">
+                        <input type="password" name="nieuwWW2" id="nieuwWW2">
                     </label>
 
                     <input type="submit" name="wwWijzigen">
@@ -48,27 +48,27 @@
                 <div style="margin-top: 50px;">
                     <form action="#" method="post" id="userInfo">
                         <label for="naam">Naam
-                            <input type="text" name="naam" value="{{ gebruiker.naam }}">
+                            <input type="text" name="naam" value="{{ gebruiker.naam }}" id="naam">
                         </label>
 
                         <label for="voornaam">Voornaam
-                            <input type="text" name="voornaam" value="{{ gebruiker.voornaam }}">
+                            <input type="text" name="voornaam" value="{{ gebruiker.voornaam }}" id="voornaam">
                         </label>
 
                         <label for="postcode">Postcode
-                            <input type="text" name="postcode" value="{{ gebruiker.postcode }}">
+                            <input type="text" name="postcode" value="{{ gebruiker.postcode }}" id="postcode">
                         </label>
 
                         <label for="stad">Stad
-                            <input type="text" name="stad" value="{{ gebruiker.stad }}">
+                            <input type="text" name="stad" value="{{ gebruiker.stad }}" id="stad">
                         </label>
 
                         <label for="geboorteDatum">Geboortedatum
-                            <input type="date" name="geboorteDatum" value="{{ gebruiker.geboorteDatum }}">
+                            <input type="date" name="geboorteDatum" value="{{ gebruiker.geboorteDatum }}" id="geboorteDatum">
                         </label>
 
                         <label for="email">Email
-                            <input type="email" name="email" value="{{ gebruiker.email }}" disabled>
+                            <input type="email" name="email" value="{{ gebruiker.email }}" id="email" disabled>
                         </label>
 
 
