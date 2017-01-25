@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<!-- head twig bevat alle links naar script en css stylesheet -->
+{{ include('head.twig') }}
+
+<body>
+{{ include('header.twig') }}
+<!-- Standaard containers die gebruikt worden -->
+<div class="container main clearfix">
+    <main class="clearfix">
+
+        {{ gebruiker.gebruikerId }}
+
+    </main>
+</div>
+{{ include('footer.twig') }}
+</body>
+
+</html>
