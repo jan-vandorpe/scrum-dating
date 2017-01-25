@@ -40,19 +40,7 @@ if (isset($_POST['registreren']))
 
     $view = $twig->render('index.twig', array('email' => $email, 'login' => $login));
 
-    
-   
-
-//    if (isset($_COOKIE["email"])) 
-//    {
-//        $cookieGebruiker = $_COOKIE["email"];
-//        $view = $twig->render('index2.twig', array('email' => $email, 'login' => $login, 'cookie' => $cookieGebruiker));
-//    }
-//    else 
-//    {
-//        $view = $twig->render('index2.twig', array('email' => $email, 'login' => $login));
-//    }
-          header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
        
     exit(0);
 }
