@@ -79,7 +79,7 @@ $aTwig["etnName"] ="etniciteit";
      $vetnSvc= new VoorkeurService();
      $vetnLijst=$vetnSvc->getVoorkeurEtniciteit($gid);
      $aTwig["vetn"]=$vetnLijst;
-     print_r($vetnLijst);
+
 
 // opleidingsniveaus ophalen
 $opleidingsNiveausSvc=new OpleidingsniveauService();
