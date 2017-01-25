@@ -1,8 +1,8 @@
 <?php
 session_start();
+ if (isset($_SESSION["gebruikerId"])) 
+{  
 require_once 'services/GebruikerService.php';
-
-
 
 require_once 'library/vendor/twig/autoloader.php';
 Twig_Autoloader::register();
@@ -25,3 +25,9 @@ $view = $twig->render('gebruikerinstellingen.twig', $aTwig);
 
 //toon de pagina
 print($view);
+}
+else {
+     $location = 'index.php';
+    header('Location: ' . $location);
+
+}
