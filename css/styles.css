@@ -78,7 +78,7 @@ header #slogan h1 em {
     min-height: 60px;
     width: 100%;
     background-color: #de3c4e;
-    display: table;
+    display: block;
 }
 
 .login {
@@ -138,7 +138,7 @@ header #slogan h1 em {
 }
 
 #topnav {
-    margin-right: 10px;
+
 }
 
 #topnav ul {
@@ -183,16 +183,15 @@ header #slogan h1 em {
 
 #topnav li>ul {
     position: absolute;
-    z-index: 1;
-    background-color: white;
+    z-index: 3;
     float: none;
     top: 30px;
-    left: -126px;
+    right: 0;
     display: none;
 }
 
 #topnav ul li:hover>ul {
-    display: inline-block;
+    display: block;
 }
 
 #topnav li>ul li {
@@ -202,18 +201,24 @@ header #slogan h1 em {
 }
 
 #topnav li>ul a {
-    color: red;
+    color: #881f2b;
 }
 
 #topnav li>ul a:hover {
-    color: orange;
+    color: #e79d9d;
 }
 
 #topnav li>ul li {
-    background-color: orange;
+    background-color: #de3c4e;
     width: 100%;
     text-align: right;
     padding: 5px 0 5px 5px;
+    border: 1px solid #e79d9d;
+    border-bottom: none;
+}
+
+#topnav li>ul li:last-child {
+    border-bottom: 1px solid #e79d9d;
 }
 
 
@@ -256,32 +261,33 @@ main p {
 /* kolom navigatie */
 
 .profileNav ul li {
-    width: 100%;
     box-sizing: border-box;
     display: block;
     cursor: pointer;
     padding: 15px 10px;
+    background-color: #952532;
+    overflow: hidden;
 }
 
 .profileNav ul li a {
     text-decoration: none;
     text-transform: uppercase;
     color: #ffc8ce;
-    width: 100%;
+
 }
 
 .profileNav ul li a.active {
     padding-bottom: 3px;
-    border-bottom: 1px dashed #ffc8ce;
+    border-bottom: 1px solid #ffc8ce;
 }
 
-.profileNav ul li:nth-child(odd) {
-    background-color: #952532;
+.profileNav ul li:hover a {
+
+
+    border-bottom: 1px solid #ffc8ce;
 }
 
-.profileNav ul li:nth-child(even) {
-    background-color: #de3c4e;
-}
+
 
 .col2 {
     width: 87.5%;
