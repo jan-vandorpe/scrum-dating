@@ -3,9 +3,9 @@
 <ul>
     <li class="profielFoto">
         {% if match.foto != ""%}
-        <img src="images/profiel/{{match.foto}}"></img>
+        <img src="images/profiel/{{match.foto}}" alt="profielfoto">
         {% else %}
-        <img src="images/profiel/profiel.png"></img>
+        <img src="images/profiel/profiel.png" alt="profielfoto">
         {% endif %}
     </li>
     <li>Naam: {{match.voornaam}} {{match.naam}}</li>
