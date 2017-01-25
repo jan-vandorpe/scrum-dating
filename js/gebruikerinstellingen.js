@@ -19,7 +19,7 @@ $(function() {
 
 
             nieuwWW2: {
-                equalTo: "nieuwWW"
+                equalTo: "#nieuwWW"
             }
 
 
