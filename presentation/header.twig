@@ -36,7 +36,11 @@
         {% else %}
 
         <div class="left">
-            <img src="images/profielfoto.jpg" class="profielfoto left">
+             {% if gebruiker.foto != ""%}
+        <img src="images/profiel/{{gebruiker.foto}}" class="profielfoto left"></img>
+        {% else %}
+        <img src="images/profielfoto.jpg" class="profielfoto left"></img>
+        {% endif %}
             <p class="left gebruikernaam">{{ gebruiker.voornaam }} {{ gebruiker.naam }}</p>
         </div>
 
