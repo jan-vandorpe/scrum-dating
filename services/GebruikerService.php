@@ -71,6 +71,7 @@ class GebruikerService
         $Gebruiker->setEtnischeAchtergrond($etniciteit);
         
         $GebruikerDAO->updateUserKenmerken($Gebruiker);
+        //header('Location: ' . 'index.php');
     }
     public function toonGebruiker($id){
         $gebruikerDAO=new GebruikerDAO();
