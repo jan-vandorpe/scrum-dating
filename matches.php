@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once 'services/GebruikerService.php';
 
@@ -10,7 +11,12 @@ $loader = new Twig_Loader_Filesystem('presentation');
 //laad nieuwe Twig Environment vanuit die map
 $twig = new Twig_Environment($loader);
 
-
+if (isset($_SESSION["gebruikerId"])) 
+    {   
+    $gid= (int)$_SESSION["gebruikerId"];
+    $gebruikerSvc = new GebruikerService();
+    $gebruiker=$gebruikerSvc->getById($gid);
+    $aTwig["gebruiker"]=$gebruiker;
 // aanmaken service user voor ze op te halen
 //constructor van een nieuwe service
 $gebruikerSvc = new GebruikerService();
@@ -27,3 +33,4 @@ $view = $twig->render('match/matches.twig',$aTwig);
 
 //toon de pagina
 print($view);
+    }
