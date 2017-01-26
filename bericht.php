@@ -17,10 +17,28 @@ if (isset($_SESSION["gebruikerId"]))
     $gebruikerSvc = new GebruikerService();
     $gebruiker=$gebruikerSvc->getById($gid);
     $aTwig["gebruiker"]=$gebruiker;
+    
+
+    if(isset($_GET['id'])){
+       
+       $id = $_GET['id'];
+        $match=$gebruikerSvc->getById($id);
+        $aTwig["match"] = $match;
+        if(!(isset($_GET['bericht']))){
+            $view = $twig->render('bericht/bericht.twig',$aTwig);
+        }else{
+            $view = $twig->render('bericht/verzonden.twig',$aTwig);
+        }
+    }else{
+          $view = $twig->render('fout.twig',$aTwig);
+    }
 
 
+
+    
+    
 // renderen van de pagina
-    $view = $twig->render('bericht.twig',$aTwig);
+    
 
 
 

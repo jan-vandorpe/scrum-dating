@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<!-- head twig bevat alle links naar script en css stylesheet -->
+{{ include('head.twig') }}
+
+<body>
+    {{ include('header.twig') }}
+    <!-- Standaard containers die gebruikt worden -->
+    <div class="container main clearfix">
+        <main class="clearfix">
+            <h1>Contact</h1>
+            <div id="registreer">
+                <p>Stuur een bericht naar:</p>
+                <ul>
+                    <li>
+                        <img src='{% if match.foto != ""%}images/profiel/{{match.foto}} {% else %}images/profiel/profiel.png{% endif %}'>{{match.voornaam}} {{match.naam}} 
+                    </li>
+                </ul>
+                <form action="bericht.php" method="get">
+                    <input class="verberg" type="tekst" name="id" value="{{match.gebruikerId}}">
+                    <textarea rows="4" cols="100" maxlength="140" name="bericht" placeholder="Verklaar je liefde in 140 tekens of minder."></textarea>
+                    <!--{{ gebruiker.gebruikerId }}-->
+                    <input type="submit" value="Zend bericht">
+                </form>
+            </div>
+        </main>
+    </div>
+    {{ include('footer.twig') }}
+</body>
+
+</html>

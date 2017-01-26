@@ -1,8 +1,8 @@
-<h1>{{ titel }}</h1>
-<form>
+            <h1>{{ titel }}</h1>
+   <form action="bericht.php" method="GET">
     {% for match in matches %}
     <label>
-    <input type="checkbox" name="match" value="{{match.gebruikerId}}">
+    <input type="checkbox" name="id" value="{{match.gebruikerId}}">
 <ul>
     <li class="profielFoto">
         {% if match.foto != ""%}
@@ -29,9 +29,11 @@
         match.persoonlijkheidsType == 4 %} Extreem extrovert {% endif %}
     </li>
     <li>
-        <a href="bericht.php?id={{ match.gebruikerId }}">contacteer</a>
+        <a href="bericht.php?id={{ match.gebruikerId }}">Contacteer direct</a>
     </li>
 </ul>
 
-</label> {% endfor %}
-</form>
+</label>
+ {% endfor %}
+ <input type="submit" value="Conatacteer">
+            </form>

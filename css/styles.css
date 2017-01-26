@@ -137,9 +137,7 @@ header #slogan h1 em {
     margin-top: 20px;
 }
 
-#topnav {
 
-}
 
 #topnav ul {
     list-style: none;
@@ -380,6 +378,34 @@ main>h1 {
     float: none;
     display: inline-block;
 }
+#registreer textarea{
+    margin: auto;
+    width: 50%;
+    padding:2%;
+    display: block;
+    /*float:left;
+    clear: both;*/
+}
+#registreer li{
+    list-style: none;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+#registreer img{
+    width: 25em;
+   height: 25em;
+   left:-50%;
+   position:relative;
+    border-radius: 50%;
+}
+#registreer p {
+    margin-top: 2em;
+    text-align:center;
+}
+#registreer .verberg{
+    display: none;
+}
 
 /* OPMAAK FORMS VOORKEUREN / KENMERKEN */
 
@@ -463,7 +489,8 @@ main input[type=submit] {
 }
 
 main input[type=submit]:hover {
-    background-color: black;
+    background-color:#ffc8ce ;
+      color: #881f2b;
 }
 
 /* error weergave */
@@ -528,7 +555,11 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 .matches {
     border-top-color: #ffc8ce;
-    background: #de3c4e;
+   background: white;
+}
+
+.matches h1{
+    color: #881f2b;
 }
 
 ul {
@@ -543,6 +574,7 @@ ul {
     border-top-style: solid;
     border-top-width: 5px;
     /* outline: red 1px dotted;*/
+    padding-bottom: 2em;
 }
 
 .matches h1 {
@@ -587,7 +619,13 @@ ul {
 .matches .rechts {
     float: right;
 }
-
+main .matches input[type=submit]{
+    margin: auto;
+    width:25%;
+    display: block;
+    
+    font-size: 2em;
+}
 
 /******* GENERIC CSS *******/
 
