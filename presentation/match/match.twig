@@ -1,5 +1,8 @@
 <h1>{{ titel }}</h1>
-{% for match in matches %}
+<form>
+    {% for match in matches %}
+    <label>
+    <input type="checkbox" name="match" value="{{match.gebruikerId}}">
 <ul>
     <li class="profielFoto">
         {% if match.foto != ""%}
@@ -29,4 +32,6 @@
         <a href="bericht.php?id={{ match.gebruikerId }}">contacteer</a>
     </li>
 </ul>
-{% endfor %}
+
+</label> {% endfor %}
+</form>
