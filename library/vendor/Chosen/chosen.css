@@ -180,7 +180,7 @@
 }
 .chosen-container-multi .chosen-drop .result-selected {
   display: list-item;
-  color: #ccc;
+  color: #888;
   cursor: default;
 }
 
