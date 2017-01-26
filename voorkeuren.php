@@ -106,15 +106,15 @@ if (isset($_POST['updateVoorkeuren']))
    $persoonlijkheid = $_POST['persoonlijkheid'];
    $roker = $_POST['roker'];
    $kinderen = $_POST['kinderen'];
-   $oogkleur = $_POST['oogkleur'];
+  print $oogkleur = $_POST['oogkleur'];
    $haarkleur = $_POST['haarkleur'];
    $etniciteit = $_POST['etniciteit'];
   
 
 
-   $voorkeurSVC = new VoorkeurService;  
-   $voorkeurSVC -> updateVoorkeuren($gebruikerId,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$oogkleur,$haarkleur,$etniciteit);
-   exit(0);
+//   $voorkeurSVC = new VoorkeurService;  
+//   $voorkeurSVC -> updateVoorkeuren($gebruikerId,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$oogkleur,$haarkleur,$etniciteit);
+//   exit(0);
 }
 
 }

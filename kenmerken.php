@@ -1,5 +1,7 @@
 <?php
 session_start();
+if (isset($_SESSION["gebruikerId"])) 
+{  
 require_once 'services/GebruikerService.php';
 // services opvulling lijsten
 require_once 'services/HaarkleurService.php';
@@ -22,6 +24,25 @@ if (isset($_SESSION["gebruikerId"]))
     $gebruiker=$gebruikerSvc->getById($gid);
     $aTwig["gebruiker"]=$gebruiker;  
 
+//database updaten
+if (isset($_POST['updateKenmerken']))
+{
+   $gebruikerId = (int) $_SESSION["gebruikerId"];
+   $lengte = $_POST['lengte']; 
+   $opleidingsNiveau = $_POST['opleidingsniveau'];
+   $persoonlijkheid = $_POST['persoonlijkheid'];
+   $roker = $_POST['roker'];
+   $kinderen = $_POST['aantalKinderen'];
+   $oogkleur = $_POST['oogkleur'];
+   $haarkleur = $_POST['haarkleur'];
+   $etniciteit = $_POST['etniciteit'];
+  
+
+
+   $gebruikerSVC = new GebruikerService;  
+   $gebruikerSVC -> updateUserKenmerken($gebruikerId,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$oogkleur,$haarkleur,$etniciteit);   
+   echo("<meta http-equiv='refresh' content='1'>");
+}
 
 
 
@@ -65,25 +86,16 @@ $aTwig["opleidingName"] ="opleidingsniveau";
 
 $view = $twig->render('kenmerken.twig',$aTwig);
 //toon de pagina
-print($view);
-
-//database updaten
-if (isset($_POST['updateKenmerken']))
-{
-   $gebruikerId = (int) $_SESSION["gebruikerId"];
-   $lengte = $_POST['lengte']; 
-   $opleidingsNiveau = $_POST['opleidingsniveau'];
-   $persoonlijkheid = $_POST['persoonlijkheid'];
-   $roker = $_POST['roker'];
-   $kinderen = $_POST['aantalKinderen'];
-   $oogkleur = $_POST['oogkleur'];
-   $haarkleur = $_POST['haarkleur'];
-   $etniciteit = $_POST['etniciteit'];
-  
+ print($view);
 
 
-   $gebruikerSVC = new GebruikerService;  
-   $gebruikerSVC -> updateUserKenmerken($gebruikerId,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$oogkleur,$haarkleur,$etniciteit);
-   exit(0);
+
+   
 }
+}
+else 
+    {
+     $location = 'index.php';
+    header('Location: ' . $location);
+
 }

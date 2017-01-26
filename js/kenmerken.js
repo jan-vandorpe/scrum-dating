@@ -4,7 +4,7 @@ $(function() {
 	// Dynamisch aantal kinderen veld
 
     if ($("#neeKinderen").is(':checked')) {
-        $("#aantalKinderen").attr('disabled',true).val('0');
+        $("#aantalKinderen").val('0');
         $("#lbAantalKinderen").hide();
     }
 
@@ -13,7 +13,7 @@ $(function() {
     // click voor toggle
     $("#neeKinderen").on( "click", function() {
 
-        $("#aantalKinderen").attr('disabled',true).attr('value','0');
+        $("#aantalKinderen").attr('value','0');
         $("#lbAantalKinderen").hide();
 
     });
@@ -21,7 +21,7 @@ $(function() {
     $("#jaKinderen").on( "click", function() {
 
         $("#lbAantalKinderen").show();
-        $("#aantalKinderen").removeAttr('disabled');
+
 		$("#aantalKinderen").val('').focus();
     } );
 

@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (isset($_SESSION["gebruikerId"])) 
+{  
+require_once 'services/GebruikerService.php';
+require_once 'entities/Gebruiker.php';
 
 session_start();
 if (isset($_SESSION["gebruikerId"])) {
@@ -33,7 +38,9 @@ if (isset($_SESSION["gebruikerId"])) {
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }
+}
 else {
-    $location = 'index.php';
+     $location = 'index.php';
     header('Location: ' . $location);
+
 }
