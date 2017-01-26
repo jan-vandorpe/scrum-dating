@@ -476,6 +476,17 @@ main input[type=submit]:hover {
     content: "* ";
 }
 
+
+/* registratie error */
+.regError {
+    color: red;
+    font-weight: bold;
+}
+
+.regError:before {
+    content: "* ";
+}
+
 /* chosen multibox */
 
 .chosen-container {
