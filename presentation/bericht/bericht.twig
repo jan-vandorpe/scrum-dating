@@ -9,20 +9,35 @@
     <div class="container main clearfix">
         <main class="clearfix">
             <h1>Contact</h1>
-            <div id="registreer">
+           <div id="registreer">
+
                 <p>Stuur een bericht naar:</p>
+                {% if match.id != "" %}
+               <ul>
+                   <li>
+                       <img src='{% if match.foto != ""%}images/profiel/{{match.foto}} {% else %}images/profiel/profiel.png{% endif %}'>{{match.voornaam}} {{match.naam}}
+                   </li>
+               </ul>
+                {% else %}
+
+               {% for match in matches %}
                 <ul>
-                    <li>
-                        <img src='{% if match.foto != ""%}images/profiel/{{match.foto}} {% else %}images/profiel/profiel.png{% endif %}'>{{match.voornaam}} {{match.naam}} 
+                    <li class="meerdere">
+                        <img src='{% if match.foto != ""%}images/profiel/{{match.foto}} {% else %}images/profiel/profiel.png{% endif %}'>{{match.voornaam}} {{match.naam}}
                     </li>
                 </ul>
+               {% endfor %}
+               {% endif %}
                 <form action="bericht.php" method="get">
                     <input class="verberg" type="tekst" name="id" value="{{match.gebruikerId}}">
                     <textarea rows="4" cols="100" maxlength="140" name="bericht" placeholder="Verklaar je liefde in 140 tekens of minder."></textarea>
                     <!--{{ gebruiker.gebruikerId }}-->
                     <input type="submit" value="Zend bericht">
                 </form>
+
             </div>
+
+
         </main>
     </div>
     {{ include('footer.twig') }}
