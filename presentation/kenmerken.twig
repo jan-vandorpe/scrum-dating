@@ -181,7 +181,19 @@
             </div>
 
             <input type="submit" value="Opslaan" name="updateKenmerken">
+
         </form>
+
+                <form action="kenmerken.php" method="post" enctype="multipart/form-data">
+                    <div class="col left">
+                        <fieldset>
+                    Selecteer een afbeelding om te uploaden:
+                   <div><input type="file" name="fileToUpload" id="fileToUpload"></div>
+
+                        </fieldset>
+                        <input type="submit" value="Bewaar Afbeelding" name="fotoUpload">
+                    </div>
+                </form>
 
         </div>
 

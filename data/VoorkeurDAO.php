@@ -134,19 +134,78 @@ class VoorkeurDAO
     
     //voorkeuren aanpassen
     public function updateUserVoorkeuren($voorkeuren)
-    {
-        $sql = "update gebruiker set
-            voorkeurLengte=:lengte,
-            voorkeurOpleidingsNiveau=:opleidingsNiveau,
-            voorkeurPersoonlijkheidsType=:persoonlijkheid,
-            voorkeurRoker=:roker,
-            voorkeurKinderen=:kinderen           
-            ";        
+    {        
+        $sqlVoorkeurenGebruiker = 
+                "UPDATE gebruiker set
+                voorkeurLengte=:lengte,
+                voorkeurOpleidingsNiveau=:opleidingsNiveau,
+                voorkeurPersoonlijkheidsType=:persoonlijkheid,
+                voorkeurRoker=:roker,
+                voorkeurKinderen=:kinderen   
+                WHERE gebruikerId=:gebruikerId;
+                "; 
         
+        $sqlVoorkeurenOogkleuren=
+                "DELETE FROM voorkeuroogkleur WHERE gebruikerId = :gebruikerId;
+                INSERT INTO voorkeuroogkleur(gebruikerId,oogkleurId)
+                VALUES(:gebruikerId,:oogkleurId)
+                ";
         
+        $sqlVoorkeurenHaarkleuren=
+                "DELETE FROM voorkeurhaarkleur WHERE gebruikerId = :gebruikerId;
+                INSERT INTO voorkeurhaarkleur(gebruikerId,haarkleurId)
+                VALUES(:gebruikerId,:haarkleurId)
+                ";
+        $sqlVoorkeurenEtnischeAchtergrond=
+                "DELETE FROM voorkeuretnischeachtergrond WHERE gebruikerId = :gebruikerId;
+                INSERT INTO voorkeurhaarkleur(gebruikerId,etnischeAchtergrondId)
+                VALUES(:gebruikerId,:etnischeAchtergrondId)
+                ";
         
         $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
-        $stmt=$dbh->prepare($sql);
+        $stmt=$dbh->prepare($sqlVoorkeurenGebruiker);
+        $stm2=$dbh->prepare($sqlVoorkeurenOogkleuren);
+        $stm3=$dbh->prepare($sqlVoorkeurenHaarkleuren);
+        $stm4=$dbh->prepare($sqlVoorkeurenEtnischeAchtergrond);
+       
+        //voorkeuren gebruiker aanpassen in tabel gebruiker
+        $stmt->execute(array( 
+            ':voorkeurLengte' => $voorkeuren->getVoorkeurLengte,
+            ':voorkeurOpleidingsNiveau'=>$voorkeuren->getOpleidingsNiveau,
+            ':voorkeurPersoonlijkheidsType'=>$voorkeuren->getVoorkeurPersoonlijkheidsType,
+            ':voorkeurRoker'=>$voorkeuren->getVoorkeurRoker,
+            ':voorkeurKinderen'=>$voorkeuren->getVoorkeurKinderen,
+            ':gebruikerId'=>$voorkeuren->getGebruikerId            
+            ));
+        
+        //oogkleur voorkeuren aanpassen in tabel voorkeuroogkleur
+        foreach ($voorkeuren->getOogkleur as $oogkleur)
+        {
+         $stm2->execute(array(
+            ':gebruikerId'=>$voorkeuren->getGebruikerId,
+            ':oogkleurId'=>$oogkleur
+         )); 
+        }
+        
+        //haarkleur voorkeuren aanpassen in tabel voorkeurhaarkleur
+        foreach ($voorkeuren->getHaarkleur as $haarkleur)
+        {
+         $stm3->execute(array(
+            ':gebruikerId'=>$voorkeuren->getGebruikerId,
+            ':haarkleurId'=>$haarkleur
+         )); 
+        }
+        
+        //haarkleur voorkeuren aanpassen in tabel voorkeurhaarkleur
+        foreach ($voorkeuren->getEtnischeAchtergrond as $etnAchtergrond)
+        {
+         $stm3->execute(array(
+            ':gebruikerId'=>$voorkeuren->getGebruikerId,
+            ':etnischeAchtergrondId'=>$etnAchtergrond
+         )); 
+        }
+        
+        $dbh=null;
     
     }
 }

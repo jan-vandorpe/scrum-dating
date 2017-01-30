@@ -148,7 +148,7 @@
 
 
                     <label class="ignore">{{ titeloogkleur }}
-                        <select data-placeholder="Kies een voorkeur {{ titeloogkleur }} (je kan meerdere selecteren)" class="chosen-select ignore" style="width: 100%; margin-top: 20px;" multiple tabindex="2" name="{{ oogName }}" id="{{ titeloogkleur }}">
+                        <select data-placeholder="Kies een voorkeur {{ titeloogkleur }} (je kan meerdere selecteren)" class="chosen-select ignore" style="width: 100%; margin-top: 20px;" multiple tabindex="2" name="{{ oogName }}[]" id="{{ titeloogkleur }}">
 
                         {% for oogkleur in oogkleuren %}
 
@@ -171,7 +171,7 @@
                     <p>Selecteer hier de mooiste oogkleuren.</p>
 
                     <label class="ignore">{{ titelhaar }}
-                        <select data-placeholder="Kies voorkeur {{ titelhaar }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%; margin-top: 20px;" tabindex="2" name="{{ haarName }}" id="{{ titelhaar }}">
+                        <select data-placeholder="Kies voorkeur {{ titelhaar }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%; margin-top: 20px;" tabindex="2" name="{{ haarName }}[]" id="{{ titelhaar }}">
 
                             {% for haarkleur in haarkleuren %}
 
@@ -198,7 +198,7 @@
 
 
                     <label class="ignore">{{ titeletnachtergronden }}
-                        <select data-placeholder="Kies voorkeur {{ titeletnachtergronden }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%; margin-top: 20px;" tabindex="2" name="{{ etnName }}" id="{{ etnName }}">
+                        <select data-placeholder="Kies voorkeur {{ titeletnachtergronden }} (je kan meerdere selecteren)" class="chosen-select" multiple style="width: 100%; margin-top: 20px;" tabindex="2" name="{{ etnName }}[]" id="{{ etnName }}">
 
                             {% for etnischeachtergrond in etnAchtergronden %}
 

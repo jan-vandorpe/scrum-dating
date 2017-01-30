@@ -2,7 +2,7 @@
    <form action="bericht.php" method="GET">
     {% for match in matches %}
     <label>
-    <input type="checkbox" name="id" value="{{match.gebruikerId}}">
+    <input type="checkbox" name="id[]" value="{{match.gebruikerId}}">
 <ul>
     <li class="profielFoto">
         {% if match.foto != ""%}

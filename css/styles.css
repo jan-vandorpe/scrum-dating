@@ -602,6 +602,29 @@ main>h1 {
     display: none;
 }
 
+#registreer .meerdere{
+    margin:auto;
+    display: block;
+    /*outline: red 5px dotted;*/
+    width: 100%;
+}
+
+#registreer .meerdere img{
+    width: 5em;
+    height: 5em;
+    left:0;
+    border-radius: 50%;
+    display: inline-block;
+
+   /* outline: red 5px dotted;*/
+}
+#registreer li:hover{
+    background-color:#881f2b ;
+    color:  #ffc8ce;
+
+}
+
+
 /* OPMAAK FORMS VOORKEUREN / KENMERKEN */
 
 main {
@@ -818,8 +841,8 @@ ul {
 }
 
 .matches ul {
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
     float: left;
     list-style: none;
     clear: left;
@@ -837,6 +860,18 @@ ul {
     margin-right: 1em;
     clear: right;
     /*width: 15%;*/
+}
+.matches ul:hover {
+    background-color:#881f2b ;
+    color:  #ffc8ce;
+}
+.matches input[type=checkbox]{
+    top: 1.5em;
+    right:1em;
+    position: relative;
+    /*outline: red 5px dotted ;*/
+    margin: 0;
+    padding:0;
 }
 
 .matches .rechts {

@@ -10,7 +10,7 @@ class DBCONFIG
 {
 
     public static $DB_CONNSTRING = "mysql:host=localhost;dbname=datingsite;charset=utf8";
-    public static $DB_USERNAME = "Koffie";
-    public static $DB_PASSWORD = "Suiker";
+    public static $DB_USERNAME = "root";
+    public static $DB_PASSWORD = "";
 
 }

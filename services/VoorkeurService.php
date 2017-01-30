@@ -8,6 +8,7 @@
  */
 //services/VoorkeurService.php
 require_once ('data/VoorkeurDAO.php');
+require_once ('entities/Voorkeur.php');
 
 class VoorkeurService
 {
@@ -22,22 +23,22 @@ class VoorkeurService
         return $lijst;
     }
     
-    public function updateVoorkeuren($id,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$oogkleur,$haarkleur,$etniciteit)
+    public function updateVoorkeuren($id,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$voorkeurOogkleuren,$voorkeurHaarkleuren,$voorkeurEtniciteiten)
     {
  
         $VoorkeurDAO = new VoorkeurDAO();
         $Voorkeur = $VoorkeurDAO->getVoorkeurenGebruiker($id);
 
-        $Voorkeur->setLengte(setVoorkeurLengte);
+        $Voorkeur->setVoorkeurLengte($lengte);
         $Voorkeur->setOpleidingsNiveau($opleidingsNiveau);
         $Voorkeur->setVoorkeurPersoonlijkheidsType($persoonlijkheid);
         $Voorkeur->setVoorkeurRoker($roker);
         $Voorkeur->setVoorkeurKinderen($kinderen);
-        $Voorkeur->setOogkleur($oogkleur);
-        $Voorkeur->setHaarkleur($haarkleur);
-        $Voorkeur->setEtnischeAchtergrond($etniciteit);
+        $Voorkeur->setOogkleur($voorkeurOogkleuren);
+        $Voorkeur->setHaarkleur($voorkeurHaarkleuren);
+        $Voorkeur->setEtnischeAchtergrond($voorkeurEtniciteiten);
         
-        $VoorkeurDAO->updateUserKenmerken($Voorkeur);              
+        $VoorkeurDAO->updateUserVoorkeuren($Voorkeur);              
     }
 
     public function getVoorkeurOogkleur($id)

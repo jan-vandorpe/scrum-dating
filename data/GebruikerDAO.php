@@ -265,4 +265,22 @@ class GebruikerDAO
          $dbh=null;      
     }
 
+    public function updateUserFoto($gebruiker)
+    {
+
+        $sql="update gebruiker set     
+            foto=:foto
+            WHERE gebruikerId=:gebruikerId";
+
+        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
+        $stmt=$dbh->prepare($sql);
+
+
+        $stmt->execute(array(
+            ':gebruikerId' => (int)$gebruiker->getGebruikerId(),
+            ':foto'=>(string)$gebruiker->getFoto()
+        ));
+
+        $dbh=null;
+    }
 }

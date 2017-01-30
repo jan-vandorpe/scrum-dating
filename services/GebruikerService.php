@@ -78,4 +78,16 @@ class GebruikerService
         $gebruiker=$gebruikerDAO->getById($id);
         return $gebruiker;
     }
+    public function updateUserFoto($id,$foto)
+    {
+
+        $GebruikerDAO = new GebruikerDAO();
+        $Gebruiker = $GebruikerDAO->getById($id);
+
+        $Gebruiker->setFoto($foto);
+
+
+        $GebruikerDAO->updateUserFoto($Gebruiker);
+        //header('Location: ' . 'index.php');
+    }
 }
