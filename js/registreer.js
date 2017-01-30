@@ -54,7 +54,7 @@ $(function() {
             },
 
             geboorteDatum: {
-                dateFormat: true
+                //dateFormat: true
             },
 
 
