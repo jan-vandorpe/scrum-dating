@@ -12,7 +12,7 @@
            <div id="registreer">
 
                 <p>Stuur een bericht naar:</p>
-                {% if match.id != "" %}
+                {% if match.gebruikerId != "" %}
                <ul>
                    <li>
                        <img src='{% if match.foto != ""%}images/profiel/{{match.foto}} {% else %}images/profiel/profiel.png{% endif %}'>{{match.voornaam}} {{match.naam}}
