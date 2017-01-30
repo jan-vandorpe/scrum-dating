@@ -100,21 +100,37 @@ print($view);
 //database updaten
 if (isset($_POST['updateVoorkeuren']))
 {
-   $gebruikerId = (int) $_SESSION["gebruikerId"];
-   $lengte = $_POST['lengte']; 
-   $opleidingsNiveau = $_POST['opleidingsniveau'];
-   $persoonlijkheid = $_POST['persoonlijkheid'];
-   $roker = $_POST['roker'];
-   $kinderen = $_POST['kinderen'];
-  print $oogkleur = $_POST['oogkleur'];
-   $haarkleur = $_POST['haarkleur'];
-   $etniciteit = $_POST['etniciteit'];
-  
+    
+    //print_r($_POST);
+    $gebruikerId = (int) $_SESSION["gebruikerId"];
+    $lengte = $_POST['lengte'];
+    $opleidingsNiveau = $_POST['opleidingsniveau'];
+    $persoonlijkheid = $_POST['persoonlijkheid'];
+    $roker = $_POST['roker'];
+    $kinderen = $_POST['kinderen'];
+
+    $voorkeurOogkleuren = array();
+    foreach ($_POST['oogkleur'] as $voorkeurOogkleur)
+    {
+    array_push($voorkeurOogkleuren, $voorkeurOogkleur);         
+    }
+
+    $voorkeurHaarkleuren = array();
+    foreach ($_POST['haarkleur'] as $voorkeurHaarkleur)
+    {
+        array_push($voorkeurHaarkleuren, $voorkeurHaarkleur);         
+    }
+
+    $voorkeurEtniciteiten = array();
+    foreach ($_POST['etniciteit'] as $voorkeurEtniciteit)
+    {
+        array_push($voorkeurEtniciteiten, $voorkeurEtniciteit);         
+    }  
 
 
-//   $voorkeurSVC = new VoorkeurService;  
-//   $voorkeurSVC -> updateVoorkeuren($gebruikerId,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$oogkleur,$haarkleur,$etniciteit);
-//   exit(0);
+    $voorkeurSVC = new VoorkeurService;  
+    $voorkeurSVC -> updateVoorkeuren($gebruikerId,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$voorkeurOogkleuren,$voorkeurHaarkleuren,$voorkeurEtniciteiten);
+
 }
 
 }
