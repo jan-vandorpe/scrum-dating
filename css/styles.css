@@ -5,21 +5,272 @@
 /* Normalistatie */
 
 * {
-    font-family: "Myriad Pro", sans-serif;
     margin: 0;
     padding: 0;
 }
 
-body {
-    background-color: #e45d6c;
-    /* background-image: url(../images/texture.png); */
-}
+/* einde normalisatie */
 
 .container {
     width: 80%;
     margin: 0 auto;
 }
 
+/********** KLEUREN **********/
+
+/* algemeen */
+body {
+    background-color: #e45d6c;
+}
+
+/* header */
+header #slogan h1 {
+    color: #e45d6c;
+}
+
+header #slogan h1 em {
+    color: #952532;
+}
+
+/* top navigatie */
+
+#topnav {
+    background-color: #de3c4e;
+}
+
+/* login */
+
+.login label {
+    color: #ffc8ce;
+}
+
+.login label a {
+    color: #5d4d4f;
+}
+
+.login input[type=submit] {
+    background-color: #952532;
+    color: #ffc8ce;
+    border-color: #6c1b24;
+
+}
+
+
+
+.login input[type=email],
+.login input[type=password] {
+    border-color: #6c1b24;
+}
+
+#topnav a {
+    color: #6c1b24;
+}
+
+#topnav a:hover {
+    color: #e79d9d;
+}
+
+#topnav li>ul a {
+    color: #881f2b;
+}
+
+#topnav li>ul a:hover {
+    color: #e79d9d;
+}
+
+#topnav li>ul li {
+    background-color: #de3c4e;
+    border-color:#e79d9d;
+}
+
+#topnav li>ul li:last-child {
+    border-bottom-color: #e79d96;
+}
+
+/* einde login */
+
+/* einde header */
+
+/* profiel navigatie (sidemenu) */
+
+.profileNav ul li {
+    background-color: #952532;
+}
+
+.profileNav ul li a {
+    color: #ffc8ce;
+}
+
+.profileNav ul li a.active {
+    border-bottom-color: #ffc8ce;
+}
+
+.profileNav ul li:hover a {
+
+
+    border-bottom-color: #ffc8ce;
+}
+
+
+/* einde profiel navigatie */
+
+/* algemene paginas */
+main {
+    background-color: white;
+    color: #ffc8ce;
+}
+
+main p {
+    color: #881f2b;
+}
+
+.padbox {
+    background-color: #de3c4e;
+}
+
+footer {
+    background-color: #e45d6c;
+    color: white;
+}
+
+main>h1 {
+    color: #de3c4e;
+}
+/* einde algemeen */
+
+/* registratie */
+#registreer {
+    color: #de3c4e;
+}
+
+
+#registreer input[type=submit]:hover {
+    background-color: #ffc8ce;
+    color: #881f2b;
+}
+
+#registreer label input {
+    background-color: white;
+}
+
+
+
+main form p {
+    color: #881f2b;
+}
+
+input[type=text],
+input[type=date],
+input[type=radio],
+input[type=submit],
+input[type=password],
+input[type=email],
+select {
+    background-color: #881f2b;
+    color: #ffc8ce;
+    border-color:#ffc8ce;
+}
+
+
+main input[type=submit]:hover {
+    background-color:#ffc8ce ;
+    color: #881f2b;
+}
+
+/* error berichten validatie */
+
+.error {
+    color: white;
+}
+
+.regError {
+    color: red;
+}
+
+/* range op form */
+
+input[type=range]::-webkit-slider-runnable-track {
+    background: #881f2b;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    background: #881f2b;
+    border-color: #ffc8ce;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ffc8ce;
+}
+
+
+
+/*************** EINDE KLEUREN *********************/
+
+/**************** TYPOGRAFIE ***********************/
+
+* {
+    font-family: "Myriad Pro", sans-serif;
+}
+
+header #slogan h1 {
+    font-family: "Overpass ", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 3.75em; /* 3.75 * 16 = 60PX */
+    letter-spacing: -3px;
+}
+
+header #slogan h1 em {
+    font-style: normal;
+    letter-spacing: 0;
+    font-weight: 600;
+}
+
+.login label a {
+    text-decoration: none;
+}
+
+#topnav a {
+
+    text-decoration: none;
+
+}
+
+main p {
+    font-weight: bold;
+}
+
+#registreer li{
+    text-align: center;
+}
+
+#registreer p {
+    text-align:center;
+}
+
+main form p {
+    font-size: 0.8em;
+    font-weight: normal;
+}
+
+label em {
+    float: right;
+    font-style: normal;
+}
+
+/* error weergave */
+.error {
+    font-weight: bold;
+}
+
+/* registratie error */
+.regError {
+    font-weight: bold;
+}
+
+/************* EINDE TYPOGRAFIE ********************/
+
+/************* STRUCTUUR **************************/
 
 /* HEADER CSS */
 
@@ -52,23 +303,10 @@ header #slogan {
     margin-top: 40px;
 }
 
-header #slogan h1 {
-    color: #e45d6c;
-    font-family: "Overpass ", sans-serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: 3.75em;
-    /* 3.75 * 16 = 60PX */
-    letter-spacing: -3px;
-}
 
 header #slogan h1 em {
-    font-style: normal;
-    color: #952532;
     display: block;
     margin-top: -10px;
-    letter-spacing: 0;
-    font-weight: 600;
 }
 
 
@@ -77,7 +315,6 @@ header #slogan h1 em {
 #topnav {
     min-height: 60px;
     width: 100%;
-    background-color: #de3c4e;
     display: block;
 }
 
@@ -102,27 +339,17 @@ header #slogan h1 em {
     clear: both;
 }
 
-.login label {
-    color: #ffc8ce;
-}
-
-.login label a {
-    color: #5d4d4f;
-    text-decoration: none;
-}
 
 .login input[type=email],
 .login input[type=password] {
     /*background-color: #ffc8ce;*/
-    border: 1px solid #6c1b24;
+    border: 1px solid;
     padding-top: 2px;
 }
 
 .login input[type=submit] {
-    background-color: #952532;
     border-radius: 2px;
-    color: #ffc8ce;
-    border: 1px solid #6c1b24;
+    border: 1px solid;
     padding: 2px 10px 0 10px;
 }
 
@@ -153,20 +380,13 @@ header #slogan h1 em {
 
 #topnav a {
     display: block;
-    color: #6c1b24;
-    text-decoration: none;
     padding: 0 10px;
-}
-
-#topnav a:hover {
-    color: #e79d9d;
 }
 
 #topnav a.instellingen {
     height: 40px;
     width: 40px;
-    background-image: url('../images/gear.png');
-    background-repeat: no-repeat;
+    background: url('../images/gear.png') no-repeat;
     background-size: 100% 200%;
     padding: 0;
     margin-top: -10px;
@@ -198,33 +418,25 @@ header #slogan h1 em {
     float: right;
 }
 
-#topnav li>ul a {
-    color: #881f2b;
-}
 
-#topnav li>ul a:hover {
-    color: #e79d9d;
-}
+
 
 #topnav li>ul li {
-    background-color: #de3c4e;
     width: 100%;
     text-align: right;
     padding: 5px 0 5px 5px;
-    border: 1px solid #e79d9d;
+    border: 1px solid;
     border-bottom: none;
 }
 
 #topnav li>ul li:last-child {
-    border-bottom: 1px solid #e79d9d;
+    border-bottom: 1px solid;
+
 }
 
 
 /* MAIN */
 
-main {
-    background-color: white;
-}
 
 main h2 {
     margin-bottom: 20px;
@@ -232,8 +444,6 @@ main h2 {
 
 main p {
     margin-bottom: 20px;
-    color: #881f2b;
-    font-weight: bold;
 }
 
 
@@ -263,26 +473,24 @@ main p {
     display: block;
     cursor: pointer;
     padding: 15px 10px;
-    background-color: #952532;
     overflow: hidden;
 }
 
 .profileNav ul li a {
     text-decoration: none;
     text-transform: uppercase;
-    color: #ffc8ce;
 
 }
 
 .profileNav ul li a.active {
     padding-bottom: 3px;
-    border-bottom: 1px solid #ffc8ce;
+    border-bottom: 1px solid;
 }
 
 .profileNav ul li:hover a {
 
 
-    border-bottom: 1px solid #ffc8ce;
+    border-bottom: 1px solid;
 }
 
 
@@ -307,15 +515,13 @@ main p {
 
 .padbox {
     padding: 10px;
-    background-color: #de3c4e;
 }
 
 
 /* footer */
 
 footer {
-    background-color: #e45d6c;
-    color: white;
+
 }
 
 
@@ -323,14 +529,12 @@ footer {
 
 main>h1 {
     text-align: center;
-    color: #de3c4e;
     padding-top:2%;
 }
 
 #registreer {
     margin: auto;
     width: 25em;
-    color: #de3c4e;
 }
 
 #registreer label,
@@ -364,17 +568,10 @@ main>h1 {
 #registreer input[type=submit] {
     padding: 3px 10px;
     cursor: pointer;
-    margin: 5%;
-    margin-left: 25%;
-}
-
-#registreer input[type=submit]:hover {
-    background-color: #ffc8ce;
-    color: #881f2b;
+    margin: 5% 5% 5% 25%;
 }
 
 #registreer label input {
-    background-color: white;
     float: none;
     display: inline-block;
 }
@@ -383,15 +580,13 @@ main>h1 {
     width: 50%;
     padding:2%;
     display: block;
-    /*float:left;
-    clear: both;*/
 }
 #registreer li{
     list-style: none;
     width: 50%;
     margin: auto;
-    text-align: center;
 }
+
 #registreer img{
     width: 25em;
    height: 25em;
@@ -401,8 +596,8 @@ main>h1 {
 }
 #registreer p {
     margin-top: 2em;
-    text-align:center;
 }
+
 #registreer .verberg{
     display: none;
 }
@@ -410,7 +605,6 @@ main>h1 {
 /* OPMAAK FORMS VOORKEUREN / KENMERKEN */
 
 main {
-    color: #ffc8ce;
     min-height: 800px;
 }
 
@@ -426,9 +620,6 @@ main form p {
     display: block;
     margin-top: 20px;
     max-width: 70%;
-    font-size: 0.8em;
-    color: #881f2b;
-    font-weight: normal;
 }
 
 main label:first-child,
@@ -460,7 +651,6 @@ fieldset div {
 
 label em {
     float: right;
-    font-style: normal;
 }
 
 input[type=text],
@@ -470,10 +660,8 @@ input[type=submit],
 input[type=password],
 input[type=email],
 select {
-    background-color: #881f2b;
-    border: 1px solid #ffc8ce;
+    border: 1px solid;
     padding-top: 2px;
-    color: #ffc8ce;
     padding-left: 2px;
 }
 
@@ -488,27 +676,15 @@ main input[type=submit] {
     cursor: pointer;
 }
 
-main input[type=submit]:hover {
-    background-color:#ffc8ce ;
-      color: #881f2b;
-}
 
-/* error weergave */
-.error {
-    color: white;
-    font-weight: bold;
-}
+
 
 .error:before {
     content: "* ";
 }
 
 
-/* registratie error */
-.regError {
-    color: red;
-    font-weight: bold;
-}
+
 
 .regError:before {
     content: "* ";
@@ -537,27 +713,63 @@ input[type=range]:focus {
     outline: none;
 }
 
-input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 4px;
-    cursor: pointer;
-    background: #881f2b;
-}
+
 
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 20px;
     width: 5px;
-    background: #881f2b;
     cursor: pointer;
     margin-top: -9px;
     border: 1px solid #ffc8ce;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #ffc8ce;
+
+/************* EINDE STRUCTUUR *********************/
+
+/************* GENERIC CLASSES *********************/
+
+/* Floats */
+
+.left {
+    float: left;
 }
 
+.right {
+    float: right;
+}
+
+.center {
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* clearfix */
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+
+.clearfix {
+    display: block;
+}
+
+/************* EINDE CLASSES *********************/
+
+/**** @CSS STIJN ****/
 
 /******** Matches *********/
 
@@ -638,47 +850,8 @@ main .matches input[type=submit]{
     font-size: 2em;
 }
 
-/******* GENERIC CSS *******/
 
 
-/* clearfix */
 
-.clearfix:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-}
-
-.clearfix {
-    display: inline-block;
-}
-
-
-/* start commented backslash hack \*/
-
-* html .clearfix {
-    height: 1%;
-}
-
-.clearfix {
-    display: block;
-}
-
-
-/* close commented backslash hack */
-
-
-/* Floats */
-
-.left {
-    float: left;
-}
-
-.right {
-    float: right;
-}
 
 
