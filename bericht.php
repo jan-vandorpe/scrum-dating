@@ -19,9 +19,25 @@ if (isset($_SESSION["gebruikerId"]))
     $aTwig["gebruiker"]=$gebruiker;
     
 
-    if(isset($_GET['id'])){
-       
+    if(isset($_GET['id']) && is_array($_GET['id'])){
+       $match = array();
        $id = $_GET['id'];
+       foreach($id as $value){
+           array_push($match,$gebruikerSvc->getById($value));
+
+       }
+
+        $aTwig["matches"] = $match;
+
+
+      if(!(isset($_GET['bericht']))){
+            $view = $twig->render('bericht/bericht.twig',$aTwig);
+        }else{
+            $view = $twig->render('bericht/verzonden.twig',$aTwig);
+        }
+    }
+    elseif (isset($_GET['id'])){
+        $id = $_GET['id'];
         $match=$gebruikerSvc->getById($id);
         $aTwig["match"] = $match;
         if(!(isset($_GET['bericht']))){
@@ -29,7 +45,8 @@ if (isset($_SESSION["gebruikerId"]))
         }else{
             $view = $twig->render('bericht/verzonden.twig',$aTwig);
         }
-    }else{
+    }
+    else{
           $view = $twig->render('fout.twig',$aTwig);
     }
 
