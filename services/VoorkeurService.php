@@ -17,11 +17,12 @@ class VoorkeurService
         $lijst=$voorkeurDAO->getVoorkeurenAlleGebruikers();
         return $lijst;
     }
-    public function getVoorkeurGebruiker($id){
+    public function getVoorkeurenGebruiker($id){
         $voorkeurDAO=new VoorkeurDAO();
         $lijst=$voorkeurDAO->getVoorkeurenGebruiker($id);
-        return $lijst;
+        return $lijst; //RETURN OBJECT
     }
+
     
     public function updateVoorkeuren($id,$lengte,$opleidingsNiveau,$persoonlijkheid,$roker,$kinderen,$voorkeurOogkleuren,$voorkeurHaarkleuren,$voorkeurEtniciteiten)
     {

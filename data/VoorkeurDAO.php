@@ -50,9 +50,9 @@ class VoorkeurDAO
     }
 
     public function getVoorkeurenGebruiker($id){
-        $sql="select a.gebruikerId,a.voornaam,a.naam,b.oogkleur,b.oogkleurId,a.voorkeurGeboortedatum,
-              a.voorkeurLengte,a.voorkeurRoker,c.haarkleur,c.haarkleurId,d.etnischeAchtergrond,d.etnischeAchtergrondId,
-              e.opleidingsNiveau,e.oplNiveauId,a.voorkeurGeslacht,a.voorkeurKinderen,a.voorkeurPersoonlijkheidsType
+        $sql="select a.gebruikerId,b.oogkleurId,
+              a.voorkeurLengte,a.voorkeurRoker,c.haarkleurId,d.etnischeAchtergrondId,
+              e.oplNiveauId,a.voorkeurGeslacht,a.voorkeurKinderen,a.voorkeurPersoonlijkheidsType
               FROM gebruiker a
               inner join (voorkeuroogkleur f inner join oogkleuren b
                           on f.oogkleurId=b.oogkleurId)
@@ -69,13 +69,15 @@ class VoorkeurDAO
         $stmt=$dbh->prepare($sql);
         $stmt->execute(array(':id'=>$id));
         $rij=$stmt->fetch(PDO::FETCH_ASSOC);
-        $voorkeur=Voorkeur::create($id,$rij["voornaam"],$rij["naam"],$rij["oogkleur"],$rij["voorkeurGeboortedatum"],$rij["voorkeurLengte"],
-                                    $rij["voorkeurRoker"],$rij["haarkleur"],$rij["etnischeAchtergrond"],$rij["opleidingsNiveau"],$rij["voorkeurGeslacht"],
-                                    $rij["voorkeurKinderen"],$rij["voorkeurPersoonlijkheidsType"]);
+        $voorkeur=array();
+        array_push($voorkeur,$rij["gebruikerId"],$rij["oogkleurId"],$rij["voorkeurLengte"],$rij["voorkeurRoker"],
+                    $rij["haarkleurId"],$rij["etnischeAchtergrondId"],$rij["oplNiveauId"],$rij["voorkeurGeslacht"],
+                    $rij["voorkeurKinderen"],$rij["voorkeurPersoonlijkheidsType"]);
         $dbh=null;
         return $voorkeur;
 
     }
+
 
     public function getVoorkeurOogkleur($id)
     {

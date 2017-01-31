@@ -44,6 +44,11 @@ class GebruikerService
         $Gebruiker = $GebruikerDAO ->getById($id);
         return $Gebruiker;        
     }
+    public function getUserKenmerken(){
+        $gebruikerDAO=new GebruikerDAO();
+        $lijst=$gebruikerDAO->getUserKenmerken();
+        return $lijst;
+    }
     
     public function updateUserKenmerken($id,$lengte,$opleidingsNiveauId,$persoonlijkheid,$roker,$kinderen,$oogkleurId,$haarkleurId,$etniciteitId)
     {
@@ -90,4 +95,18 @@ class GebruikerService
         $GebruikerDAO->updateUserFoto($Gebruiker);
         //header('Location: ' . 'index.php');
     }
+    public function getMatches($id){
+        //zoek matches voor de gebruiker
+        //@$id=gebruikerId
+         $voorkeurSvc=new VoorkeurService();
+        $voorkeurGebruiker=$voorkeurSvc->getVoorkeurenGebruiker($id);
+         $kenmerkenGebruikers=self::getUserKenmerken(); //een ARRAY
+
+        //return $voorkeurenGebruiker;
+
+
+
+    }
+
+
 }

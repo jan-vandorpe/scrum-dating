@@ -143,74 +143,26 @@ class GebruikerDAO
         $dbh=null;
 
     }
-    //UPDATE
-    //gebruiker met bepaalde id updaten
-//    public function updateUser($gebruiker){
-//        $sql="update gebruiker set 
-//        email=:email,
-//        geslacht=:geslacht,
-//        wachtwoord=:wachtwoord,
-//        geboorteDatum=:geboortedatum,
-//        naam=:naam,
-//        voornaam=:voornaam,
-//        postcode=:postcode,
-//        stad=:stad,
-//        lengte=:lengte,
-//        lichaamsbouwId=:lichaamsbouwId,
-//        hOplNiveauId=:hOplNivId,
-//        beroep=:beroep,
-//        etnischeAchtergrondId=:etnAchId,
-//        roker=:roker,
-//        oogkleurId=:oogkleurId,
-//        aantalKinderen=:aantalKind,
-//        haarkleurId=:haarkleurId,
-//        foto=:foto,
-//        persoonlijkheidsType=:persType,
-//        voorkeurGeboorteDatum=:vkGeboortedatum,
-//        voorkeurLengte:=vkLengte,
-//        voorkeurLichaamsbouw=:vkLichBouw,
-//        voorkeurOpleidingsNiveau=:vkOplNiv,
-//        voorkeurRoker=:vkRoker,
-//        voorkeurKinderen=:vkKinderen,
-//        voorkeurPersoonlijkheidsType=vkPersType,
-//        voorkeurGeslacht=:vkGeslacht 
-//        where gebruikerId=:id";
-//
-//        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
-//        $stmt=$dbh->prepare($sql);
-//        $stmt->execute(array(
-//           ':email'=>$gebruiker->getEmail(),
-//            ':geslacht'=>$gebruiker->getGeslacht(),
-//            ':wachtwoord'=>$gebruiker->getWachtwoord(),
-//            ':geboortedatum'=>$gebruiker->getGeboorteDatum(),
-//            ':naam'=>$gebruiker->getNaam(),
-//            ':voornaam'=>$gebruiker->getVoornaam(),
-//            ':postcode'=>$gebruiker->getPostcode(),
-//            ':stad'=>$gebruiker->getStad(),
-//            ':lengte'=>$gebruiker->getLengte(),
-//            ':lichaamsbouwId'=>$gebruiker->getLichaamsbouwId(),
-//            ':hOplNivId'=>$gebruiker->getHOplNiveauId(),
-//            ':beroep'=>$gebruiker->getBeroep(),
-//            ':etnAchId'=>$gebruiker->getEtnischeAchtergrondId(),
-//            ':roker'=>$gebruiker->getRoker(),
-//            ':oogkleurId'=>$gebruiker->getOogkleurId(),
-//            ':aantalKind'=>$gebruiker->getAantalKinderen(),
-//            ':haarkleurId'=>$gebruiker->getHaarkleurId(),
-//            ':foto'=>$gebruiker->getFoto(),
-//            ':persType'=>$gebruiker->getPersoonlijkheidsType(),
-//            ':vkGeboortedatum'=>$gebruiker->getVoorkeurGeboorteDatum(),
-//            ':vkLengte'=>$gebruiker->getVoorkeurLengte(),
-//            ':vkLichBouw'=>$gebruiker->getVoorkeurLichaamsbouw(),
-//            ':vkOplNiv'=>$gebruiker->getVoorkeurOpleidingsNiveau(),
-//            ':vkRoker'=>$gebruiker->getVoorkeurRoker(),
-//            ':vkKinderen'=>$gebruiker->getVoorkeurKinderen(),
-//            ':vkPersType'=>$gebruiker->getVoorkeurPersoonlijkheidsType(),
-//            ':vkGeslacht'=>$gebruiker->getVoorkeurGeslacht(),
-//            ':id'=>$gebruiker->getGebruikerId()));
-//
-//        $dbh=null;
-//    }
-//    
+    //kenmerken users opvragen
+//select a.gebruikerId,b.oogkleurId,
+//a.voorkeurLengte,a.voorkeurRoker,c.haarkleurId,d.etnischeAchtergrondId,
+//e.oplNiveauId,a.voorkeurGeslacht,a.voorkeurKinderen,a.voorkeurPersoonlijkheidsType
+    public function getUserKenmerken(){
+        $sql="select gebruikerId,oogkleurId,lengte,roker,haarkleurId,etnischeAchtergrondId,hOplNiveauId,geslacht,
+              aantalKinderen,persoonlijkheidsType
+              from gebruiker ";
+        $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
+        $resultSet=$dbh->query($sql);
+        $lijst=array();
+        foreach ($resultSet as $rij){
+            array_push($lijst,$rij["gebruikerId"],$rij["oogkleurId"],$rij["lengte"],$rij["roker"],$rij["haarkleurId"],
+                        $rij["etnischeAchtergrondId"],$rij["hOplNiveauId"],$rij["geslacht"],$rij["aantalKinderen"],
+                        $rij["persoonlijkheidsType"]);
+        }
+        return $lijst; //RETURN ARRAY
+
+
+    }
     //kenmerken updaten
     public function updateUserKenmerken($gebruiker)
     {    
