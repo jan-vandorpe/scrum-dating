@@ -165,6 +165,7 @@ input[type=radio],
 input[type=submit],
 input[type=password],
 input[type=email],
+input[type=file],
 select {
     background-color: #881f2b;
     color: #ffc8ce;
@@ -351,6 +352,12 @@ header #slogan h1 em {
     border-radius: 2px;
     border: 1px solid;
     padding: 2px 10px 0 10px;
+}
+
+.login .aanmelden {
+    margin-top: 18px;
+
+
 }
 
 .profielfoto {
@@ -625,7 +632,7 @@ main>h1 {
 }
 
 
-/* OPMAAK FORMS VOORKEUREN / KENMERKEN */
+/* OPMAAK FORMS VOORKEUREN / KENMERKEN / GEBRUIKERISNTELLINGEN */
 
 main {
     min-height: 800px;
@@ -712,6 +719,8 @@ main input[type=submit] {
 .regError:before {
     content: "* ";
 }
+
+
 
 /* chosen multibox */
 
@@ -887,6 +896,18 @@ main .matches input[type=submit]{
     
     font-size: 2em;
 }
+
+/***** RESPONSIVE ******/
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (max-width : 470px) {
+    /* Styles */
+    .container {
+        width: 100%;
+    }
+}
+
+
 
 
 
