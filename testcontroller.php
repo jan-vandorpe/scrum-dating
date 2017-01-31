@@ -9,7 +9,7 @@
 require_once ('services/VoorkeurService.php');
 require_once ('services/GebruikerService.php');
 $voorkeurSvc=new VoorkeurService();
-$voorkeurGebruiker=$voorkeurSvc->getVoorkeurenGebruiker(1);
+$voorkeurGebruiker=$voorkeurSvc->getVoorkeurenvoorMatchGebruiker(1);
 $gebruikerSvc=new GebruikerService();
 $kenmerkenGebruikers=$gebruikerSvc->getUserKenmerken();
 print_r($voorkeurGebruiker);

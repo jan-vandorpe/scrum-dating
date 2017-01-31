@@ -17,9 +17,9 @@ class VoorkeurService
         $lijst=$voorkeurDAO->getVoorkeurenAlleGebruikers();
         return $lijst;
     }
-    public function getVoorkeurenGebruiker($id){
+    public function getVoorkeurenvoorMatchGebruiker($id){
         $voorkeurDAO=new VoorkeurDAO();
-        $lijst=$voorkeurDAO->getVoorkeurenGebruiker($id);
+        $lijst=$voorkeurDAO->getVoorkeurenvoorMatchGebruiker($id);
         return $lijst; //RETURN OBJECT
     }
 
