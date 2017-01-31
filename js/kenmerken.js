@@ -43,7 +43,8 @@ $(function() {
 				minlength: 2,
 				maxlength: 3,
 				max: 272,
-				min: 54
+				min: 54,
+				required: true
 
 			},
 
@@ -65,7 +66,8 @@ $(function() {
 				minlength: "Het getal moet minstens uit 2 getallen bestaan",
 				maxlength: "Het getal mag maximum uit 3 getallen bestaan",
 				max: "Lengte kan niet hoger dan 272cm zijn",
-				min: "Lengte kan niet kleiner dan 54cm zijn"
+				min: "Lengte kan niet kleiner dan 54cm zijn",
+				required: "U moet uw lengte opgeven"
 
 			}
 			,
