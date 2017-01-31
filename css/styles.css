@@ -841,6 +841,7 @@ ul {
 }
 
 .matches ul {
+    box-sizing: border-box;
     margin-top: 0;
     margin-bottom: 0;
     float: left;
@@ -849,6 +850,7 @@ ul {
     border-bottom-style: solid;
     border-bottom-width: 1px;
     width: 100%;
+    padding: 1em;
 }
 
 .matches ul:last-child {
@@ -864,6 +866,7 @@ ul {
 .matches ul:hover {
     background-color:#881f2b ;
     color:  #ffc8ce;
+    cursor: pointer;
 }
 .matches input[type=checkbox]{
     top: 1.5em;
