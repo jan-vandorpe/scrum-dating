@@ -22,7 +22,7 @@ if (isset($_SESSION["gebruikerId"]))
     $gebruiker=$gebruikerSvc->getById($gid);
     $aTwig["gebruiker"]=$gebruiker;
 
-    $view = $twig->render('index.twig', $aTwig);
+    $view = $twig->render('kenmerken.twig', $aTwig);
     
   
 }

@@ -165,6 +165,7 @@ input[type=radio],
 input[type=submit],
 input[type=password],
 input[type=email],
+input[type=file],
 select {
     background-color: #881f2b;
     color: #ffc8ce;
@@ -249,7 +250,7 @@ main p {
 }
 
 main form p {
-    font-size: 0.8em;
+    font-size: 0.8em; /* 12.8 px */
     font-weight: normal;
 }
 
@@ -351,6 +352,12 @@ header #slogan h1 em {
     border-radius: 2px;
     border: 1px solid;
     padding: 2px 10px 0 10px;
+}
+
+.login .aanmelden {
+    margin-top: 18px;
+
+
 }
 
 .profielfoto {
@@ -625,7 +632,7 @@ main>h1 {
 }
 
 
-/* OPMAAK FORMS VOORKEUREN / KENMERKEN */
+/* OPMAAK FORMS VOORKEUREN / KENMERKEN / GEBRUIKERISNTELLINGEN */
 
 main {
     min-height: 800px;
@@ -712,6 +719,8 @@ main input[type=submit] {
 .regError:before {
     content: "* ";
 }
+
+
 
 /* chosen multibox */
 
@@ -887,6 +896,133 @@ main .matches input[type=submit]{
     
     font-size: 2em;
 }
+
+/***** RESPONSIVE ******/
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (max-width : 470px) {
+    /* Styles */
+    .container {
+        width: 100%;
+    }
+
+    header #logo {
+        box-sizing: border-box;
+        width: 50vw;
+        float: none;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .col1 {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+    }
+
+    .col2 {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+    }
+
+    .col {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+    }
+
+    .padbox {
+
+    }
+
+    input[type=text],
+    input[type=date],
+    input[type=radio],
+    input[type=submit],
+    input[type=password],
+    input[type=email],
+    select {
+        clear: both;
+        float: left;
+        width: 100%;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+
+
+    .login {
+        margin-right: 0;
+        margin-top: 0;
+    }
+
+    .login div {
+        float: left;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .login label {
+        display: block;
+        float: left;
+        clear: none;
+    }
+
+    .login input {
+        float: left;
+        clear: none;
+    }
+
+
+    .login input[type=email],
+    .login input[type=password] {
+        /*background-color: #ffc8ce;*/
+        border: 1px solid;
+        padding: 0;
+        margin: 0;
+        width: 50%;
+        float: right;
+
+
+    }
+
+    .login input[type=submit] {
+        border-radius: 2px;
+        border: 1px solid;
+        padding: 0;
+        margin: 0;
+    }
+
+    .login.responsive {
+        padding: 20px;
+    }
+
+    .login .aanmelden {
+        display: block;
+        float: left;
+
+
+    }
+
+    fieldset div {
+        padding: 0;
+    }
+
+
+
+
+
+
+
+}
+
+
 
 
 
