@@ -34,3 +34,9 @@ $view = $twig->render('match/matches.twig',$aTwig);
 //toon de pagina
 print($view);
     }
+else
+{
+    $location = 'index.php';
+    header('Location: ' . $location);
+
+}
