@@ -62,3 +62,9 @@ if (isset($_SESSION["gebruikerId"]))
 //toon de pagina
     print($view);
 }
+else
+{
+    $location = 'index.php';
+    header('Location: ' . $location);
+
+}
