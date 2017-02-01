@@ -476,28 +476,32 @@ main p {
 /* kolom navigatie */
 
 .profileNav ul li {
-    box-sizing: border-box;
-    display: block;
-    cursor: pointer;
-    padding: 15px 10px;
-    overflow: hidden;
+
+   /* display: block;*/
+   /* cursor: pointer;*/
+
 }
 
 .profileNav ul li a {
+    box-sizing: border-box;
     text-decoration: none;
     text-transform: uppercase;
+    display: block;
+    padding: 15px 10px;
+    overflow: hidden;
 
 }
 
 .profileNav ul li a.active {
-    padding-bottom: 3px;
-    border-bottom: 1px solid;
+   /* padding-bottom: 3px;*/
+  /*  border-bottom: 1px solid;*/
+    text-decoration: underline;
 }
 
 .profileNav ul li:hover a {
 
-
-    border-bottom: 1px solid;
+    text-decoration: underline;
+   /* border-bottom: 1px solid;*/
 }
 
 
