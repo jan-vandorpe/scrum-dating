@@ -23,7 +23,7 @@ if (isset($_SESSION["gebruikerId"]))
     $aTwig["gebruiker"]=$gebruiker;
 
    // $view = $twig->render('kenmerken.twig', $aTwig);
-        header("Location: http://localhost/kenmerken.php");
+        header("Location: kenmerken.php");
         exit;
   
 }
