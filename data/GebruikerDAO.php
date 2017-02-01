@@ -143,23 +143,51 @@ class GebruikerDAO
         $dbh=null;
 
     }
-    //kenmerken users opvragen
-//select a.gebruikerId,b.oogkleurId,
-//a.voorkeurLengte,a.voorkeurRoker,c.haarkleurId,d.etnischeAchtergrondId,
-//e.oplNiveauId,a.voorkeurGeslacht,a.voorkeurKinderen,a.voorkeurPersoonlijkheidsType
-    public function getUserKenmerken(){
+
+    public function getUserKenmerken()
+    {
         $sql="select gebruikerId,oogkleurId,lengte,roker,haarkleurId,etnischeAchtergrondId,hOplNiveauId,geslacht,
               aantalKinderen,persoonlijkheidsType
               from gebruiker ";
+
         $dbh=new PDO(DBCONFIG::$DB_CONNSTRING,DBCONFIG::$DB_USERNAME,DBCONFIG::$DB_PASSWORD);
-        $resultSet=$dbh->query($sql);
+        $stmt=$dbh->prepare($sql);
+        $stmt->execute(array());
+        $resultSet=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        $dbh=null;
         $lijst=array();
-        foreach ($resultSet as $rij){
-            array_push($lijst,$rij["gebruikerId"],$rij["oogkleurId"],$rij["lengte"],$rij["roker"],$rij["haarkleurId"],
-                        $rij["etnischeAchtergrondId"],$rij["hOplNiveauId"],$rij["geslacht"],$rij["aantalKinderen"],
-                        $rij["persoonlijkheidsType"]);
+
+        foreach ($resultSet as $rij)
+        {
+            $gebruikerId = $rij['gebruikerId'];
+            $oogkleurId = $rij['oogkleurId'];
+            $lengte = $rij['lengte'];
+            $roker = $rij['roker'];
+            $haarkleur = $rij['haarkleurId'];
+            $etn = $rij['etnischeAchtergrondId'];
+            $oplNiveau = $rij['hOplNiveauId'];
+            $geslacht = $rij['geslacht'];
+            $kinderen = $rij['aantalKinderen'];
+            $persoonlijkheidsType = $rij['persoonlijkheidsType'];
+
+            $kenmerken=array();
+
+            array_push($kenmerken, $oogkleurId, $lengte, $roker, $haarkleur, $etn, $oplNiveau, $geslacht, $kinderen, $persoonlijkheidsType);
+            // array_push($lijst, $kenmerken);
+
+            //print_r($kenmerken);
+
+            //array_push($lijst[$gebruikerId], $kenmerken);
+
+            $lijst[$gebruikerId] = $kenmerken;
+
+
+
+
         }
-        return $lijst; //RETURN ARRAY
+
+
+        return $lijst;
 
 
     }
@@ -235,4 +263,6 @@ class GebruikerDAO
 
         $dbh=null;
     }
+
+
 }
