@@ -28,7 +28,8 @@ $aTwig["titel"]="Matches";
 
 // renderen van de pagina
 $view = $twig->render('match/matches.twig',$aTwig);
-
+/*print_r($matches);*/
+/*print_r($gebruiker);*/
     
 
 //toon de pagina
