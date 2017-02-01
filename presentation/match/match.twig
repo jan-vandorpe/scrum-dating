@@ -1,11 +1,13 @@
             <h1>{{ titel }}</h1>
    <form action="bericht.php" method="GET">
     {% for match in matches %}
+        {% if gebruiker.gebruikerId == match.gebruikerId or gebruiker.voorkeurGeslacht != match.geslacht  %}
+       {% else %}
     <label>
     <input type="checkbox" name="id[]" value="{{match.gebruikerId}}">
 <ul>
     <li class="profielFoto">
-        {% if match.foto != ""%}
+        {% if match.foto != "" %}
         <img src="images/profiel/{{match.foto}}" alt="profielfoto">
         {% else %}
         <img src="images/profiel/profiel.png" alt="profielfoto">
@@ -34,6 +36,7 @@
 </ul>
 
 </label>
+       {% endif %}
  {% endfor %}
- <input type="submit" value="Conatacteer">
+ <input type="submit" value="Contacteer">
             </form>

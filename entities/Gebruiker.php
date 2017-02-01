@@ -43,6 +43,7 @@ class Gebruiker {
  private $voorkeurKinderen;
  private $voorkeurPersoonlijkheidsType;
  private $voorkeurGeslacht;
+ private $voorkeurOpleidingsNiveau;
 
     /**
      * Gebruiker constructor.
@@ -52,7 +53,7 @@ class Gebruiker {
     private function __construct($gebruikerId, $email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode, $stad, $lengte,
                                 $lichaamsbouwId, $opleidingsNiveau, $beroep, $etnischeAchtergrond, $roker, $oogkleur, $aantalKinderen,
                                 $haarkleur, $foto, $persoonlijkheidsType, $voorkeurGeboorteDatum, $voorkeurLengte, $voorkeurLichaamsbouw,
-                                $voorkeurRoker, $voorkeurKinderen, $voorkeurPersoonlijkheidsType, $voorkeurGeslacht)
+                                 $voorkeurOpleidingsNiveau,$voorkeurRoker, $voorkeurKinderen, $voorkeurPersoonlijkheidsType, $voorkeurGeslacht)
     {
         $this->gebruikerId = $gebruikerId;
         $this->email = $email;
@@ -77,6 +78,7 @@ class Gebruiker {
         $this->voorkeurGeboorteDatum = $voorkeurGeboorteDatum;
         $this->voorkeurLengte = $voorkeurLengte;
         $this->voorkeurLichaamsbouw = $voorkeurLichaamsbouw;
+        $this->voorkeurOpleidingsNiveau=$voorkeurOpleidingsNiveau;
         $this->voorkeurRoker = $voorkeurRoker;
         $this->voorkeurKinderen = $voorkeurKinderen;
         $this->voorkeurPersoonlijkheidsType = $voorkeurPersoonlijkheidsType;
@@ -89,7 +91,7 @@ class Gebruiker {
 
     public static function create($gebruikerId, $email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode, $stad, $lengte,
                                   $lichaamsbouwId, $opleidingsNiveau, $beroep, $etnischeAchtergrond, $roker, $oogkleur, $aantalKinderen,
-                                  $haarkleur, $foto, $persoonlijkheidsType, $voorkeurGeboorteDatum, $voorkeurLengte, $voorkeurLichaamsbouw,
+                                  $haarkleur, $foto, $persoonlijkheidsType, $voorkeurGeboorteDatum, $voorkeurLengte, $voorkeurLichaamsbouw,$voorkeurOpleidingsNiveau,
                                   $voorkeurRoker, $voorkeurKinderen, $voorkeurPersoonlijkheidsType, $voorkeurGeslacht){
 
        //bestaat er al een object Gebruiker met deze GebruikersId
@@ -97,7 +99,7 @@ class Gebruiker {
             //indien NEE
             self::$idMap[$gebruikerId] = new Gebruiker($gebruikerId, $email, $geslacht, $wachtwoord, $geboorteDatum, $naam, $voornaam, $postcode, $stad, $lengte,
                 $lichaamsbouwId, $opleidingsNiveau, $beroep, $etnischeAchtergrond, $roker, $oogkleur, $aantalKinderen,
-                $haarkleur, $foto, $persoonlijkheidsType, $voorkeurGeboorteDatum, $voorkeurLengte, $voorkeurLichaamsbouw,
+                $haarkleur, $foto, $persoonlijkheidsType, $voorkeurGeboorteDatum, $voorkeurLengte, $voorkeurLichaamsbouw,$voorkeurOpleidingsNiveau,
                 $voorkeurRoker, $voorkeurKinderen, $voorkeurPersoonlijkheidsType, $voorkeurGeslacht);
             }
             //indien JA
@@ -132,6 +134,7 @@ class Gebruiker {
     public function getVoorkeurKinderen(){return $this->voorkeurKinderen;}
     public function getVoorkeurPersoonlijkheidsType(){return $this->voorkeurPersoonlijkheidsType;}
     public function getVoorkeurGeslacht(){return $this->voorkeurGeslacht;}
+    public function getVoorkeurOpleidingsNiveau(){return $this->voorkeurOpleidingsNiveau;}
 
   //setters
     //geen setter voor gebruikersId want deze is auto_increment
@@ -161,5 +164,5 @@ class Gebruiker {
     public function setVoorkeurKinderen($voorkeurKinderen){$this->voorkeurKinderen = $voorkeurKinderen;}
     public function setVoorkeurPersoonlijk($voorkeurPersoonlijkheidsType){$this->voorkeurPersoonlijkheidsType = $voorkeurPersoonlijkheidsType;}
     public function setVoorkeurGeslacht($voorkeurGeslacht){$this->voorkeurGeslacht = $voorkeurGeslacht;}
-
+    public function setVoorkeurOpleidingsNiveau($voorkeurOpleidingsNiveau){ $this->voorkeurOpleidingsNiveau=$voorkeurOpleidingsNiveau;}
 }
