@@ -44,10 +44,14 @@ class GebruikerService
         $Gebruiker = $GebruikerDAO ->getById($id);
         return $Gebruiker;        
     }
-    public function getUserKenmerken(){
-        $gebruikerDAO=new GebruikerDAO();
-        $lijst=$gebruikerDAO->getUserKenmerken();
+
+    public function getUserKenmerken()
+    {
+        $GebruikerDAO = new GebruikerDao();
+        $lijst = $GebruikerDAO->getUserKenmerken();
+
         return $lijst;
+
     }
     
     public function updateUserKenmerken($id,$lengte,$opleidingsNiveauId,$persoonlijkheid,$roker,$kinderen,$oogkleurId,$haarkleurId,$etniciteitId)
