@@ -37,14 +37,14 @@
 
                     </label>
 
-                    <p>Geef hier je geboortedatum in, dit moet in een dd/mm/jjjj formaat. {{ gebruiker.geboorteDatum}}</p>
+                    <p>Geef hier je geboortedatum in een als DD/MM/JJJJ formaat. vb. 09/02/1993 </p>
 
                     <label for="Lengte">Lengte
                         <input type="text" name="lengte" id="Lengte" value="{{ gebruiker.lengte }}">
 
                     </label>
 
-                    <p>Geef hier uw voorkeur lengte uitgedrukt in centimer.</p>
+                    <p>Geef uw lengte in centimer.</p>
 
 
                     {#  <label for="{{ lichaamsName }}">{{ titellichaamstypes }}
@@ -73,13 +73,13 @@
 
                     </label>
 
-                    <p>Geef hier uw voorkeur opleidingniveaus, u kan meerdere selecteren van de lijst.</p>
+                    <p>Wat is het hoogste opleidingsniveau dat u heeft bereikt?</p>
 
                     <label for="persoonlijkheid">Introvert<em>Extrovert</em>
                         <input type="range" min="1" max="5" step="1" value="{{ gebruiker.persoonlijkheidsType }}" name="persoonlijkheid" id="persoonlijkheid" class="range"/>
                     </label>
 
-                    <p>Verkiest u iemand intro of extrovert? Sleep de slider naar wat u verkiest.</p>
+                    <p>Bent u introvert of extrovert?</p>
 
 
                 </div>
@@ -96,7 +96,7 @@
                         {% endif %}
                      </fieldset>
 
-                     <p>Verkiest u een roker of niet roker? Als u onverschillig bent laat u de knoppen leeg.</p>
+                     <p>Rookt u?</p>
 
                      {% if gebruiker.aantalKinderen > 0 %}
 
@@ -120,7 +120,7 @@
 
                     {% endif %}
                    
-                    <p>Vind je het een struikelblok als uw toekomstige partner al kinderen heeft? Als u onverschillig bent laat u de knoppen leeg.</p>
+                    <p>Heeft u kinderen? Indien wel, hoeveel?</p>
 
 
 
@@ -140,7 +140,7 @@
 
                     </label>
 
-                    <p>Selecteer hier de mooiste oogkleuren.</p>
+                    <p>Kies uw oogkleur.</p>
 
                     <label for="{{ haarName }}">{{ titelhaarkleur }}
                         <select data-placeholder="Kies voorkeur {{ titelhaarkleur }}" tabindex="2" name="{{ haarName }}" id="{{ haarName }}">
@@ -158,7 +158,7 @@
 
                     </label>
 
-                    <p>Valt u op blondines? Selecteer dan in deze lijst blondine!</p>
+                    <p>Kies uw haarkleur.</p>
 
 
                     <label for="{{ etnName }}">{{ titeletnachtergronden }}
@@ -177,7 +177,7 @@
 
                     </label>
 
-                    <p>Heeft u voorkeur voor een bepaalde etnische achtergrond? Selecteer in deze lijst. U kan meerdere waarden selecter</p>
+                    <p>Wat is uw etische achtergrond?</p>
             </div>
 
             <input type="submit" value="Opslaan" name="updateKenmerken">
