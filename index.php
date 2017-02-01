@@ -22,8 +22,9 @@ if (isset($_SESSION["gebruikerId"]))
     $gebruiker=$gebruikerSvc->getById($gid);
     $aTwig["gebruiker"]=$gebruiker;
 
-    $view = $twig->render('kenmerken.twig', $aTwig);
-    
+   // $view = $twig->render('kenmerken.twig', $aTwig);
+        header("Location: http://localhost/kenmerken.php");
+        exit;
   
 }
 else
